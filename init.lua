@@ -890,6 +890,9 @@ require('lazy').setup({
   },
 })
 
+vim.keymap.set('n', '<C-e>', '5<C-e>', { desc = 'Move window up 5 lines at a time' })
+vim.keymap.set('n', '<C-y>', '5<C-y>', { desc = 'Move window down 5 lines at a time' })
+
 vim.cmd.colorscheme 'industry'
 
 -- The line beneath this is called `modeline`. See `:help modeline`

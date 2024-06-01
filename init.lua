@@ -497,7 +497,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
+        tsserver = {},
         --
 
         lua_ls = {
@@ -787,6 +787,11 @@ require('lspconfig').sourcekit.setup {
 vim.opt.guicursor = ''
 
 vim.cmd.colorscheme 'catppuccin-mocha' -- set to mocha flavour
+
+vim.opt.termguicolors = true
+
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

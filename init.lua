@@ -818,7 +818,7 @@ require('lazy').setup({
     build = ':TSUpdate',
     opts = {
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
-      -- Autoinstall languages that are not installed
+      ignore_install = { 'swift' }, -- The swift trees-sitter parser causes issues, i.e. chatgpt freezes
       auto_install = true,
       highlight = {
         enable = true,
@@ -894,6 +894,10 @@ vim.keymap.set('n', '<C-e>', '5<C-e>', { desc = 'Move window up 5 lines at a tim
 vim.keymap.set('n', '<C-y>', '5<C-y>', { desc = 'Move window down 5 lines at a time' })
 
 vim.cmd.colorscheme 'industry'
+
+require('lspconfig').sourcekit.setup {
+  cmd = { '/usr/local/bin/sourcekit-lsp' },
+}
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

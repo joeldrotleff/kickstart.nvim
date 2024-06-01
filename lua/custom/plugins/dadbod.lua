@@ -79,10 +79,10 @@ end
 local M = {}
 
 M.setup = function()
-  vim.keymap.set('n', '<leader>q', function()
+  vim.keymap.set('n', '<leader>qq', function()
     send_to_dadbod(false)
   end, { noremap = true, silent = true })
-  vim.keymap.set('x', '<leader>q', function()
+  vim.keymap.set('x', '<leader>qq', function()
     send_to_dadbod(true)
   end, { noremap = true, silent = true })
 end

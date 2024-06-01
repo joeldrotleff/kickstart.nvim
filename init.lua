@@ -793,6 +793,10 @@ vim.opt.termguicolors = true
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+-- Keep cursor centered when jumping up and down
+-- Keep cursor centered when jumping up and down
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll down + center cursor' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll up + center cursor' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

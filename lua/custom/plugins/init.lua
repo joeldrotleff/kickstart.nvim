@@ -29,8 +29,8 @@ return {
     event = 'VeryLazy',
   },
 
-  {
-    'vimwiki/vimwiki',
-    event = 'VeryLazy',
-  },
+  -- {
+  --   'vimwiki/vimwiki',
+  --   event = 'VeryLazy',
+  -- },
 }

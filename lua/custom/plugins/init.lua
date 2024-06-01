@@ -15,11 +15,6 @@ return {
   },
 
   {
-    'ThePrimeagen/harpoon',
-    event = 'VeryLazy',
-  },
-
-  {
     'nvim-treesitter/nvim-treesitter',
     event = 'VeryLazy',
   },

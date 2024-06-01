@@ -793,32 +793,5 @@ vim.opt.termguicolors = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
--- Prevent transparency plugin from making the statusline transparent
-vim.g.transparent_groups = {
-  'Normal',
-  'NormalNC',
-  'Comment',
-  'Constant',
-  'Special',
-  'Identifier',
-  'Statement',
-  'PreProc',
-  'Type',
-  'Underlined',
-  'Todo',
-  'String',
-  'Function',
-  'Conditional',
-  'Repeat',
-  'Operator',
-  'Structure',
-  'LineNr',
-  'NonText',
-  'SignColumn',
-  'StatusLine',
-  'StatusLineNC',
-  'EndOfBuffer',
-}
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

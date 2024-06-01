@@ -30,8 +30,11 @@ return {
     priority = 1000,
   },
 
-  -- {
-  --   'vimwiki/vimwiki',
-  --   event = 'VeryLazy',
-  -- },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('lualine').setup()
+    end,
+  },
 }

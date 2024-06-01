@@ -779,14 +779,14 @@ vim.keymap.set('n', '<C-e>', '5<C-e>', { desc = 'Move window up 5 lines at a tim
 
 vim.keymap.set('n', '<C-y>', '5<C-y>', { desc = 'Move window down 5 lines at a time' })
 
-vim.cmd.colorscheme 'industry'
-
 require('lspconfig').sourcekit.setup {
   cmd = { '/usr/local/bin/sourcekit-lsp' },
 }
 
 -- Use a block cursor in normal mode
 vim.opt.guicursor = ''
+
+vim.cmd.colorscheme 'catppuccin-mocha' -- set to mocha flavour
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

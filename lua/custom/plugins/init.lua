@@ -5,6 +5,10 @@
 
 return {
   {
+    'Pocco81/auto-save.nvim',
+    event = 'VeryLazy',
+  },
+  {
     'xiyaowong/transparent.nvim',
     lazy = false,
   },
@@ -34,7 +38,7 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      require('lualine').setup()
+      require('lualine').setup {}
     end,
   },
 }

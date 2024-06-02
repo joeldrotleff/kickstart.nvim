@@ -47,5 +47,12 @@ return {
         },
       },
     }
+
+    -- Keybindings
+    vim.keymap.set('n', '<leader>xl', '<cmd>XcodebuildToggleLogs<cr>', { desc = 'Toggle Xcodebuild Logs' })
+    vim.keymap.set('n', '<leader>xx', '<cmd>XcodebuildBuildRun<cr>', { desc = 'Build & Run Project' })
+    vim.keymap.set('n', '<leader>xs', '<cmd>XcodebuildSetup<cr>', { desc = 'Setup Xcode project' })
+    vim.keymap.set('n', '<leader>xp', '<cmd>XcodebuildPicker<cr>', { desc = 'Xcode picker' })
+    vim.keymap.set('n', '<leader>xt', '<cmd>XcodebuildTest<cr>', { desc = 'Run Xcode tests' })
   end,
 }

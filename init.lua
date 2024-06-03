@@ -768,8 +768,8 @@ require('lspconfig').sourcekit.setup {
 -- Use a block cursor in normal mode
 vim.opt.guicursor = ''
 
-vim.cmd.colorscheme 'catppuccin-latte'
--- vim.cmd.colorscheme 'catppuccin-mocha'
+-- vim.cmd.colorscheme 'catppuccin-latte'
+vim.cmd.colorscheme 'catppuccin-mocha'
 
 vim.opt.termguicolors = true
 

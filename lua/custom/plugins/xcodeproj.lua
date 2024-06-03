@@ -45,6 +45,9 @@ return {
             return is_xcode_project_file(path)
           end,
         },
+        neo_tree = {
+          enabled = true,
+        },
       },
     }
 

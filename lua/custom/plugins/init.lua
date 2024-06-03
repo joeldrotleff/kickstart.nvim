@@ -5,6 +5,9 @@
 
 return {
   {
+    'cocopon/iceberg.vim',
+  },
+  {
     'Pocco81/auto-save.nvim',
     event = 'VeryLazy',
   },

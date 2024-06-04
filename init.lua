@@ -761,6 +761,17 @@ vim.keymap.set('n', '<C-e>', '5<C-e>', { desc = 'Move window up 5 lines at a tim
 
 vim.keymap.set('n', '<C-y>', '5<C-y>', { desc = 'Move window down 5 lines at a time' })
 
+-- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
+-- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
+-- (Copied from NvChad)
+-- empty mode is same as using <cmd> :map
+-- also don't use g[j|k] when in operator pending mode, so it doesn't alter d, y or c behaviour
+vim.keymap.set('n', 'j', 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc = 'Move down', expr = true })
+vim.keymap.set('n', 'k', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = 'Move up', expr = true })
+-- ["k"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
+-- ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', "Move up", opts = { expr = true } },
+-- ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
+
 require('lspconfig').sourcekit.setup {
   cmd = { '/usr/local/bin/sourcekit-lsp' },
 }
@@ -768,8 +779,8 @@ require('lspconfig').sourcekit.setup {
 -- Use a block cursor in normal mode
 vim.opt.guicursor = ''
 
-vim.cmd.colorscheme 'catppuccin-latte'
--- vim.cmd.colorscheme 'catppuccin-mocha'
+-- vim.cmd.colorscheme 'catppuccin-latte'
+vim.cmd.colorscheme 'catppuccin-mocha'
 
 vim.opt.termguicolors = true
 

@@ -773,7 +773,7 @@ vim.keymap.set('n', 'k', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc 
 -- ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
 
 require('lspconfig').sourcekit.setup {
-  cmd = { '/usr/local/bin/sourcekit-lsp' },
+  cmd = { 'sourcekit-lsp' },
 }
 
 -- Use a block cursor in normal mode

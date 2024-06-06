@@ -2,12 +2,22 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+fish_add_path "$HOME/.deno/bin"
+
 # Print all path variables, each on a new line
 alias printpath 'printf %s\n $PATH'
 
+# Start a new document - let's do some writing!
+alias writenow 'source $HOME/.config/nvim/lua/custom/fish/scripts/write_now.fish'
+
+# Start a new daily note named after current date (usually for work)
 alias goodmorning 'source $HOME/.config/nvim/lua/custom/fish/scripts/new_daily_note.fish'
 
-alias writenow 'source $HOME/.config/nvim/lua/custom/fish/scripts/write_now.fish'
+# Old alternate neovim config
+alias nvchad='NVIM_APPNAME="chad" nvim'
+
+# Delete derivded data folder (Ah. xcode)
+alias ddd='rm -rf ~/Library/Developer/Xcode/DerivedData/'
 
 function envsource
   set -f envfile "$argv"

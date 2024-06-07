@@ -19,6 +19,9 @@ alias nvchad='NVIM_APPNAME="chad" nvim'
 # Delete derivded data folder (Ah. xcode)
 alias ddd='rm -rf ~/Library/Developer/Xcode/DerivedData/'
 
+# Command fixer utility 'fuck'
+thefuck --alias | source
+
 function envsource
   set -f envfile "$argv"
   if not test -f "$envfile"

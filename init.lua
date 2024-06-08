@@ -148,7 +148,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 
--- Show which line your cursor is on
+-- Enable cursor line highlighting
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
@@ -788,6 +788,11 @@ vim.opt.shiftwidth = 2
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll down + center cursor' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll up + center cursor' })
 
+-- Prevent transparency plugin from making the statusline transparent
+vim.g.exclude_groups = {
+  'StatusLine',
+  'StatusLineNC',
+}
 
 
 -- The line beneath this is called `modeline`. See `:help modeline`

@@ -7,10 +7,6 @@ return {
   {
     'cocopon/iceberg.vim',
   },
-  {
-    'xiyaowong/transparent.nvim',
-    lazy = false,
-  },
 
   {
     'tpope/vim-fugitive',

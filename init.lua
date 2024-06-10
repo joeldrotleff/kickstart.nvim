@@ -788,6 +788,11 @@ vim.opt.shiftwidth = 2
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll down + center cursor' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll up + center cursor' })
 
+-- Open current buffer's file in default editor (i.e. Xcode)
+vim.keymap.set('n', '<leader>oe', function()
+  vim.fn.jobstart('open ' .. vim.fn.expand '%')
+end, { noremap = true, silent = true })
+
 -- Prevent transparency plugin from making the statusline transparent
 vim.g.exclude_groups = {
   'StatusLine',

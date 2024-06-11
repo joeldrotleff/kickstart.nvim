@@ -352,6 +352,14 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      vim.keymap.set('n', '<leader>nr', function()
+        builtin.oldfiles { cwd = '/Users/joel/Documents/daily_notes' }
+      end, { desc = 'Search [R]ecent [N]otes from daily_notes' })
+
+      vim.keymap.set('n', '<leader>na', function()
+        builtin.find_files { cwd = '/Users/joel/Documents/daily_notes' }
+      end, { desc = 'Search [A]ll [N]otes from daily_notes' })
     end,
   },
 

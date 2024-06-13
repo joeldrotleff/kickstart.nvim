@@ -5,24 +5,24 @@ local function config_harpoon()
 
   vim.keymap.set('n', '<leader>pj', function()
     harpoon.ui:toggle_quick_menu(harpoon:list())
-  end)
+  end, { desc = 'Har[p]oon [j] toggle list' })
 
   vim.keymap.set('n', '<leader>pp', function()
     harpoon:list():add()
-  end)
+  end, { desc = 'Har[pp]oon  add current buffer' })
 
   vim.keymap.set('n', '<leader>pa', function()
     harpoon:list():select(1)
-  end)
+  end, { desc = 'Har[p]oon  switch to buffer #1' })
   vim.keymap.set('n', '<leader>ps', function()
     harpoon:list():select(2)
-  end)
+  end, { desc = 'Har[p]oon  switch to buffer #2' })
   vim.keymap.set('n', '<leader>pd', function()
     harpoon:list():select(3)
-  end)
+  end, { desc = 'Har[p]oon  switch to buffer #3' })
   vim.keymap.set('n', '<leader>pf', function()
     harpoon:list():select(4)
-  end)
+  end, { desc = 'Har[p]oon  switch to buffer #4' })
 end
 
 return {

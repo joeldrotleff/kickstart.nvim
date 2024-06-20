@@ -362,7 +362,7 @@ require('lazy').setup({
           cwd = '/Users/joel/Documents/daily_notes',
 
           -- Sort by most recently modified, since that's usually what I want when looking for notes
-          find_command = { 'rg', '--no-config', '--files', '--sortr=modified' },
+          find_command = { 'rg', '--no-config', '--files', '--sortr=created' },
         }
       end, { desc = 'Search [A]ll [N]otes from daily_notes' })
     end,

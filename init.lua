@@ -358,7 +358,12 @@ require('lazy').setup({
       end, { desc = 'Search [R]ecent [N]otes from daily_notes' })
 
       vim.keymap.set('n', '<leader>na', function()
-        builtin.find_files { cwd = '/Users/joel/Documents/daily_notes' }
+        builtin.find_files {
+          cwd = '/Users/joel/Documents/daily_notes',
+
+          -- Sort by most recently modified, since that's usually what I want when looking for notes
+          find_command = { 'rg', '--no-config', '--files', '--sortr=modified' },
+        }
       end, { desc = 'Search [A]ll [N]otes from daily_notes' })
     end,
   },

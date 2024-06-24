@@ -41,9 +41,6 @@ return {
       integrations = {
         nvim_tree = {
           enabled = true,
-          should_update_project = function(path)
-            return is_xcode_project_file(path)
-          end,
         },
         neo_tree = {
           enabled = true,

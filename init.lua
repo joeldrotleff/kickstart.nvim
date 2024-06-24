@@ -807,7 +807,7 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll up + center cursor' })
 
 -- Open current buffer's file in default editor (i.e. Xcode)
 vim.keymap.set('n', '<leader>oe', function()
-  vim.fn.jobstart('open ' .. vim.fn.expand '%')
+  vim.fn.jobstart('open -g ' .. vim.fn.expand '%')
 end, { noremap = true, silent = true })
 
 -- Prevent transparency plugin from making the statusline transparent

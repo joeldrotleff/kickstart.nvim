@@ -779,9 +779,6 @@ vim.keymap.set('n', '<C-y>', '5<C-y>', { desc = 'Move window down 5 lines at a t
 vim.keymap.set('n', 'j', 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc = 'Move down', expr = true })
 vim.keymap.set('n', 'k', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = 'Move up', expr = true })
 
-vim.keymap.set({ 'n' }, '<C-e>', ':checktime<CR>', { noremap = true, silent = true })
-vim.keymap.set({ 'n', 'i' }, '<C-e>', '<Esc>:checktime<CR><CR>', { noremap = true, silent = true })
-
 require('lspconfig').sourcekit.setup {
   cmd = { 'sourcekit-lsp' },
 }

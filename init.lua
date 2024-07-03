@@ -791,6 +791,10 @@ vim.cmd.colorscheme 'catppuccin-mocha'
 
 vim.opt.termguicolors = true
 
+-- Set cursor red when in insert mode
+vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
+vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' })
+
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 -- Keep cursor centered when jumping up and down

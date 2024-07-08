@@ -779,8 +779,14 @@ vim.keymap.set('n', '<C-y>', '5<C-y>', { desc = 'Move window down 5 lines at a t
 vim.keymap.set('n', 'j', 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc = 'Move down', expr = true })
 vim.keymap.set('n', 'k', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = 'Move up', expr = true })
 
-require('lspconfig').sourcekit.setup {
+local lspconfig = require 'lspconfig'
+local util = lspconfig.util
+lspconfig.sourcekit.setup {
   cmd = { 'sourcekit-lsp' },
+
+  -- Override default root pattern to remove "*.git" which caused i.e. any .h file to use sourcekit lsp
+  -- (but be full of errors)
+  root_dir = util.root_pattern('buildServer.json', '*.xcodeproj', '*.xcworkspace', 'compile_commands.json', 'Package.swift'),
 }
 
 -- Use a block cursor in normal mode
@@ -790,6 +796,8 @@ vim.opt.guicursor = ''
 vim.cmd.colorscheme 'catppuccin-mocha'
 
 vim.opt.termguicolors = true
+
+vim.opt.linebreak = true
 
 -- Set cursor red when in insert mode
 vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })

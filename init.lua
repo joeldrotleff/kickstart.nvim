@@ -792,9 +792,6 @@ lspconfig.sourcekit.setup {
 -- Use a block cursor in normal mode
 vim.opt.guicursor = ''
 
--- vim.cmd.colorscheme 'catppuccin-latte'
-vim.cmd.colorscheme 'catppuccin-mocha'
-
 vim.opt.termguicolors = true
 
 vim.opt.linebreak = true
@@ -815,11 +812,19 @@ vim.keymap.set('n', '<leader>oe', function()
   vim.fn.jobstart('open "' .. vim.fn.expand '%' .. '"')
 end, { noremap = true, silent = true, desc = 'Open in external editor' })
 
+-- Trigger Xcode run command
+vim.keymap.set('n', '<leader>ox', function()
+  vim.fn.jobstart('osascript ~/.config/nvim/scripts/xcode_run.scpt')
+end, { noremap = true, silent = true, desc = 'Trigger Xcode to build+run current project' })
+
 -- Prevent transparency plugin from making the statusline transparent
 vim.g.exclude_groups = {
   'StatusLine',
   'StatusLineNC',
 }
+
+vim.cmd.colorscheme 'catppuccin-latte'
+-- vim.cmd.colorscheme 'catppuccin-mocha'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

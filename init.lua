@@ -796,9 +796,6 @@ vim.opt.termguicolors = true
 
 vim.opt.linebreak = true
 
--- Set cursor red when in insert mode
-vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
-vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' })
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -825,6 +822,10 @@ vim.g.exclude_groups = {
 
 vim.cmd.colorscheme 'catppuccin-latte'
 -- vim.cmd.colorscheme 'catppuccin-mocha'
+--
+-- Set cursor red when in insert mode
+vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
+vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

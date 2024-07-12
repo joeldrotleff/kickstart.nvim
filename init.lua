@@ -798,7 +798,6 @@ vim.opt.termguicolors = true
 
 vim.opt.linebreak = true
 
-
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 -- Keep cursor centered when jumping up and down
@@ -806,7 +805,7 @@ vim.opt.shiftwidth = 2
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll down + center cursor' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll up + center cursor' })
 
-vim.keymap.set('n', '<leader>pt', require('copilot.suggestion').toggle_auto_trigger,  { desc = 'Toggle Co[P]ilot plugin [T]' })
+vim.keymap.set('n', '<leader>pt', require('copilot.suggestion').toggle_auto_trigger, { desc = 'Toggle Co[P]ilot plugin [T]' })
 
 -- Open current buffer's file in default editor (i.e. Xcode)
 vim.keymap.set('n', '<leader>oe', function()
@@ -815,7 +814,7 @@ end, { noremap = true, silent = true, desc = 'Open in external editor' })
 
 -- Trigger Xcode run command
 vim.keymap.set('n', '<leader>xx', function()
-  vim.fn.jobstart('osascript ~/.config/nvim/scripts/xcode_run.scpt')
+  vim.fn.jobstart 'osascript ~/.config/nvim/scripts/xcode_run.scpt'
 end, { noremap = true, silent = true, desc = 'Trigger Xcode to build+run current project' })
 
 -- Prevent transparency plugin from making the statusline transparent
@@ -829,7 +828,7 @@ vim.cmd.colorscheme 'catppuccin-mocha'
 
 -- Set cursor red when in insert mode
 vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
-vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' })
+vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' }) --
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

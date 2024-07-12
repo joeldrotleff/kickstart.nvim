@@ -814,7 +814,7 @@ vim.keymap.set('n', '<leader>oe', function()
 end, { noremap = true, silent = true, desc = 'Open in external editor' })
 
 -- Trigger Xcode run command
-vim.keymap.set('n', '<leader>or', function()
+vim.keymap.set('n', '<leader>xx', function()
   vim.fn.jobstart('osascript ~/.config/nvim/scripts/xcode_run.scpt')
 end, { noremap = true, silent = true, desc = 'Trigger Xcode to build+run current project' })
 

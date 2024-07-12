@@ -832,4 +832,3 @@ vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = '
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
---

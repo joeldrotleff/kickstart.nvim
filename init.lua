@@ -806,6 +806,8 @@ vim.opt.shiftwidth = 2
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll down + center cursor' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll up + center cursor' })
 
+vim.keymap.set('n', '<leader>pt', require('copilot.suggestion').toggle_auto_trigger,  { desc = 'Toggle Co[P]ilot plugin [T]' })
+
 -- Open current buffer's file in default editor (i.e. Xcode)
 vim.keymap.set('n', '<leader>oe', function()
   vim.fn.jobstart('open "' .. vim.fn.expand '%' .. '"')
@@ -822,9 +824,9 @@ vim.g.exclude_groups = {
   'StatusLineNC',
 }
 
-vim.cmd.colorscheme 'catppuccin-latte'
--- vim.cmd.colorscheme 'catppuccin-mocha'
---
+-- vim.cmd.colorscheme 'catppuccin-latte'
+vim.cmd.colorscheme 'catppuccin-mocha'
+
 -- Set cursor red when in insert mode
 vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
 vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' })

@@ -773,6 +773,8 @@ vim.keymap.set('n', '<C-e>', '5<C-e>', { desc = 'Move window up 5 lines at a tim
 
 vim.keymap.set('n', '<C-y>', '5<C-y>', { desc = 'Move window down 5 lines at a time' })
 
+vim.g.editorconfig = false
+
 -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
 -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
 -- (Copied from NvChad)

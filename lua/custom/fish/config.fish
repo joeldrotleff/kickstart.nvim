@@ -19,6 +19,10 @@ alias nvchad='NVIM_APPNAME="chad" nvim'
 # Delete derivded data folder (Ah. xcode)
 alias ddd='rm -rf ~/Library/Developer/Xcode/DerivedData/'
 
+# Rerun xcode-build server for active projects
+alias xcodebuild-mpx='cd ~/code/joya/mpx && xcode-build-server config -project ~/code/joya/mpx/MPX/*.xcodeproj -scheme "MPX"'
+alias xcodebuild-marcopolo='cd ~/code/joya/marcopolo-app/ios && xcode-build-server config -workspace ~/code/joya/marcopolo-app/ios/*.xcworkspace -scheme "MarcoPolo Dev IAP"'
+
 # Command fixer utility 'fuck'
 thefuck --alias | source
 

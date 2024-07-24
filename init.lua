@@ -811,6 +811,12 @@ vim.opt.shiftwidth = 2
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll down + center cursor' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll up + center cursor' })
 
+vim.keymap.set('n', '<leader>cp', function()
+  local filepath = vim.fn.expand '%'
+  print(filepath)
+  vim.fn.setreg('+', filepath)
+end, { noremap = true, silent = true, desc = '[C]opy & print current [P]ath' })
+
 vim.keymap.set('n', '<leader>pt', require('copilot.suggestion').toggle_auto_trigger, { desc = 'Toggle Co[P]ilot plugin [T]' })
 
 -- Open current buffer's file in default editor (i.e. Xcode)

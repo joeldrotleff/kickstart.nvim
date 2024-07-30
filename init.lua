@@ -816,7 +816,7 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll down + center cursor' }
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll up + center cursor' })
 
 vim.keymap.set('n', '<leader>cp', function()
-  local filepath = vim.fn.expand '%'
+  local filepath = vim.fn.expand '%:p'
   print(filepath)
   vim.fn.setreg('+', filepath)
 end, { noremap = true, silent = true, desc = '[C]opy & print current [P]ath' })
@@ -886,6 +886,7 @@ vim.keymap.set('n', "'y", "'Y", { noremap = true, silent = true, desc = 'Jump to
 vim.keymap.set('n', "mz", "mZ", { noremap = true, silent = true, desc = 'Set mark Z' })
 vim.keymap.set('n', "'z", "'Z", { noremap = true, silent = true, desc = 'Jump to mark Z' })
 
+vim.keymap.set('n', "<leader>mm", "<cmd>:marks ABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>", { desc = 'Show [M]y [M]arks' })
 
 
 

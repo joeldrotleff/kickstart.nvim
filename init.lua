@@ -889,6 +889,10 @@ vim.keymap.set('n', "'z", "'Z", { noremap = true, silent = true, desc = 'Jump to
 vim.keymap.set('n', "<leader>mm", "<cmd>:marks ABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>", { desc = 'Show [M]y [M]arks' })
 
 
+vim.keymap.set('n', '<leader>dpr', function()
+  require('dap-python').test_method()
+end, { desc = '[D]ebug [P]ython [R]un' })
+vim.keymap.set('n', '<leader>db', '<cmd> DapToggleBreakpoint <CR>', { desc = '[D]ebug [P]ython [R]un' })
 
 -- Prevent transparency plugin from making the statusline transparent
 vim.g.exclude_groups = {

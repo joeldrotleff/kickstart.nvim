@@ -906,5 +906,7 @@ vim.cmd.colorscheme 'catppuccin-mocha'
 vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
 vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' }) --
 
+vim.g.python3_host_prog = vim.fn.expand('~/.pyenv.shims/python3')
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

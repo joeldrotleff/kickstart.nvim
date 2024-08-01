@@ -14,7 +14,6 @@ return {
       local path = '~/.virtualenvs/debugpy/bin/python'
       local dp = require 'dap-python'
       dp.setup(path)
-      dp.test_runner = 'pytest'
     end,
   },
 

@@ -907,7 +907,7 @@ vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
 vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' }) --
 
 -- Specify the path to the python interpreter because apparently it takes 1-2s to find it on startup :(
-vim.g.python3_host_prog = vim.fn.expand('~/.pyenv.shims/python3')
+vim.g.python3_host_prog = vim.fn.expand('~/.virtualenvs/debugpy/bin/python')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

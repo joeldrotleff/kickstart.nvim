@@ -935,5 +935,8 @@ vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = '
 -- Specify the path to the python interpreter because apparently it takes 1-2s to find it on startup :(
 vim.g.python3_host_prog = vim.fn.expand '~/.virtualenvs/debugpy/bin/python'
 
+-- Disable editorconfig support (because MP uses settings I don't like)
+vim.g.editorconfig = false
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

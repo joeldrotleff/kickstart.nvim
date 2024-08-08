@@ -542,11 +542,21 @@ require('lazy').setup({
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
         --
-        -- But for many setups, the LSP (`tsserver`) will work just fine
-        tsserver = {},
+
+        -- Deno and Typescript LSPs can conflict, so use a root_dir to differentiate
+        denols = {
+          root_dir = require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc'),
+        },
+
+        tsserver = {
+          root_dir = require('lspconfig.util').root_pattern 'package.json',
+          single_file_support = false,
+        },
         --
         --
         jsonls = {},
+
+        tailwindcss = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -592,6 +602,16 @@ require('lazy').setup({
           end,
         },
       }
+
+      -- Deno and Typescript LSPs can conflict, so use a root_dir to differentiate
+      local nvim_lsp = require 'lspconfig'
+      nvim_lsp.denols.setup {
+        root_dir = nvim_lsp.util.root_pattern('deno.json', 'deno.jsonc'),
+      }
+      nvim_lsp.tsserver.setup {
+        root_dir = nvim_lsp.util.root_pattern 'package.json',
+        single_file_support = false,
+      }
     end,
   },
 
@@ -616,6 +636,7 @@ require('lazy').setup({
 
         swift = { 'swiftformat' },
         python = { 'isort', 'black' },
+        typescript = { 'prettier' },
       },
     },
   },

@@ -804,6 +804,10 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   { import = 'custom.plugins' },
 }, {
+
+  -- Disable 'Change detected...' thing because it's annoying
+  change_detection = { notify = false },
+
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table

@@ -4,6 +4,11 @@
 -- See the kickstart.nvim README for more information
 
 return {
+
+  {
+    'wellle/context.vim',
+  },
+
   {
     'cocopon/iceberg.vim',
   },

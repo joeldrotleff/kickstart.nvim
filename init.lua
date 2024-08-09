@@ -768,7 +768,7 @@ require('lazy').setup({
     opts = {
 
       -- The swift treesitter parser causes issues, i.e. chatgpt freezes
-      ignore_install = { 'swift' },
+      -- ignore_install = { 'swift' },
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
 
       -- Autoinstall languages that are not installed

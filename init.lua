@@ -84,7 +84,6 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
-
 -- Disable editorconfig support (because MP uses settings I don't like)
 vim.g.editorconfig = false
 
@@ -227,6 +226,7 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
@@ -829,9 +829,8 @@ require('lazy').setup({
   },
 })
 
-vim.keymap.set('n', '<C-e>', '5<C-e>', { desc = 'Move window up 5 lines at a time' })
-
-vim.keymap.set('n', '<C-y>', '5<C-y>', { desc = 'Move window down 5 lines at a time' })
+vim.keymap.set({ 'n', 'v' }, '<C-e>', '5<C-e>', { desc = 'Move window up 5 lines at a time' })
+vim.keymap.set({ 'n', 'v' }, '<C-y>', '5<C-y>', { desc = 'Move window down 5 lines at a time' })
 
 -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
 -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
@@ -887,60 +886,6 @@ vim.keymap.set('n', '<leader>xx', function()
   vim.fn.jobstart 'osascript ~/.config/nvim/scripts/xcode_run.scpt'
 end, { noremap = true, silent = true, desc = 'Trigger Xcode to build+run current project' })
 
-vim.keymap.set('n', 'ma', 'mA', { noremap = true, silent = true, desc = 'Set mark A' })
-vim.keymap.set('n', "'a", "'A", { noremap = true, silent = true, desc = 'Jump to mark A' })
-vim.keymap.set('n', 'mb', 'mB', { noremap = true, silent = true, desc = 'Set mark B' })
-vim.keymap.set('n', "'b", "'B", { noremap = true, silent = true, desc = 'Jump to mark A' })
-vim.keymap.set('n', 'mc', 'mC', { noremap = true, silent = true, desc = 'Set mark C' })
-vim.keymap.set('n', "'c", "'C", { noremap = true, silent = true, desc = 'Jump to mark C' })
-vim.keymap.set('n', 'md', 'mD', { noremap = true, silent = true, desc = 'Set mark D' })
-vim.keymap.set('n', "'d", "'D", { noremap = true, silent = true, desc = 'Jump to mark D' })
-vim.keymap.set('n', 'me', 'mE', { noremap = true, silent = true, desc = 'Set mark E' })
-vim.keymap.set('n', "'e", "'E", { noremap = true, silent = true, desc = 'Jump to mark E' })
-vim.keymap.set('n', 'mf', 'mF', { noremap = true, silent = true, desc = 'Set mark F' })
-vim.keymap.set('n', "'f", "'F", { noremap = true, silent = true, desc = 'Jump to mark F' })
-vim.keymap.set('n', 'mg', 'mG', { noremap = true, silent = true, desc = 'Set mark G' })
-vim.keymap.set('n', "'g", "'G", { noremap = true, silent = true, desc = 'Jump to mark G' })
-vim.keymap.set('n', 'mh', 'mH', { noremap = true, silent = true, desc = 'Set mark H' })
-vim.keymap.set('n', "'h", "'H", { noremap = true, silent = true, desc = 'Jump to mark H' })
-vim.keymap.set('n', 'mi', 'mI', { noremap = true, silent = true, desc = 'Set mark I' })
-vim.keymap.set('n', "'i", "'I", { noremap = true, silent = true, desc = 'Jump to mark I' })
-vim.keymap.set('n', 'mj', 'mJ', { noremap = true, silent = true, desc = 'Set mark J' })
-vim.keymap.set('n', "'j", "'J", { noremap = true, silent = true, desc = 'Jump to mark J' })
-vim.keymap.set('n', 'mk', 'mK', { noremap = true, silent = true, desc = 'Set mark K' })
-vim.keymap.set('n', "'k", "'K", { noremap = true, silent = true, desc = 'Jump to mark K' })
-vim.keymap.set('n', 'ml', 'mL', { noremap = true, silent = true, desc = 'Set mark L' })
-vim.keymap.set('n', "'l", "'L", { noremap = true, silent = true, desc = 'Jump to mark L' })
-vim.keymap.set('n', 'mm', 'mM', { noremap = true, silent = true, desc = 'Set mark M' })
-vim.keymap.set('n', "'m", "'M", { noremap = true, silent = true, desc = 'Jump to mark M' })
-vim.keymap.set('n', 'mn', 'mN', { noremap = true, silent = true, desc = 'Set mark N' })
-vim.keymap.set('n', "'n", "'N", { noremap = true, silent = true, desc = 'Jump to mark N' })
-vim.keymap.set('n', 'mo', 'mO', { noremap = true, silent = true, desc = 'Set mark O' })
-vim.keymap.set('n', "'o", "'O", { noremap = true, silent = true, desc = 'Jump to mark O' })
-vim.keymap.set('n', 'mp', 'mP', { noremap = true, silent = true, desc = 'Set mark P' })
-vim.keymap.set('n', "'p", "'P", { noremap = true, silent = true, desc = 'Jump to mark P' })
-vim.keymap.set('n', 'mq', 'mQ', { noremap = true, silent = true, desc = 'Set mark Q' })
-vim.keymap.set('n', "'q", "'Q", { noremap = true, silent = true, desc = 'Jump to mark Q' })
-vim.keymap.set('n', 'mr', 'mR', { noremap = true, silent = true, desc = 'Set mark R' })
-vim.keymap.set('n', "'r", "'R", { noremap = true, silent = true, desc = 'Jump to mark R' })
-vim.keymap.set('n', 'ms', 'mS', { noremap = true, silent = true, desc = 'Set mark S' })
-vim.keymap.set('n', "'s", "'S", { noremap = true, silent = true, desc = 'Jump to mark S' })
-vim.keymap.set('n', 'mt', 'mT', { noremap = true, silent = true, desc = 'Set mark T' })
-vim.keymap.set('n', "'t", "'T", { noremap = true, silent = true, desc = 'Jump to mark T' })
-vim.keymap.set('n', 'mu', 'mU', { noremap = true, silent = true, desc = 'Set mark U' })
-vim.keymap.set('n', "'u", "'U", { noremap = true, silent = true, desc = 'Jump to mark U' })
-vim.keymap.set('n', 'mv', 'mV', { noremap = true, silent = true, desc = 'Set mark V' })
-vim.keymap.set('n', "'v", "'V", { noremap = true, silent = true, desc = 'Jump to mark V' })
-vim.keymap.set('n', 'mw', 'mW', { noremap = true, silent = true, desc = 'Set mark W' })
-vim.keymap.set('n', "'w", "'W", { noremap = true, silent = true, desc = 'Jump to mark W' })
-vim.keymap.set('n', 'mx', 'mX', { noremap = true, silent = true, desc = 'Set mark x' })
-vim.keymap.set('n', "'x", "'x", { noremap = true, silent = true, desc = 'Jump to mark x' })
-vim.keymap.set('n', 'my', 'mY', { noremap = true, silent = true, desc = 'Set mark Y' })
-vim.keymap.set('n', "'y", "'Y", { noremap = true, silent = true, desc = 'Jump to mark Y' })
-vim.keymap.set('n', 'mz', 'mZ', { noremap = true, silent = true, desc = 'Set mark Z' })
-vim.keymap.set('n', "'z", "'Z", { noremap = true, silent = true, desc = 'Jump to mark Z' })
-
-vim.keymap.set('n', '<leader>mm', '<cmd>:marks ABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>', { desc = 'Show [M]y [M]arks' })
 
 vim.keymap.set('n', '<leader>dpr', function()
   require('dap-python').test_method()
@@ -962,8 +907,6 @@ vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = '
 
 -- Specify the path to the python interpreter because apparently it takes 1-2s to find it on startup :(
 vim.g.python3_host_prog = vim.fn.expand '~/.virtualenvs/debugpy/bin/python'
-
-
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

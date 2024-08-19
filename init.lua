@@ -843,10 +843,13 @@ vim.keymap.set('n', 'k', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc 
 local lspconfig = require 'lspconfig'
 local util = lspconfig.util
 lspconfig.sourcekit.setup {
-  cmd = {
-    -- By using xcrun we make sure to use whichever version of the sourcekit-lsp tool is specified via xcode-select
-    vim.trim(vim.fn.system 'xcrun -f sourcekit-lsp'),
-  },
+  cmd = { 'sourcekit-lsp' },
+
+  -- (This 'xcrun' technique seems to cause a slowdown on first startup, so I'm disabling it)
+  -- cmd = {
+  --   -- By using xcrun we make sure to use whichever version of the sourcekit-lsp tool is specified via xcode-select
+  --   vim.trim(vim.fn.system 'xcrun -f sourcekit-lsp'),
+  -- },
 
   -- Override default root pattern to remove "*.git" which caused i.e. any .h file to use sourcekit lsp
   -- (but be full of errors)

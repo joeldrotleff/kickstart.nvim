@@ -531,6 +531,7 @@ require('lazy').setup({
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      local lspconfig = require 'lspconfig'
 
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -554,7 +555,7 @@ require('lazy').setup({
 
         -- Deno and Typescript LSPs can conflict, so use a root_dir to differentiate
         denols = {
-          root_dir = require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc'),
+          root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc'),
         },
 
         jsonls = {},
@@ -591,6 +592,8 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
       })
+
+
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
@@ -601,18 +604,17 @@ require('lazy').setup({
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for tsserver)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
+            lspconfig[server_name].setup(server)
           end,
         },
       }
 
       -- Deno and Typescript LSPs can conflict, so use a root_dir to differentiate
-      local nvim_lsp = require 'lspconfig'
-      nvim_lsp.denols.setup {
-        root_dir = nvim_lsp.util.root_pattern('deno.json', 'deno.jsonc'),
+      lspconfig.denols.setup {
+        root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc'),
       }
-      nvim_lsp.tsserver.setup {
-        root_dir = nvim_lsp.util.root_pattern 'package.json',
+      lspconfig.tsserver.setup {
+        root_dir = lspconfig.util.root_pattern 'package.json',
         single_file_support = false,
       }
     end,

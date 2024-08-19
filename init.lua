@@ -311,7 +311,11 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          colorscheme = {
+            enable_preview = true,
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -891,8 +895,7 @@ vim.g.exclude_groups = {
   'StatusLineNC',
 }
 
--- vim.cmd.colorscheme 'catppuccin-latte'
--- vim.cmd.colorscheme 'catppuccin-mocha'
+vim.cmd.colorscheme 'habamax'
 
 -- Set cursor red when in insert mode
 vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })

@@ -28,11 +28,11 @@ return {
     event = 'VeryLazy',
   },
 
-  {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    priority = 1000,
-  },
+  -- Custom Themes
+  { 'catppuccin/nvim' },
+  { 'sainnhe/everforest' },
+  { 'rose-pine/neovim' },
+  { 'rebelot/kanagawa.nvim' },
 
   {
     'nvim-lualine/lualine.nvim',

@@ -28,11 +28,31 @@ return {
     event = 'VeryLazy',
   },
 
-  -- Custom Themes
-  { 'catppuccin/nvim' },
-  { 'sainnhe/everforest' },
-  { 'rose-pine/neovim' },
-  { 'rebelot/kanagawa.nvim' },
+  -- Colorschemes - high priority / non-lazy based on
+  -- recommendation from Lazy.nvim docs
+  {
+    'catppuccin/nvim',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
+    'sainnhe/everforest',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
+    'rose-pine/neovim',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
+    'rebelot/kanagawa.nvim',
+    lazy = false,
+    priority = 10,
+  },
 
   {
     'nvim-lualine/lualine.nvim',

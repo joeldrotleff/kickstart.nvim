@@ -6,14 +6,6 @@
 return {
 
   {
-    'wellle/context.vim',
-  },
-
-  {
-    'cocopon/iceberg.vim',
-  },
-
-  {
     'tpope/vim-fugitive',
     cmd = 'Git',
   },
@@ -59,15 +51,6 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('lualine').setup {}
-    end,
-  },
-
-  {
-    'chentoast/marks.nvim',
-    config = function()
-      require('marks').setup {
-        default_mappings = false,
-      }
     end,
   },
 }

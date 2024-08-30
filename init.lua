@@ -896,7 +896,7 @@ vim.g.exclude_groups = {
   'StatusLineNC',
 }
 
-vim.cmd.colorscheme 'habamax'
+vim.cmd.colorscheme 'kanagawa-dragon'
 
 -- Set cursor red when in insert mode
 vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })

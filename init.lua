@@ -847,10 +847,6 @@ lspconfig.sourcekit.setup {
   --   -- By using xcrun we make sure to use whichever version of the sourcekit-lsp tool is specified via xcode-select
   --   vim.trim(vim.fn.system 'xcrun -f sourcekit-lsp'),
   -- },
-
-  -- Override default root pattern to remove "*.git" which caused i.e. any .h file to use sourcekit lsp
-  -- (but be full of errors)
-  root_dir = util.root_pattern('buildServer.json', '*.xcodeproj', '*.xcworkspace', 'compile_commands.json', 'Package.swift'),
 }
 
 -- Use a block cursor in normal mode

@@ -23,6 +23,12 @@ return {
   -- Colorschemes - high priority / non-lazy based on
   -- recommendation from Lazy.nvim docs
   {
+    'shaunsingh/nord.nvim',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
     'catppuccin/nvim',
     lazy = false,
     priority = 10,

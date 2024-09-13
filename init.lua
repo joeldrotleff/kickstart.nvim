@@ -360,10 +360,15 @@ require('lazy').setup({
         }
       end, { desc = '[S]earch [/] in Open Files' })
 
-      -- Shortcut for searching your Neovim configuration files
+      -- Shortcut for searching your Neovim configuration files by name
       vim.keymap.set('n', '<leader>sv', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = '[S]earch [N]eovim files' })
+      end, { desc = '[S]earch Neo[v]im files by name' })
+
+      -- Shortcut for searching *within* your Neovim configuration files
+      vim.keymap.set('n', '<leader>sV', function()
+        builtin.grep_string { cwd = vim.fn.stdpath 'config' }
+      end, { desc = '[S]earch within Neo[V]im files' })
 
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files {
@@ -372,7 +377,13 @@ require('lazy').setup({
           -- Sort by most recently modified, since that's usually what I want when looking for notes
           find_command = { 'rg', '--no-config', '--files', '--sortr=created' },
         }
-      end, { desc = '[S]earch [N]otes from daily_notes folder' })
+      end, { desc = '[S]earch [n]otes by name in daily_notes folder' })
+
+      vim.keymap.set('n', '<leader>sN', function()
+        builtin.grep_string {
+          cwd = '~/Documents/daily_notes',
+        }
+      end, { desc = '[S]earch within [N]otes in daily_notes folder' })
     end,
   },
 

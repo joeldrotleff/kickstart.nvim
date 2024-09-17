@@ -60,6 +60,10 @@ function fish_prompt
     set_color normal
 end
 
+# Make sure right-side prompt is empty 
+function fish_right_prompt
+end
+
 
 # Vi mode!
 fish_vi_key_bindings

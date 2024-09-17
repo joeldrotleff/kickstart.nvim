@@ -43,7 +43,6 @@ function envsource
 end
 
 
-# This is the "Scales" sample provided by fish but with the right-side of the prompt disabled
 function fish_prompt
     if test -n "$SSH_TTY"
         echo -n (set_color brred)"$USER"(set_color white)'@'(set_color yellow)(prompt_hostname)' '
@@ -55,14 +54,21 @@ function fish_prompt
     if fish_is_root_user
         echo -n (set_color red)'# '
     end
-    echo -n (set_color red)'❯'(set_color yellow)'❯'(set_color green)'❯ '
+
+		# Make prompt look like a little fish
+    echo -n (set_color red)'⋊'(set_color yellow)'> '
     set_color normal
 end
 
 
 # Vi mode!
 fish_vi_key_bindings
-# Add the emacs-style accept autocomplete key binding (using vi mode disables it)
-bind -M insert \cf accept-autosuggestion
 
+# Don't show pointless "[I]" before the prompt when in i.e. insert mode
+function fish_mode_prompt
+end
+
+# Add the emacs-style "accept autocomplete" key binding (using vi mode disables it)
+bind -M insert \cf accept-autosuggestion
+ 
 

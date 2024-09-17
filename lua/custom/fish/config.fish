@@ -26,6 +26,7 @@ alias xcodebuild-marcopolo='cd ~/code/joya/marcopolo-app/ios && xcode-build-serv
 # Command fixer utility 'fuck'
 thefuck --alias | source
 
+# Loads all the shell variables from a .env file
 function envsource
   set -f envfile "$argv"
   if not test -f "$envfile"
@@ -40,8 +41,28 @@ function envsource
     end
   end < "$envfile"
 end
+
+
+# This is the "Scales" sample provided by fish but with the right-side of the prompt disabled
+function fish_prompt
+    if test -n "$SSH_TTY"
+        echo -n (set_color brred)"$USER"(set_color white)'@'(set_color yellow)(prompt_hostname)' '
+    end
+
+    echo -n (set_color blue)(prompt_pwd)' '
+
+    set_color -o
+    if fish_is_root_user
+        echo -n (set_color red)'# '
+    end
+    echo -n (set_color red)'❯'(set_color yellow)'❯'(set_color green)'❯ '
+    set_color normal
+end
+
+
 # Vi mode!
 fish_vi_key_bindings
 # Add the emacs-style accept autocomplete key binding (using vi mode disables it)
 bind -M insert \cf accept-autosuggestion
+
 

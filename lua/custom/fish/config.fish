@@ -40,3 +40,8 @@ function envsource
     end
   end < "$envfile"
 end
+# Vi mode!
+fish_vi_key_bindings
+# Add the emacs-style accept autocomplete key binding (using vi mode disables it)
+bind -M insert \cf accept-autosuggestion
+

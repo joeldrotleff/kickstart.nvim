@@ -574,6 +574,9 @@ require('lazy').setup({
 
         tailwindcss = {},
 
+        -- TODO: Uncomment this once new version of Neovim that adds fish lsp support is released
+        -- fish_lsp = {},
+
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},

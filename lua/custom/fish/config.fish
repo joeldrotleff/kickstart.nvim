@@ -56,7 +56,7 @@ function fish_prompt
     end
 
 		# Make prompt look like a little fish
-    echo -n (set_color red)'⋊'(set_color yellow)'> '
+		echo -n (set_color brblue)'⋊'(set_color brblue)'> '
     set_color normal
 end
 

@@ -889,7 +889,12 @@ end, { noremap = true, silent = true, desc = '[C]opy & print current [P]ath' })
 -- Open current buffer's file in default editor (i.e. Xcode)
 vim.keymap.set('n', '<leader>oe', function()
   vim.fn.jobstart('open "' .. vim.fn.expand '%' .. '"')
-end, { noremap = true, silent = true, desc = 'Open in external editor' })
+end, { noremap = true, silent = true, desc = '[O]pen current buffer in [E]xternal editor' })
+
+-- Open current buffer's file in Zed
+vim.keymap.set('n', '<leader>oz', function()
+  vim.fn.jobstart('zed "' .. vim.fn.expand '%' .. '"')
+end, { noremap = true, silent = true, desc = 'Open in [Z]ed editor' })
 
 -- Trigger Xcode run command
 vim.keymap.set('n', '<leader>xx', function()

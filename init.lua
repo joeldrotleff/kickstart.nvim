@@ -914,6 +914,9 @@ vim.g.exclude_groups = {
 
 vim.cmd.colorscheme 'nord'
 
+-- Apparently I'm supposed to do this after setting colorscheme
+require('avante_lib').load()
+
 -- Set cursor red when in insert mode
 vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
 vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' }) --

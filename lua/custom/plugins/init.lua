@@ -22,6 +22,19 @@ return {
 
   -- Colorschemes - high priority / non-lazy based on
   -- recommendation from Lazy.nvim docs
+
+  {
+    'srcery-colors/srcery-vim',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
+    'akinsho/horizon.nvim',
+    lazy = false,
+    priority = 10,
+  },
+
   {
     'shaunsingh/nord.nvim',
     lazy = false,

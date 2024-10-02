@@ -912,7 +912,7 @@ vim.g.exclude_groups = {
   'StatusLineNC',
 }
 
-vim.cmd.colorscheme 'nord'
+vim.cmd.colorscheme 'kanagawa-dragon'
 
 -- Apparently I'm supposed to do this after setting colorscheme
 require('avante_lib').load()

@@ -896,6 +896,11 @@ vim.keymap.set('n', '<leader>oz', function()
   vim.fn.jobstart('zed "' .. vim.fn.expand '%' .. '"')
 end, { noremap = true, silent = true, desc = 'Open in [Z]ed editor' })
 
+-- Open current buffer's enclosing folder in Finder
+vim.keymap.set('n', '<leader>of', function()
+  vim.fn.jobstart('open -R "' .. vim.fn.expand '%' .. '"')
+end, { noremap = true, silent = true, desc = "[Open] current buffer's enclosing folder in [F]inder" })
+
 -- Trigger Xcode run command
 vim.keymap.set('n', '<leader>xx', function()
   vim.fn.jobstart 'osascript ~/.config/nvim/scripts/xcode_run.scpt'

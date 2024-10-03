@@ -171,6 +171,11 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 
+-- Only show floating windows for errors
+vim.diagnostic.config {
+  virtual_text = { severity = { vim.diagnostic.severity.ERROR } },
+}
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -928,6 +933,7 @@ vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = '
 
 -- Specify the path to the python interpreter because apparently it takes 1-2s to find it on startup :(
 vim.g.python3_host_prog = vim.fn.expand 'which python3'
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -2,8 +2,6 @@ return {
   'Pocco81/auto-save.nvim',
   lazy = false,
   opts = {
-
-
     condition = function(buf)
       local fn = vim.fn
       local utils = require 'auto-save.utils.data'

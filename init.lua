@@ -922,6 +922,9 @@ vim.keymap.set('n', '<leader>db', '<cmd> DapToggleBreakpoint <CR>', { desc = '[D
 -- Replace all tabs with spaces
 vim.keymap.set('n', '<leader>ts', '<cmd>:%s/\t/  /g <CR>', { desc = '[T]abs to [S]paces' })
 
+-- Yank to the blackhole register when using "change" motions
+vim.keymap.set('n', 'c', '"_c', { noremap = true, silent = true })
+
 -- Prevent transparency plugin from making the statusline transparent
 vim.g.exclude_groups = {
   'StatusLine',

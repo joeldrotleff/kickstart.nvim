@@ -663,6 +663,7 @@ require('lazy').setup({
         swift = { 'swiftformat' },
         python = { 'isort', 'black' },
         typescript = { 'prettier' },
+        javascript = { 'prettier' },
       },
     },
   },
@@ -917,6 +918,9 @@ vim.keymap.set('n', '<leader>dpr', function()
   require('dap-python').test_method()
 end, { desc = '[D]ebug [P]ython [R]un' })
 vim.keymap.set('n', '<leader>db', '<cmd> DapToggleBreakpoint <CR>', { desc = '[D]ebug [P]ython [R]un' })
+
+-- Replace all tabs with spaces
+vim.keymap.set('n', '<leader>ts', '<cmd>:%s/\t/  /g <CR>', { desc = '[T]abs to [S]paces' })
 
 -- Prevent transparency plugin from making the statusline transparent
 vim.g.exclude_groups = {

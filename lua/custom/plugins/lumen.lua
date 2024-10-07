@@ -2,10 +2,12 @@ return {
   'vimpostor/vim-lumen',
   lazy = false,
   priority = 10010,
-  init = function()
-    vim.cmd [[
-				au User LumenLight echom 'rose-pine-dawn'
-				au User LumenDark echom 'rose-pine-moon'
-			]]
-  end,
+	-- Change colorscheme when dark/light mode changes
+	-- (Only necessary if current theme doesn't support both modes)
+  -- init = function()
+  --   vim.cmd [[
+  -- 		au User LumenLight echom 'everforest-light'
+  -- 		au User LumenDark echom 'rose-pine-moon'
+  -- 	]]
+  -- end,
 }

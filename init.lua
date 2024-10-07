@@ -931,6 +931,9 @@ vim.g.exclude_groups = {
   'StatusLineNC',
 }
 
+-- Set the colorscheme
+vim.cmd.colorscheme 'everforest'
+
 -- Apparently I'm supposed to do this after setting colorscheme
 require('avante_lib').load()
 

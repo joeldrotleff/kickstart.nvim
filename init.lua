@@ -661,7 +661,7 @@ require('lazy').setup({
         lua = { 'stylua' },
 
         swift = { 'swiftformat' },
-        python = { 'isort', 'black' },
+        python = { 'black' },
         typescript = { 'prettier' },
         javascript = { 'prettier' },
       },

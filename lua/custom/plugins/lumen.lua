@@ -1,5 +1,5 @@
 local function set_kitty_light_mode(enabled)
-  local file_path = '/Users/joel/.config/nvim/lua/custom/kitty.conf'
+  local file_path = vim.fn.expand '$HOME/.config/nvim/lua/custom/kitty.conf'
 
   -- Attempt to open the file for reading
   local file, err = io.open(file_path, 'r')

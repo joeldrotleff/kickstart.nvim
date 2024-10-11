@@ -290,10 +290,10 @@ nnoremap <silent> <Plug>unimpairedMoveDown          :<C-U>call <SID>Move('+',v:c
 noremap  <silent> <Plug>unimpairedMoveSelectionUp   :<C-U>call <SID>MoveSelectionUp(v:count1)<CR>
 noremap  <silent> <Plug>unimpairedMoveSelectionDown :<C-U>call <SID>MoveSelectionDown(v:count1)<CR>
 
-exe s:Map('n', '[e', '<Plug>(unimpaired-move-up)')
-exe s:Map('n', ']e', '<Plug>(unimpaired-move-down)')
-exe s:Map('x', '[e', '<Plug>(unimpaired-move-selection-up)')
-exe s:Map('x', ']e', '<Plug>(unimpaired-move-selection-down)')
+"exe s:Map('n', '[e', '<Plug>(unimpaired-move-up)')
+"exe s:Map('n', ']e', '<Plug>(unimpaired-move-down)')
+"exe s:Map('x', '[e', '<Plug>(unimpaired-move-selection-up)')
+"exe s:Map('x', ']e', '<Plug>(unimpaired-move-selection-down)')
 
 " Section: Option toggling
 

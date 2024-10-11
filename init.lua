@@ -171,7 +171,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 
-
 -- Diagnostics!
 -- By default, only show virtual text for errors
 vim.diagnostic.config {
@@ -209,7 +208,6 @@ vim.keymap.set('n', '<leader>vh', hide_virtualtext, { desc = '[V]irtualtext [H]i
 
 vim.keymap.set('n', ']e', goto_next_diagnostic, { desc = 'Jump to next [E]iagnostic' })
 vim.keymap.set('n', '[e', goto_prev_diagnostic, { desc = 'Jump to previous [E]iagnostic' })
-
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -884,7 +882,7 @@ require('lazy').setup({
 })
 
 -- Install this plugin "manually" so I can comment out easily the keymaps I don't want
-vim.cmd("source " .. vim.fn.stdpath('config') .. "/lua/custom/unimpaired.vim")
+vim.cmd('source ' .. vim.fn.stdpath 'config' .. '/lua/custom/unimpaired.vim')
 
 vim.keymap.set({ 'n', 'v' }, '<C-e>', '5<C-e>', { desc = 'Move window up 5 lines at a time' })
 vim.keymap.set({ 'n', 'v' }, '<C-y>', '5<C-y>', { desc = 'Move window down 5 lines at a time' })

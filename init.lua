@@ -171,10 +171,47 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 
--- Only show floating windows for errors
+
+-- Diagnostics!
+-- By default, only show virtual text for errors
 vim.diagnostic.config {
   virtual_text = { severity = { vim.diagnostic.severity.ERROR } },
 }
+
+-- Keymaps for toggling what shows for virtual text
+vim.keymap.set('n', '<leader>do', function()
+  -- Get virtual text current setting
+  vim.diagnostic.config {
+    virtual_text = {
+      severity = {
+        min = vim.diagnostic.severity.HINT,
+        max = vim.diagnostic.severity.ERROR
+      },
+    },
+  }
+end, { desc = 'Turn [d]iagnostics [o]n' })
+
+vim.keymap.set('n', '<leader>df', function()
+  -- Get virtual text current setting
+  vim.diagnostic.config { virtual_text = false }
+end, { desc = 'Turn [d]iagnostics o[f]f' })
+
+vim.keymap.set('n', '<leader>de', function()
+  -- Get virtual text current setting
+  vim.diagnostic.config {
+    virtual_text = {
+      severity = vim.diagnostic.severity.ERROR,
+    },
+  }
+end, { desc = 'Show [d]iagnostics for [e]rrors only' })
+
+-- vim.keymap.set('n', ']e', function()
+--   vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+-- end, { desc = 'Jump to next [E]rror' })
+--
+-- vim.keymap.set('n', '[e', function()
+--   vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+-- end, { desc = 'Jump to previous [E]rror' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which

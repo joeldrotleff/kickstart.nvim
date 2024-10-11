@@ -178,40 +178,38 @@ vim.diagnostic.config {
   virtual_text = { severity = { vim.diagnostic.severity.ERROR } },
 }
 
--- Keymaps for toggling what shows for virtual text
-vim.keymap.set('n', '<leader>do', function()
-  -- Get virtual text current setting
+local show_all_virtualtext = function()
   vim.diagnostic.config {
     virtual_text = {
-      severity = {
-        min = vim.diagnostic.severity.HINT,
-        max = vim.diagnostic.severity.ERROR
-      },
+      severity = vim.diagnostic.severity,
     },
   }
-end, { desc = 'Turn [d]iagnostics [o]n' })
-
-vim.keymap.set('n', '<leader>df', function()
-  -- Get virtual text current setting
-  vim.diagnostic.config { virtual_text = false }
-end, { desc = 'Turn [d]iagnostics o[f]f' })
-
-vim.keymap.set('n', '<leader>de', function()
-  -- Get virtual text current setting
+end
+local show_error_virtualtext = function()
   vim.diagnostic.config {
     virtual_text = {
       severity = vim.diagnostic.severity.ERROR,
     },
   }
-end, { desc = 'Show [d]iagnostics for [e]rrors only' })
+end
+local hide_virtualtext = function()
+  vim.diagnostic.config { virtual_text = false }
+end
+local goto_next_diagnostic = function()
+  vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }
+end
+local goto_prev_diagnostic = function()
+  vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }
+end
 
--- vim.keymap.set('n', ']e', function()
---   vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
--- end, { desc = 'Jump to next [E]rror' })
---
--- vim.keymap.set('n', '[e', function()
---   vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
--- end, { desc = 'Jump to previous [E]rror' })
+-- Keymaps for toggling what shows for virtual text
+vim.keymap.set('n', '<leader>vs', show_all_virtualtext, { desc = '[V]irtualtext [S]how' })
+vim.keymap.set('n', '<leader>ve', show_error_virtualtext, { desc = '[V]irtualtext [E]rrors only' })
+vim.keymap.set('n', '<leader>vh', hide_virtualtext, { desc = '[V]irtualtext [H]ide' })
+
+vim.keymap.set('n', ']e', goto_next_diagnostic, { desc = 'Jump to next [E]iagnostic' })
+vim.keymap.set('n', '[e', goto_prev_diagnostic, { desc = 'Jump to previous [E]iagnostic' })
+
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which

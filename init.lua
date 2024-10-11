@@ -848,6 +848,9 @@ require('lazy').setup({
   },
 })
 
+-- Install this plugin "manually" so I can comment out easily the keymaps I don't want
+vim.cmd("source " .. vim.fn.stdpath('config') .. "/lua/custom/unimpaired.vim")
+
 vim.keymap.set({ 'n', 'v' }, '<C-e>', '5<C-e>', { desc = 'Move window up 5 lines at a time' })
 vim.keymap.set({ 'n', 'v' }, '<C-y>', '5<C-y>', { desc = 'Move window down 5 lines at a time' })
 

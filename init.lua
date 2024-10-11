@@ -698,6 +698,15 @@ require('lazy').setup({
         typescript = { 'prettier' },
         javascript = { 'prettier' },
       },
+      formatters = {
+        black = {
+          command = 'black',
+          prepend_args = {
+            '--line-length',
+            '1000',
+          },
+        },
+      },
     },
   },
 

@@ -970,6 +970,11 @@ vim.keymap.set('n', '<leader>ts', '<cmd>:%s/\t/  /g <CR>', { desc = '[T]abs to [
 -- Yank to the blackhole register when using "change" motions
 vim.keymap.set('n', 'c', '"_c', { noremap = true, silent = true })
 
+-- Aerial keymaps
+vim.keymap.set('n', '<leader>al', '<cmd>AerialToggle left<cr>', { desc = '[A]erial [L]eft sidebar [T]oggle' })
+vim.keymap.set('n', '<leader>ar', '<cmd>AerialToggle right<cr>', { desc = '[A]erial [R]eft sidebar [T]oggle' })
+vim.keymap.set('n', '<leader>af', '<cmd>AerialToggle float<cr>', { desc = '[A]erial [L]eft sidebar [T]oggle' })
+
 -- Prevent transparency plugin from making the statusline transparent
 vim.g.exclude_groups = {
   'StatusLine',

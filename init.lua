@@ -703,7 +703,7 @@ require('lazy').setup({
           command = 'black',
           prepend_args = {
             '--line-length',
-            '1000',
+            '130',
           },
         },
       },

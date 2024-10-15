@@ -994,5 +994,8 @@ vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = '
 -- Specify the path to the python interpreter because apparently it takes 1-2s to find it on startup :(
 vim.g.python3_host_prog = vim.fn.expand 'which python3'
 
+-- This needs to be called manually, it seems, even though LazyVim already does it
+require('breadcrumbs').setup()
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

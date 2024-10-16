@@ -4,6 +4,8 @@ end
 
 fish_add_path "$HOME/.deno/bin"
 
+alias nv 'nvim'
+
 # Print all path variables, each on a new line
 alias printpath 'printf %s\n $PATH'
 

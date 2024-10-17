@@ -925,10 +925,10 @@ vim.opt.linebreak = true
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+
 -- Keep cursor centered when jumping up and down
--- Keep cursor centered when jumping up and down
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll down + center cursor' })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll up + center cursor' })
+-- vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll down + center cursor' })
+-- vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll up + center cursor' })
 
 vim.keymap.set('n', '<leader>cp', function()
   local filepath = vim.fn.expand '%:p'
@@ -974,6 +974,10 @@ vim.keymap.set('n', 'c', '"_c', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>al', '<cmd>AerialToggle left<cr>', { desc = '[A]erial [L]eft sidebar [T]oggle' })
 vim.keymap.set('n', '<leader>ar', '<cmd>AerialToggle right<cr>', { desc = '[A]erial [R]eft sidebar [T]oggle' })
 vim.keymap.set('n', '<leader>af', '<cmd>AerialToggle float<cr>', { desc = '[A]erial [L]eft sidebar [T]oggle' })
+
+-- After adding a top bar via the breadcrumbs plugin, this is necessary to bring back the nice
+-- behavior of 'zz' to center then C-d to scroll so cursor is right at the top of the screen
+vim.api.nvim_set_keymap('n', '<C-d>', '<C-d><C-y>', { noremap = true })
 
 -- Prevent transparency plugin from making the statusline transparent
 vim.g.exclude_groups = {

@@ -997,5 +997,7 @@ vim.g.python3_host_prog = vim.fn.expand 'which python3'
 -- This needs to be called manually, it seems, even though LazyVim already does it
 require('breadcrumbs').setup()
 
+vim.g.codeium_disable_bindings = 1
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

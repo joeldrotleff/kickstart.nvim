@@ -1,8 +1,16 @@
 return {
   'Exafunction/codeium.vim',
   config = function()
-    vim.keymap.set('i', '<M-l>', function()
-      print 'accepting suggestion!'
+    vim.g.codeium_disable_bindings = 1
+
+    vim.g.codeium_filetypes = {
+      markdown = false,
+      help = false,
+      gitcommit = false,
+      gitrebase = false,
+    }
+
+    vim.keymap.set('i', '<m-l>', function()
       return vim.fn['codeium#Accept']()
     end, { expr = true, silent = true })
     vim.keymap.set('i', '<m-;>', function()

@@ -981,6 +981,8 @@ vim.keymap.set('n', '<C-d>', '<C-d><C-y>', { noremap = true })
 
 vim.keymap.set('n', '<leader><leader>', '<cmd>b#<cr>', { desc = 'Switch to alternate buffer' })
 
+vim.keymap.set('n', '<leader>cd', '<cmd>cd %:p:h<cr>', { desc = '[C]hange [D]irectory to current file' })
+
 -- Prevent transparency plugin from making the statusline transparent
 vim.g.exclude_groups = {
   'StatusLine',
@@ -1004,7 +1006,6 @@ vim.g.python3_host_prog = vim.fn.expand 'which python3'
 
 -- This needs to be called manually, it seems, even though LazyVim already does it
 require('breadcrumbs').setup()
-
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -977,7 +977,9 @@ vim.keymap.set('n', '<leader>af', '<cmd>AerialToggle float<cr>', { desc = '[A]er
 
 -- After adding a top bar via the breadcrumbs plugin, this is necessary to bring back the nice
 -- behavior of 'zz' to center then C-d to scroll so cursor is right at the top of the screen
-vim.api.nvim_set_keymap('n', '<C-d>', '<C-d><C-y>', { noremap = true })
+vim.keymap.set('n', '<C-d>', '<C-d><C-y>', { noremap = true })
+
+vim.keymap.set('n', '<leader><leader>', '<cmd>b#<cr>', { desc = 'Switch to alternate buffer' })
 
 -- Prevent transparency plugin from making the statusline transparent
 vim.g.exclude_groups = {

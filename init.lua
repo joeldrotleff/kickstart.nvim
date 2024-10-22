@@ -990,9 +990,15 @@ vim.g.exclude_groups = {
 }
 
 -- Set the colorscheme
-vim.cmd.colorscheme 'kanagawa-dragon'
+-- vim.cmd.colorscheme 'kanagawa-dragon'
 vim.g.lumen_light_colorscheme = 'rose-pine-dawn'
 vim.g.lumen_dark_colorscheme = 'kanagawa-dragon'
+
+if vim.o.background == 'light' then
+  vim.cmd 'colorscheme rose-pine-dawn'
+else
+  vim.cmd 'colorscheme kanagawa-dragon'
+end
 
 -- Apparently I'm supposed to do this after setting colorscheme
 require('avante_lib').load()

@@ -30,8 +30,6 @@ end
 
 return {
   'vimpostor/vim-lumen',
-  lazy = false,
-  priority = 10010,
   init = function()
     vim.api.nvim_create_autocmd('User', {
       pattern = 'LumenLight',

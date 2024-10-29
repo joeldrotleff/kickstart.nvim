@@ -2,6 +2,12 @@ return {
   -- Colorschemes - high priority / non-lazy based on
   -- recommendation from Lazy.nvim docs
   {
+    'aktersnurra/no-clown-fiesta.nvim',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
     'srcery-colors/srcery-vim',
     lazy = false,
     priority = 10,
@@ -42,5 +48,4 @@ return {
     lazy = false,
     priority = 10,
   },
-
 }

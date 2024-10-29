@@ -991,6 +991,9 @@ vim.keymap.set('n', '<leader>cd', function()
     'requirements.txt',
     'pyproject.toml',
   }
+  local root_folders = {
+    'daily_notes',
+  }
   local path = vim.api.nvim_buf_get_name(0)
   if path == '' then
     return
@@ -998,10 +1001,13 @@ vim.keymap.set('n', '<leader>cd', function()
   path = vim.fs.dirname(path)
 
   local root_file = vim.fs.find(root_names, { path = path, upward = true })[1]
-  if root_file == nil then
+  local root_folder = vim.fs.find(root_folders, { path = path, upward = true })[1]
+
+  if root_file == nil and root_folder == nil then
     return
   end
-  local root = vim.fs.dirname(root_file)
+
+  local root = root_file and vim.fs.dirname(root_file) or root_folder
   vim.fn.chdir(root)
 end, { desc = '[C]hange [D]irectory to current file' })
 

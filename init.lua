@@ -350,6 +350,7 @@ require('lazy').setup({
             -- This is an attempt to exclude source code files from cluttering up 
             -- Telescope's "recent files" list.
             "/private/",
+            ".local",
           },
         },
         pickers = {

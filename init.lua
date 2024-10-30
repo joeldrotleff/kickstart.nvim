@@ -344,11 +344,14 @@ require('lazy').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = {
+          file_ignore_patterns = {
+
+            -- This is an attempt to exclude source code files from cluttering up 
+            -- Telescope's "recent files" list.
+            "/private/",
+          },
+        },
         pickers = {
           colorscheme = {
             enable_preview = true,

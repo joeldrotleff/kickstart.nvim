@@ -962,6 +962,9 @@ end, { noremap = true, silent = true, desc = "[Open] current buffer's enclosing 
 vim.keymap.set('n', '<leader>xx', function()
   vim.fn.jobstart 'osascript ~/.config/nvim/scripts/xcode_run.scpt'
 end, { noremap = true, silent = true, desc = 'Trigger Xcode to build+run current project' })
+vim.keymap.set('n', '<leader>xb', function()
+  vim.fn.jobstart 'osascript ~/.config/nvim/scripts/xcode_build.scpt'
+end, { noremap = true, silent = true, desc = 'Trigger Xcode to build current project' })
 
 vim.keymap.set('n', '<leader>dpr', function()
   require('dap-python').test_method()

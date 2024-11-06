@@ -25,6 +25,7 @@ alias ddd='rm -rf ~/Library/Developer/Xcode/DerivedData/'
 alias mpxlspbuild='cd ~/code/joya/mpx && xcode-build-server config -project ~/code/joya/mpx/MPX/*.xcodeproj -scheme "MPX"'
 alias mplspbuild='cd ~/code/joya/marcopolo-app/ios && xcode-build-server config -workspace ~/code/joya/marcopolo-app/ios/*.xcworkspace -scheme "MarcoPolo Dev IAP"'
 alias sdrlspbuild='cd ~/code/joya/sdr/client && xcode-build-server config -project *xcodeproj -scheme SDR'
+alias sdrmobilelspbuild='cd ~/code/joya/sdr/client && xcode-build-server config -project *xcodeproj -scheme SDRMobile'
 
 # Command fixer utility 'fuck'
 thefuck --alias | source

@@ -347,10 +347,10 @@ require('lazy').setup({
         defaults = {
           file_ignore_patterns = {
 
-            -- This is an attempt to exclude source code files from cluttering up 
+            -- This is an attempt to exclude source code files from cluttering up
             -- Telescope's "recent files" list.
-            "/private/",
-            ".local",
+            '/private/',
+            '.local',
           },
         },
         pickers = {
@@ -1047,6 +1047,12 @@ vim.g.python3_host_prog = vim.fn.expand 'which python3'
 
 -- This needs to be called manually, it seems, even though LazyVim already does it
 require('breadcrumbs').setup()
+
+-- Fugitive and Gitsigns conflict when trying to use :G
+-- So define G explicitly to be :Git
+vim.api.nvim_create_user_command('G', function(opts)
+  vim.cmd('Git ' .. opts.args)
+end, { nargs = '*' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

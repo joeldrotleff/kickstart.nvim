@@ -988,6 +988,15 @@ vim.keymap.set('n', '<C-d>', '<C-d><C-y>', { noremap = true })
 
 vim.keymap.set('n', '<leader><leader>', '<cmd>b#<cr>', { desc = 'Switch to alternate buffer' })
 
+vim.keymap.set('n', '<leader>cD', function()
+  local path = vim.api.nvim_buf_get_name(0)
+  if path == '' then
+    return
+  end
+  path = vim.fs.dirname(path)
+  vim.fn.chdir(path)
+end, { desc = "[C]hange [D]irectory to current file's location" })
+
 vim.keymap.set('n', '<leader>cd', function()
   local root_names = {
     '.git',
@@ -1016,7 +1025,7 @@ vim.keymap.set('n', '<leader>cd', function()
 
   local root = root_file and vim.fs.dirname(root_file) or root_folder
   vim.fn.chdir(root)
-end, { desc = '[C]hange [D]irectory to current file' })
+end, { desc = "[C]hange [D]irectory to current file's project root" })
 
 -- Prevent transparency plugin from making the statusline transparent
 vim.g.exclude_groups = {

@@ -1036,19 +1036,19 @@ vim.g.exclude_groups = {
 -- Set the colorscheme
 -- vim.cmd.colorscheme 'kanagawa-dragon'
 vim.g.lumen_light_colorscheme = 'rose-pine-dawn'
-vim.g.lumen_dark_colorscheme = 'kanagawa-dragon'
+vim.g.lumen_dark_colorscheme = 'monoglow'
 
 if vim.o.background == 'light' then
   vim.cmd 'colorscheme rose-pine-dawn'
 else
-  vim.cmd 'colorscheme kanagawa-dragon'
+  vim.cmd 'colorscheme monoglow'
 end
 
 -- Apparently I'm supposed to do this after setting colorscheme
 require('avante_lib').load()
 
 -- Set cursor red when in insert mode
-vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
+vim.api.nvim_set_hl(0, 'Cursor', { bg = '#1bfd9c' })
 vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' }) --
 
 -- Specify the path to the python interpreter because apparently it takes 1-2s to find it on startup :(

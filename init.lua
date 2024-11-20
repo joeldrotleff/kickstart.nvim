@@ -962,6 +962,10 @@ vim.keymap.set('n', '<leader>oe', function()
   vim.fn.jobstart('open "' .. vim.fn.expand '%' .. '"')
 end, { noremap = true, silent = true, desc = '[O]pen current buffer in [E]xternal editor' })
 
+-- Open current file in Xcode w/ Preview
+vim.keymap.set('n', '<leader>xp', function()
+  vim.fn.jobstart('osascript ~/.config/nvim/scripts/xcode_preview.scpt "' .. vim.fn.expand '%:p' .. '"')
+end, { noremap = true, silent = true, desc = 'Open current buffer in [X]code [P]review' })
 -- Open current buffer's file in Zed
 vim.keymap.set('n', '<leader>oz', function()
   vim.fn.jobstart('zed "' .. vim.fn.expand '%' .. '"')

@@ -38,6 +38,10 @@ return {
         set_kitty_light_mode(true)
         -- vim.fn.system('kitty @ --to unix:/tmp/kitty.sock set-colors --all --configured')
         vim.fn.system 'kill -SIGUSR1 $KITTY_PID'
+
+        -- Highlight cursor in insert mode (needs to be set after changing theme)
+        local wildmenu_hl = vim.api.nvim_get_hl_by_name('WildMenu', true).background
+        vim.api.nvim_set_hl(0, 'Cursor', { bg = wildmenu_hl })
       end,
     })
     vim.api.nvim_create_autocmd('User', {
@@ -46,6 +50,10 @@ return {
         -- When Neovim is set to dark mode, change kitty theme to match
         set_kitty_light_mode(false)
         vim.fn.system 'kill -SIGUSR1 $KITTY_PID'
+
+        -- Highlight cursor in insert mode (needs to be set after changing theme)
+        local wildmenu_hl = vim.api.nvim_get_hl_by_name('WildMenu', true).background
+        vim.api.nvim_set_hl(0, 'Cursor', { bg = wildmenu_hl })
       end,
     })
   end,

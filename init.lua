@@ -1065,8 +1065,11 @@ end
 -- Apparently I'm supposed to do this after setting colorscheme
 require('avante_lib').load()
 
--- Set cursor red when in insert mode
-vim.api.nvim_set_hl(0, 'Cursor', { bg = '#1bfd9c' })
+-- Set cursor to a bright/highlight color when in insert mode
+local wildmenu_hl = vim.api.nvim_get_hl_by_name('WildMenu', true).background
+vim.api.nvim_set_hl(0, 'Cursor', { bg = wildmenu_hl })
+
+-- Make cursor a block in insert mode
 vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' }) --
 
 -- Specify the path to the python interpreter because apparently it takes 1-2s to find it on startup :(

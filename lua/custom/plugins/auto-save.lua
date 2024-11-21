@@ -5,7 +5,7 @@ return {
     condition = function(buf)
       local fn = vim.fn
       local utils = require 'auto-save.utils.data'
-      local ignored_filetypes = { 'harpoon' }
+      local ignored_filetypes = { 'harpoon', 'oil' }
 
       if fn.getbufvar(buf, '&modifiable') == 1 and utils.not_in(fn.getbufvar(buf, '&filetype'), ignored_filetypes) then
         return true

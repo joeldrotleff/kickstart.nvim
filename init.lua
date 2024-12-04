@@ -1052,22 +1052,21 @@ vim.g.exclude_groups = {
 }
 
 -- Set the colorscheme
--- vim.cmd.colorscheme 'kanagawa-dragon'
 vim.g.lumen_light_colorscheme = 'rose-pine-dawn'
-vim.g.lumen_dark_colorscheme = 'monoglow'
+vim.g.lumen_dark_colorscheme = 'kanagawa-wave'
 
 if vim.o.background == 'light' then
-  vim.cmd 'colorscheme rose-pine-dawn'
+  vim.cmd.colorscheme(vim.g.lumen_light_colorscheme)
 else
-  vim.cmd 'colorscheme monoglow'
+  vim.cmd.colorscheme(vim.g.lumen_dark_colorscheme)
 end
 
 -- Apparently I'm supposed to do this after setting colorscheme
 require('avante_lib').load()
 
 -- Set cursor to a bright/highlight color when in insert mode
-local wildmenu_hl = vim.api.nvim_get_hl_by_name('WildMenu', true).background
-vim.api.nvim_set_hl(0, 'Cursor', { bg = wildmenu_hl })
+-- local wildmenu_hl = vim.api.nvim_get_hl_by_name('WildMenu', true).background
+vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
 
 -- Make cursor a block in insert mode
 vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' }) --
@@ -1083,7 +1082,6 @@ require('breadcrumbs').setup()
 vim.api.nvim_create_user_command('G', function(opts)
   vim.cmd('Git ' .. opts.args)
 end, { nargs = '*' })
-
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

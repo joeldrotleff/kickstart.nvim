@@ -1066,7 +1066,7 @@ require('avante_lib').load()
 
 -- Set cursor to a bright/highlight color when in insert mode
 -- local wildmenu_hl = vim.api.nvim_get_hl_by_name('WildMenu', true).background
-vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
+vim.api.nvim_set_hl(0, 'Cursor', { bg = 'teal' })
 
 -- Make cursor a block in insert mode
 vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' }) --

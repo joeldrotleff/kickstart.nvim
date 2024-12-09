@@ -1019,7 +1019,7 @@ require('breadcrumbs').setup()
 -- Fugitive and Gitsigns conflict when trying to use :G
 -- So define G explicitly to be :Git
 vim.api.nvim_create_user_command('G', function(opts)
-  vim.cmd('Git ' .. opts.args)
+  vim.cmd('Neogit ' .. opts.args)
 end, { nargs = '*' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`

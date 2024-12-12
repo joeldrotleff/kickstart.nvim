@@ -347,6 +347,7 @@ require('lazy').setup({
         '/private/',
         '.local',
         'project.pbxproj',
+        '/no_backend',
       }
       local telescope_ignore_toggle = true
 
@@ -605,7 +606,7 @@ require('lazy').setup({
 
       lspconfig.pyright.setup {}
       lspconfig.jsonls.setup {}
-      lspconfig.tailwindcss.setup {}
+      -- lspconfig.tailwindcss.setup {}
       lspconfig.lua_ls.setup {
         opts = {
           settings = {

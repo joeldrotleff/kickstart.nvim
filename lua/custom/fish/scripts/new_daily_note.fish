@@ -43,7 +43,7 @@ end
 ln -f -s $new_file $base_dir/today.md
 
 # Change directory to ~/code/vibecheck
-cd ~/code/joya/sdr/client/
+cd ~/code/joya/sdr/
 
 # Open the new file in neovim
 nvim $new_file

@@ -992,8 +992,8 @@ vim.g.exclude_groups = {
 }
 
 -- Set the colorscheme
-vim.g.lumen_light_colorscheme = 'rose-pine-dawn'
-vim.g.lumen_dark_colorscheme = 'kanagawa-wave'
+vim.g.lumen_light_colorscheme = 'dawnfox'
+vim.g.lumen_dark_colorscheme = 'carbonfox'
 
 if vim.o.background == 'light' then
   vim.cmd.colorscheme(vim.g.lumen_light_colorscheme)

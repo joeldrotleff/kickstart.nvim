@@ -2,6 +2,12 @@ return {
   -- Colorschemes - high priority / non-lazy based on
   -- recommendation from Lazy.nvim docs
   {
+    'EdenEast/nightfox.nvim',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
     'wnkz/monoglow.nvim',
     lazy = false,
     priority = 10,

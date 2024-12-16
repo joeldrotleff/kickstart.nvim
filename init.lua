@@ -1023,7 +1023,7 @@ vim.api.nvim_create_user_command('G', function(opts)
   vim.cmd('Neogit ' .. opts.args)
 end, { nargs = '*' })
 
-vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
+-- vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

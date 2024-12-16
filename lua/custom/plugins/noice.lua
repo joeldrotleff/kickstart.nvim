@@ -6,8 +6,7 @@ return {
       {
         filter = {
           event = 'msg_show',
-          kind = '',
-          find = 'written',
+          find = 'AutoSave',
         },
         opts = { skip = true },
       },

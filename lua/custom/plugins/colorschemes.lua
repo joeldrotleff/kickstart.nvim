@@ -1,6 +1,14 @@
 return {
   -- Colorschemes - high priority / non-lazy based on
   -- recommendation from Lazy.nvim docs
+  -- {
+
+  {
+    'Vallen217/eidolon.nvim',
+    lazy = false,
+    priority = 10,
+  },
+
   {
     'EdenEast/nightfox.nvim',
     lazy = false,

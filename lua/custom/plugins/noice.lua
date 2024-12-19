@@ -1,15 +1,20 @@
+local messagesToIgnore = { 'AutoSave', 'fewer line', 'more line', 'Hunk', 'change' }
+
+
 return {
   'folke/noice.nvim',
   event = 'VeryLazy',
   opts = {
     routes = {
-      {
-        filter = {
-          event = 'msg_show',
-          find = 'AutoSave',
-        },
-        opts = { skip = true },
-      },
+      unpack(vim.tbl_map(function(pattern)
+        return {
+          filter = {
+            event = 'msg_show',
+            find = pattern,
+          },
+          opts = { skip = true },
+        }
+      end, messagesToIgnore))
     },
   },
   dependencies = {

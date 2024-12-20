@@ -4,6 +4,12 @@ return {
   -- {
 
   {
+    'AlexvZyl/nordic.nvim',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
     'Vallen217/eidolon.nvim',
     lazy = false,
     priority = 10,

@@ -347,7 +347,7 @@ require('lazy').setup({
         '/private/',
         '.local',
         'project.pbxproj',
-        '/no_backend',
+        'no_backend',
       }
       local telescope_ignore_toggle = true
 
@@ -993,7 +993,7 @@ vim.g.exclude_groups = {
 
 -- Set the colorscheme
 vim.g.lumen_light_colorscheme = 'dawnfox'
-vim.g.lumen_dark_colorscheme = 'eidolon-night'
+vim.g.lumen_dark_colorscheme = 'carbonfox'
 
 if vim.o.background == 'light' then
   vim.cmd.colorscheme(vim.g.lumen_light_colorscheme)
@@ -1022,6 +1022,7 @@ require('breadcrumbs').setup()
 vim.api.nvim_create_user_command('G', function(opts)
   vim.cmd('Neogit ' .. opts.args)
 end, { nargs = '*' })
+
 
 -- vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
 

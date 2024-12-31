@@ -1,4 +1,4 @@
---- Load the entirety of the current buffer
+-- Load the entirety of the current buffer
 local function loadEntireBuffer()
   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
   return lines
@@ -95,10 +95,17 @@ return {
     'kristijanhusak/vim-dadbod-completion',
   },
   config = function()
+    -- NOTE! Dadbod uses the $DATABASE_URL environment variable to connect to the database.
+    -- If it isn't set it causes a nasty error whenever opening a SQL file.
     vim.api.nvim_create_autocmd('FileType', {
       pattern = { 'sql', 'mysql', 'plsql' },
       callback = function()
-        require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
+        local success, err = pcall(function()
+          require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
+        end)
+        if not success then
+          print 'Error setting up database autocopmlete'
+        end
       end,
     })
 

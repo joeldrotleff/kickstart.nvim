@@ -1023,6 +1023,45 @@ vim.api.nvim_create_user_command('G', function(opts)
   vim.cmd('Neogit ' .. opts.args)
 end, { nargs = '*' })
 
+vim.keymap.set('n', '<leader>lf', function()
+  local filepath = vim.fn.expand '%:p'
+  local scheme = ''
+  if string.find(filepath, 'Tofu Mobile') then
+    scheme = 'Tofu Mobile'
+  elseif string.find(filepath, 'Tofu Desktop') then
+    scheme = 'Tofu Desktop'
+  end
+  if scheme ~= '' then
+    vim.fn.chdir(vim.fn.expand '~/code/joya/sdr/client/real_backend/')
+
+    local spinner = { '|', '/', '-', '\\' }
+    local spinner_index = 1
+    local timer = vim.loop.new_timer()
+
+    local function update_spinner()
+      print('\r' .. spinner[spinner_index] .. ' Switching xcode to scheme: ' .. scheme)
+      spinner_index = (spinner_index % #spinner) + 1
+    end
+
+    timer:start(0, 100, vim.schedule_wrap(update_spinner))
+
+    local function on_exit(_, code)
+      timer:stop()
+      timer:close()
+      if code == 0 then
+        print('\rSwitched xcode to scheme: ' .. scheme .. '   ')
+      else
+        print('\rxcode-build-server config failed with code: ' .. code .. '   ')
+      end
+    end
+
+    if scheme == 'Tofu Mobile' then
+      vim.fn.jobstart('xcode-build-server config -project *xcodeproj -scheme "Tofu Mobile"', { on_exit = on_exit })
+    elseif scheme == 'Tofu Desktop' then
+      vim.fn.jobstart('xcode-build-server config -project *xcodeproj -scheme "Tofu Desktop"', { on_exit = on_exit })
+    end
+  end
+end, { desc = 'Fix (Swift) LSP by re-running xcode build tool' })
 
 -- vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
 

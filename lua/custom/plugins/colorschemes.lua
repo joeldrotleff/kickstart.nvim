@@ -4,6 +4,18 @@ return {
   -- {
 
   {
+    'ficcdaf/ashen.nvim',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
+    'slugbyte/lackluster.nvim',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
     'AlexvZyl/nordic.nvim',
     lazy = false,
     priority = 10,

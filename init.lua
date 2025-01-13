@@ -992,8 +992,8 @@ vim.g.exclude_groups = {
 }
 
 -- Set the colorscheme
-vim.g.lumen_light_colorscheme = 'dawnfox'
-vim.g.lumen_dark_colorscheme = 'lackluster-hack'
+vim.g.lumen_light_colorscheme = 'curtailed'
+vim.g.lumen_dark_colorscheme = 'curtailed'
 
 if vim.o.background == 'light' then
   vim.cmd.colorscheme(vim.g.lumen_light_colorscheme)

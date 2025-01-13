@@ -4,6 +4,12 @@ return {
   -- {
 
   {
+    'jckmgns/curtailed',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
     'ficcdaf/ashen.nvim',
     lazy = false,
     priority = 10,

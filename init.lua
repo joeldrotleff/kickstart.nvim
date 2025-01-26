@@ -993,7 +993,7 @@ vim.g.exclude_groups = {
 
 -- Set the colorscheme
 vim.g.lumen_light_colorscheme = 'curtailed'
-vim.g.lumen_dark_colorscheme = 'monoglow-lack'
+vim.g.lumen_dark_colorscheme = 'kanagawa-wave'
 
 if vim.o.background == 'light' then
   vim.cmd.colorscheme(vim.g.lumen_light_colorscheme)

@@ -10,6 +10,9 @@ return {
     notify = {
       enabled = false,
     },
+    presets = {
+      bottom_search = true,
+    },
   },
   dependencies = {
     'MunifTanjim/nui.nvim',

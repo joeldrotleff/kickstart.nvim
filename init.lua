@@ -993,7 +993,7 @@ vim.g.exclude_groups = {
 
 -- Set the colorscheme
 vim.g.lumen_light_colorscheme = 'dayfox'
-vim.g.lumen_dark_colorscheme = 'kanagawa-wave'
+vim.g.lumen_dark_colorscheme = 'vague'
 
 if vim.o.background == 'light' then
   vim.cmd.colorscheme(vim.g.lumen_light_colorscheme)

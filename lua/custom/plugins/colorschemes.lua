@@ -4,6 +4,12 @@ return {
   -- {
 
   {
+    'vague2k/vague.nvim',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
     'jckmgns/curtailed',
     lazy = false,
     priority = 10,

@@ -1,7 +1,12 @@
 return {
   -- Colorschemes - high priority / non-lazy based on
   -- recommendation from Lazy.nvim docs
-  -- {
+
+  {
+    'sainnhe/edge',
+    lazy = false,
+    priority = 10,
+  },
 
   {
     'vague2k/vague.nvim',

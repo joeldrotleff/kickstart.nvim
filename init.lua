@@ -992,7 +992,7 @@ vim.g.exclude_groups = {
 }
 
 -- Set the colorscheme
-vim.g.lumen_light_colorscheme = 'edge'
+vim.g.lumen_light_colorscheme = 'rose-pine-dawn'
 vim.g.lumen_dark_colorscheme = 'vague'
 
 if vim.o.background == 'light' then

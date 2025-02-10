@@ -1023,6 +1023,10 @@ vim.api.nvim_create_user_command('G', function(opts)
   vim.cmd('Neogit ' .. opts.args)
 end, { nargs = '*' })
 
+vim.keymap.set('n', '<leader>lr', vim.diagnostic.reset, { desc = '[L]sp diagnostics [R]eset' })
+
+vim.keymap.set('n', '<leader>fa', ':!swiftformat .<CR>', { desc = '[F]ormat [A]ll files in directory' })
+
 vim.keymap.set('n', '<leader>lf', function()
   local filepath = vim.fn.expand '%:p'
   local scheme = ''

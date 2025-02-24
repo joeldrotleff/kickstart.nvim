@@ -357,6 +357,16 @@ require('lazy').setup({
         --
         defaults = {
           file_ignore_patterns = telescope_ignore_patterns,
+          layout_config = {
+            vertical = {
+              width = 0.999,
+              height = 0.999,
+            },
+            horizontal = {
+              width = 0.999,
+              height = 0.999,
+            },
+          },
         },
         pickers = {
           colorscheme = {
@@ -992,7 +1002,7 @@ vim.g.exclude_groups = {
 }
 
 -- Set the colorscheme
-vim.g.lumen_light_colorscheme = 'rose-pine-dawn'
+vim.g.lumen_light_colorscheme = 'kanagawa-wave'
 vim.g.lumen_dark_colorscheme = 'vague'
 
 if vim.o.background == 'light' then

@@ -3,7 +3,17 @@ return {
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
   opts = {
-    hints = { enabled = false },
+    provider = 'claude',
+    auto_suggestions_provider = 'claude',
+    cursor_applying_provider = nil,
+    claude = {
+      endpoint = 'https://api.anthropic.com',
+      model = 'claude-3-7-sonnet-20250219',
+      temperature = 0,
+      max_tokens = 4096,
+    },
+
+    hints = { enabled = true },
     -- recommended settings
     default = {
       embed_image_as_base64 = false,

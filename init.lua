@@ -616,7 +616,7 @@ require('lazy').setup({
 
       lspconfig.pyright.setup {}
       lspconfig.jsonls.setup {}
-      -- lspconfig.tailwindcss.setup {}
+      lspconfig.tailwindcss.setup {}
       lspconfig.lua_ls.setup {
         opts = {
           settings = {
@@ -636,7 +636,7 @@ require('lazy').setup({
       }
 
       lspconfig.ts_ls.setup {
-        root_dir = lspconfig.util.root_pattern 'package.jsonnn',
+        root_dir = lspconfig.util.root_pattern 'package.json',
         single_file_support = false,
       }
     end,

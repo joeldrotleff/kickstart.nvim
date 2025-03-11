@@ -3,6 +3,7 @@ if status is-interactive
 end
 
 fish_add_path "$HOME/.deno/bin"
+sh "$HOME/code/joya/mp-desktop-web/script/import.sh"
 
 alias nv 'nvim'
 

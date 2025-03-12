@@ -1035,6 +1035,12 @@ end, { nargs = '*' })
 
 vim.keymap.set('n', '<leader>lr', vim.diagnostic.reset, { desc = '[L]sp diagnostics [R]eset' })
 
+-- Build DesignKit's icons
+vim.keymap.set('n', '<leader>bi', function()
+  vim.cmd 'lcd ~/code/joya/mp-desktop-web/shared/design-kit'
+  vim.cmd '!npm run build'
+end, { desc = '[B]uild [I]cons' })
+
 vim.keymap.set('n', '<leader>fa', ':!swiftformat .<CR>', { desc = '[F]ormat [A]ll files in directory' })
 
 vim.keymap.set('n', '<leader>lf', function()

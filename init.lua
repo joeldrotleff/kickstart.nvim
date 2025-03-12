@@ -616,7 +616,7 @@ require('lazy').setup({
 
       lspconfig.pyright.setup {}
       lspconfig.jsonls.setup {}
-      lspconfig.tailwindcss.setup {}
+      -- lspconfig.tailwindcss.setup {}
       lspconfig.lua_ls.setup {
         opts = {
           settings = {

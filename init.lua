@@ -1002,7 +1002,7 @@ vim.g.exclude_groups = {
 }
 
 -- Set the colorscheme
-vim.g.lumen_light_colorscheme = 'kanagawa-wave'
+vim.g.lumen_light_colorscheme = 'e-ink'
 vim.g.lumen_dark_colorscheme = 'vague'
 
 if vim.o.background == 'light' then

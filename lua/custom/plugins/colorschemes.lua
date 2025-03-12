@@ -3,6 +3,12 @@ return {
   -- recommendation from Lazy.nvim docs
 
   {
+    'alexxGmZ/e-ink.nvim',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
     'sainnhe/edge',
     lazy = false,
     priority = 10,

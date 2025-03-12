@@ -4,6 +4,7 @@ end
 
 fish_add_path "$HOME/.deno/bin"
 sh "$HOME/code/joya/mp-desktop-web/script/import.sh"
+fish_add_path "/Applications/Windsurf.app/Contents/Resources/app/bin/"
 
 alias nv 'nvim'
 

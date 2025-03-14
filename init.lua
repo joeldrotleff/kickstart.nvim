@@ -1039,9 +1039,30 @@ vim.keymap.set('n', '<leader>lr', vim.diagnostic.reset, { desc = '[L]sp diagnost
 
 -- Build DesignKit's icons
 vim.keymap.set('n', '<leader>bi', function()
-  vim.cmd 'lcd ~/code/joya/mp-desktop-web/shared/design-kit'
-  vim.cmd '!npm run build'
-  vim.cmd 'lcd -'
+  local spinner = { '|', '/', '-', '\\' }
+  local spinner_index = 1
+  local timer = vim.loop.new_timer()
+
+  local function update_spinner()
+    print('\r' .. spinner[spinner_index] .. ' Building icons...')
+    spinner_index = (spinner_index % #spinner) + 1
+  end
+
+  timer:start(0, 100, vim.schedule_wrap(update_spinner))
+
+  vim.fn.jobstart('cd ~/code/joya/mp-desktop-web/shared/design-kit && npm run build', {
+    on_exit = function(_, code)
+      timer:stop()
+      timer:close()
+      vim.schedule(function()
+        if code == 0 then
+          print('\rBuild icons: Success   ')
+        else
+          print('\rBuild icons: Failed   ')
+        end
+      end)
+    end
+  })
 end, { desc = '[B]uild [I]cons' })
 
 vim.keymap.set('n', '<leader>fa', ':!swiftformat .<CR>', { desc = '[F]ormat [A]ll files in directory' })

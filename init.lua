@@ -1039,6 +1039,7 @@ vim.keymap.set('n', '<leader>lr', vim.diagnostic.reset, { desc = '[L]sp diagnost
 vim.keymap.set('n', '<leader>bi', function()
   vim.cmd 'lcd ~/code/joya/mp-desktop-web/shared/design-kit'
   vim.cmd '!npm run build'
+  vim.cmd 'lcd -'
 end, { desc = '[B]uild [I]cons' })
 
 vim.keymap.set('n', '<leader>fa', ':!swiftformat .<CR>', { desc = '[F]ormat [A]ll files in directory' })

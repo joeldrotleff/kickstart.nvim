@@ -23,6 +23,8 @@ alias nvchad='NVIM_APPNAME="chad" nvim'
 # Delete derivded data folder (Ah. xcode)
 alias ddd='rm -rf ~/Library/Developer/Xcode/DerivedData/'
 
+export AIDER_DARK_MODE=true
+
 # Rerun xcode-build server for active projects
 alias mpxlspbuild='cd ~/code/joya/mpx && xcode-build-server config -project ~/code/joya/mpx/MPX/*.xcodeproj -scheme "MPX"'
 alias mplspbuild='cd ~/code/joya/marcopolo-app/ios && xcode-build-server config -workspace ~/code/joya/marcopolo-app/ios/*.xcworkspace -scheme "MarcoPolo Dev IAP"'

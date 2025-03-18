@@ -3,6 +3,8 @@ if status is-interactive
 end
 
 fish_add_path "$HOME/.deno/bin"
+fish_add_path "$HOME/.local/bin"
+
 sh "$HOME/code/joya/mp-desktop-web/script/import.sh"
 fish_add_path "/Applications/Windsurf.app/Contents/Resources/app/bin/"
 

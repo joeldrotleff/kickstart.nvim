@@ -8,6 +8,10 @@ fish_add_path "/opt/homebrew/bin"
 
 sh "$HOME/code/joya/mp-desktop-web/script/import.sh"
 fish_add_path "/Applications/Windsurf.app/Contents/Resources/app/bin/"
+fish_add_path "$HOME/.pyenv/shims/"
+
+# See: https://github.com/pyenv/pyenv?tab=readme-ov-file#b-set-up-your-shell-environment-for-pyenv
+pyenv init - fish | source
 
 alias nv 'nvim'
 

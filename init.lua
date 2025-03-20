@@ -1129,6 +1129,9 @@ vim.keymap.set('n', '<leader>lf', function()
   end
 end, { desc = 'Fix (Swift) LSP by re-running xcode build tool' })
 
+-- Include - in 'words' since it gets used a lot in tailwind css
+vim.cmd('set iskeyword+=-')
+
 -- vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
 
 -- The line beneath this is called `modeline`. See `:help modeline`

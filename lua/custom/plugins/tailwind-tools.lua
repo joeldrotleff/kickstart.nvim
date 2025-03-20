@@ -1,11 +1,15 @@
 return {
-  "luckasRanarison/tailwind-tools.nvim",
-  name = "tailwind-tools",
-  build = ":UpdateRemotePlugins",
+  'luckasRanarison/tailwind-tools.nvim',
+  name = 'tailwind-tools',
+  build = ':UpdateRemotePlugins',
   dependencies = {
-    "nvim-treesitter/nvim-treesitter",
-    "nvim-telescope/telescope.nvim", -- optional
-    "neovim/nvim-lspconfig", -- optional
+    'nvim-treesitter/nvim-treesitter',
+    'nvim-telescope/telescope.nvim', -- optional
+    'neovim/nvim-lspconfig', -- optional
   },
-  opts = {} -- your configuration
+  opts = {
+    document_color = {
+      kind = 'foreground',
+    },
+  },
 }

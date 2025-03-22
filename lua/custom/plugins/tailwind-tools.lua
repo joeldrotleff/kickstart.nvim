@@ -9,7 +9,7 @@ return {
   },
   opts = {
     document_color = {
-      kind = 'foreground',
+			enabled = false,
     },
   },
 }

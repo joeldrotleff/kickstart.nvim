@@ -659,6 +659,11 @@ require('lazy').setup({
       },
     },
     opts = {
+      format_on_save = {
+        -- These options will be passed to conform.format()
+        timeout_ms = 500,
+        lsp_format = 'fallback',
+      },
       notify_on_error = true,
       formatters_by_ft = {
         lua = { 'stylua' },
@@ -667,6 +672,7 @@ require('lazy').setup({
         python = { 'black' },
         typescript = { 'prettier' },
         javascript = { 'prettier' },
+        typescriptreact = { 'prettier' },
       },
       formatters = {
         black = {
@@ -1130,7 +1136,7 @@ vim.keymap.set('n', '<leader>lf', function()
 end, { desc = 'Fix (Swift) LSP by re-running xcode build tool' })
 
 -- Include - in 'words' since it gets used a lot in tailwind css
-vim.cmd('set iskeyword+=-')
+vim.cmd 'set iskeyword+=-'
 
 -- vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
 

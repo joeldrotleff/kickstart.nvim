@@ -9,6 +9,9 @@ return {
       options = {
         signcolumn = 'no',
         number = false,
+        relativenumber = false,
+        cursorline = false,
+        cursorcolumn = false,
       },
     },
     plugins = {

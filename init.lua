@@ -638,7 +638,7 @@ require('lazy').setup({
       }
 
       lspconfig.ts_ls.setup {
-        root_dir = lspconfig.util.root_pattern 'package.json',
+        root_dir = lspconfig.util.root_pattern 'tsconfig.json',
         single_file_support = false,
       }
     end,

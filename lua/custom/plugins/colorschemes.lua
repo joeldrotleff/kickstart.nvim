@@ -2,6 +2,18 @@ return {
   -- Colorschemes - high priority / non-lazy based on
   -- recommendation from Lazy.nvim docs
 
+	{
+		'embark-theme/vim',
+		lazy = false,
+		priority = 10,
+	},
+
+  {
+    'datsfilipe/vesper.nvim',
+    lazy = false,
+    priority = 10,
+  },
+
   {
     'alexxGmZ/e-ink.nvim',
     lazy = false,

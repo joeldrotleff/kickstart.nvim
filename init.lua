@@ -1011,7 +1011,7 @@ vim.g.exclude_groups = {
 
 -- Set the colorscheme
 vim.g.lumen_light_colorscheme = 'e-ink'
-vim.g.lumen_dark_colorscheme = 'vague'
+vim.g.lumen_dark_colorscheme = 'embark'
 
 if vim.o.background == 'light' then
   vim.cmd.colorscheme(vim.g.lumen_light_colorscheme)

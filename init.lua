@@ -166,16 +166,12 @@ vim.opt.scrolloff = 10
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- New virtual lines feature from Neovim 0.11
+vim.diagnostic.config { virtual_lines = true }
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-
--- Diagnostics!
--- By default, only show virtual text for errors
-vim.diagnostic.config {
-  virtual_text = { severity = { vim.diagnostic.severity.ERROR } },
-}
-
 local show_all_virtualtext = function()
   vim.diagnostic.config {
     virtual_text = {
@@ -529,7 +525,7 @@ require('lazy').setup({
           map('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
 
           map('gD', function()
-            builtin.lsp_definitions { jump_type = 'split' }
+            builtin.lsp_definitions { jump_type = 'vsplit' }
           end, '[G]oto [Definition] in new split')
 
           -- Find references for the word under your cursor.

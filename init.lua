@@ -167,7 +167,10 @@ vim.opt.scrolloff = 10
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- New virtual lines feature from Neovim 0.11
-vim.diagnostic.config { virtual_lines = true }
+vim.diagnostic.config {
+	virtual_lines = { current_line = true, enabled = true },
+	virtual_text = true
+}
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })

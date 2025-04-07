@@ -168,8 +168,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- New virtual lines feature from Neovim 0.11
 vim.diagnostic.config {
-	virtual_lines = { current_line = true, enabled = true },
-	virtual_text = true
+  virtual_lines = { current_line = true, enabled = true },
+  virtual_text = true,
 }
 
 -- Diagnostic keymaps

@@ -1067,28 +1067,6 @@ vim.keymap.set('n', '<leader>bi', function()
   })
 end, { desc = '[B]uild [I]cons' })
 
--- Open Icons Sprite Sheet in default editor
-vim.keymap.set('n', '<leader>oi', function()
-  local spritesheet_path = vim.fn.expand '~/code/joya/mp-desktop-web/shared/design-kit/generated/spritesheet-icons.svg'
-
-  -- Check if file exists
-  if vim.fn.filereadable(spritesheet_path) == 0 then
-    print 'Sprite sheet not found. Try building icons first with <leader>bi'
-    return
-  end
-
-  -- Open with default application
-  if vim.fn.has 'mac' == 1 then
-    vim.fn.jobstart('open ' .. spritesheet_path, { detach = true })
-  elseif vim.fn.has 'unix' == 1 then
-    vim.fn.jobstart('xdg-open ' .. spritesheet_path, { detach = true })
-  elseif vim.fn.has 'win32' == 1 then
-    vim.fn.jobstart('start "" "' .. spritesheet_path .. '"', { detach = true })
-  end
-
-  print 'Opening sprite sheet in default editor'
-end, { desc = '[O]pen [I]cons sprite sheet' })
-
 vim.keymap.set('n', '<leader>fa', ':!swiftformat .<CR>', { desc = '[F]ormat [A]ll files in directory' })
 
 vim.keymap.set('n', '<leader>lf', function()

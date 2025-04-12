@@ -243,8 +243,8 @@ require('lazy').setup({
             --    See `:help CursorHold` for information about when this is executed
             --
             -- When you move your cursor, the highlights will be cleared (the second autocommand).
-            local client = vim.lsp.get_client_by_id(event.data.client_id)
-            if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+						local client = vim.lsp.get_client_by_id(event.data.client_id)
+						if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
               local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
               vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
                 buffer = event.buf,
@@ -271,7 +271,7 @@ require('lazy').setup({
             -- code, if the language server you are using supports them
             --
             -- This may be unwanted, since they displace some of your code
-            if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+            if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
               map('<leader>th', function()
                 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
               end, '[T]oggle Inlay [H]ints')
@@ -366,7 +366,6 @@ require('lazy').setup({
 vim.cmd('source ' .. vim.fn.stdpath 'config' .. '/lua/custom/unimpaired.vim')
 
 local lspconfig = require 'lspconfig'
-local util = lspconfig.util
 lspconfig.sourcekit.setup {
   cmd = { 'sourcekit-lsp' },
 

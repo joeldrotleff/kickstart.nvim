@@ -80,7 +80,7 @@ vim.diagnostic.config {
 }
 
 -- Import keymaps
-require('keymaps')
+require 'keymaps'
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -108,29 +108,8 @@ if not vim.uv.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
--- NOTE: Here is where you install your plugins.
-require('lazy').setup({
+require('lazy').setup {
   spec = {
-    -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-    -- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-
-    -- NOTE: Plugins can specify dependencies.
-    --
-    -- The dependencies are proper plugin specifications as well - anything
-    -- you do for a plugin at the top level, you can do for a dependency.
-    --
-    -- Use the `dependencies` key to specify the dependencies of a particular plugin
-
     -- LSP Plugins
     {
       -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -243,8 +222,8 @@ require('lazy').setup({
             --    See `:help CursorHold` for information about when this is executed
             --
             -- When you move your cursor, the highlights will be cleared (the second autocommand).
-						local client = vim.lsp.get_client_by_id(event.data.client_id)
-						if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
+            local client = vim.lsp.get_client_by_id(event.data.client_id)
+            if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
               local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
               vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
                 buffer = event.buf,
@@ -319,9 +298,6 @@ require('lazy').setup({
       end,
     },
 
-    require 'kickstart.plugins.neo-tree',
-    require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-
     -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
     --    This is the easiest way to modularize your config.
     { import = 'custom.plugins' },
@@ -360,7 +336,7 @@ require('lazy').setup({
       lazy = '�� ',
     },
   },
-})
+}
 
 -- Install this plugin "manually" so I can comment out easily the keymaps I don't want
 vim.cmd('source ' .. vim.fn.stdpath 'config' .. '/lua/custom/unimpaired.vim')
@@ -423,7 +399,6 @@ require('breadcrumbs').setup()
 vim.api.nvim_create_user_command('G', function(opts)
   vim.cmd('Neogit ' .. opts.args)
 end, { nargs = '*' })
-
 
 -- Note to future Joel:
 -- Directory where chatgpt saves session files

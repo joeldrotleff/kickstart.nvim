@@ -9,5 +9,9 @@ return {
   },
   config = function()
     vim.keymap.set('n', '\\', '<cmd>:Neotree toggle<cr>', { desc = 'Open Neotree' })
+		vim.keymap.set('n', '<leader>nr', '<cmd>:Neotree reveal<cr>', { desc = '[R]eveal the current file in [N]eotree' })
   end,
+  opts = {
+    { follow_current_file = { enabled = true, leave_dirs_open = true } },
+  },
 }

@@ -387,6 +387,9 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>sF', function()
+        builtin.find_files { no_ignore = true }
+      end, { desc = '[S]earch [F]iles (including ignored)' })
       vim.keymap.set('n', '<leader>ss', function()
         local tel = require 'telescope'
         telescope_ignore_toggle = not telescope_ignore_toggle
@@ -1108,5 +1111,10 @@ vim.keymap.set('n', '<leader>lf', function()
     end
   end
 end, { desc = 'Fix (Swift) LSP by re-running xcode build tool' })
+
+-- Note to future Joel:
+-- Directory where chatgpt saves session files
+-- Sometimes they get corrupt so I just rm rf this direcotyr
+-- $HOME/.local/state/nvim/chatgpt
 
 -- vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})

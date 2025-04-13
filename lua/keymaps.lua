@@ -53,7 +53,7 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' }) 
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 
 vim.keymap.set({ 'n', 'v' }, '<C-e>', '5<C-e>', { desc = 'Move window up 5 lines at a time' })
@@ -201,7 +201,7 @@ end, { desc = '[B]uild [I]cons' })
 
 vim.keymap.set('n', '<leader>fa', ':!swiftformat .<CR>', { desc = '[F]ormat [A]ll files in directory' })
 
-vim.keymap.set('n', '<leader>lf', function()
+local fix_lsp = function()
   local filepath = vim.fn.expand '%:p'
   local scheme = ''
   if string.find(filepath, 'Tofu Mobile') then
@@ -239,4 +239,5 @@ vim.keymap.set('n', '<leader>lf', function()
       vim.fn.jobstart('xcode-build-server config -project *xcodeproj -scheme "Tofu Desktop"', { on_exit = on_exit })
     end
   end
-end, { desc = 'Fix (Swift) LSP by re-running xcode build tool' })
+end
+vim.keymap.set('n', '<leader>lf', fix_lsp, { desc = 'Fix (Swift) LSP by re-running xcode build tool' })

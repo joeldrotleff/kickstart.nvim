@@ -1,7 +1,7 @@
 return {
   'echasnovski/mini.nvim',
   lazy = false,
-  config = function()
+  llconfig = function()
     require('mini.splitjoin').setup {
       mappings = {
         toggle = '<C-m>',

@@ -200,4 +200,6 @@ end, { nargs = '*' })
 -- Set colorscheme
 vim.cmd [[colorscheme kanagawa]]
 
-vim.api.nvim_del_keymap('n', '<space><space>')
+-- Disable the double space keymap
+-- vim.api.nvim_del_keymap('n', '<space><space>')
+

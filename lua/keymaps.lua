@@ -2,41 +2,16 @@
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-
-local show_all_virtualtext = function()
-  vim.diagnostic.config {
-    virtual_text = {
-      severity = vim.diagnostic.severity,
-    },
-  }
+local show_diagnostics = function()
+  vim.diagnostic.config { virtual_text = true }
 end
-local show_error_virtualtext = function()
-  vim.diagnostic.config {
-    virtual_text = {
-      severity = vim.diagnostic.severity.ERROR,
-    },
-  }
-end
-local hide_virtualtext = function()
+local hide_diagnostics = function()
   vim.diagnostic.config { virtual_text = false }
-end
-local goto_next_diagnostic = function()
-  vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }
-end
-local goto_prev_diagnostic = function()
-  vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }
 end
 
 -- Keymaps for toggling what shows for virtual text
-vim.keymap.set('n', '<leader>vs', show_all_virtualtext, { desc = '[V]irtualtext [S]how' })
-vim.keymap.set('n', '<leader>ve', show_error_virtualtext, { desc = '[V]irtualtext [E]rrors only' })
-vim.keymap.set('n', '<leader>vh', hide_virtualtext, { desc = '[V]irtualtext [H]ide' })
-
-vim.keymap.set('n', ']e', goto_next_diagnostic, { desc = 'Jump to next [E]iagnostic' })
-vim.keymap.set('n', '[e', goto_prev_diagnostic, { desc = 'Jump to previous [E]iagnostic' })
+vim.keymap.set('n', '<leader>vs', show_diagnostics, { desc = '[V]irtualtext/Diagnostics [S]how' })
+vim.keymap.set('n', '<leader>vh', hide_diagnostics, { desc = '[V]irtualtext/Diagnostics [H]ide' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -67,17 +42,15 @@ vim.keymap.set('n', 'j', 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc 
 vim.keymap.set('n', 'k', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = 'Move up', expr = true })
 
 -- Keep cursor centered when jumping up and down
--- vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll down + center cursor' })
--- vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll up + center cursor' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll down + center cursor' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll up + center cursor' })
 
+-- Copy current file path to clipboard and print it
 vim.keymap.set('n', '<leader>cp', function()
   local filepath = vim.fn.expand '%:p'
   print(filepath)
   vim.fn.setreg('+', filepath)
 end, { noremap = true, silent = true, desc = '[C]opy & print current [P]ath' })
-
--- TODO: Figure out why this is broken now?
--- vim.keymap.set('n', '<leader>pt', require('copilot.suggestion').toggle_auto_trigger, { desc = 'Toggle Co[P]ilot plugin [T]' })
 
 -- Open current buffer's file in default editor (i.e. Xcode)
 vim.keymap.set('n', '<leader>oe', function()
@@ -88,6 +61,7 @@ end, { noremap = true, silent = true, desc = '[O]pen current buffer in [E]xterna
 vim.keymap.set('n', '<leader>xp', function()
   vim.fn.jobstart('osascript ~/.config/nvim/scripts/xcode_preview.scpt "' .. vim.fn.expand '%:p' .. '"')
 end, { noremap = true, silent = true, desc = 'Open current buffer in [X]code [P]review' })
+
 -- Open current buffer's file in Zed
 vim.keymap.set('n', '<leader>oz', function()
   vim.fn.jobstart('zed "' .. vim.fn.expand '%' .. '"')
@@ -102,14 +76,11 @@ end, { noremap = true, silent = true, desc = "[Open] current buffer's enclosing 
 vim.keymap.set('n', '<leader>xx', function()
   vim.fn.jobstart 'osascript ~/.config/nvim/scripts/xcode_run.scpt'
 end, { noremap = true, silent = true, desc = 'Trigger Xcode to build+run current project' })
+
+-- Trigger Xcode build command
 vim.keymap.set('n', '<leader>xb', function()
   vim.fn.jobstart 'osascript ~/.config/nvim/scripts/xcode_build.scpt'
 end, { noremap = true, silent = true, desc = 'Trigger Xcode to build current project' })
-
-vim.keymap.set('n', '<leader>dpr', function()
-  require('dap-python').test_method()
-end, { desc = '[D]ebug [P]ython [R]un' })
-vim.keymap.set('n', '<leader>db', '<cmd> DapToggleBreakpoint <CR>', { desc = '[D]ebug [P]ython [R]un' })
 
 -- Replace all tabs with spaces
 vim.keymap.set('n', '<leader>ts', '<cmd>:%s/\t/  /g <CR>', { desc = '[T]abs to [S]paces' })
@@ -117,15 +88,9 @@ vim.keymap.set('n', '<leader>ts', '<cmd>:%s/\t/  /g <CR>', { desc = '[T]abs to [
 -- Yank to the blackhole register when using "change" motions
 vim.keymap.set('n', 'c', '"_c', { noremap = true, silent = true })
 
--- Aerial keymaps
--- vim.keymap.set('n', '<leader>al', '<cmd>AerialToggle left<cr>', { desc = '[A]erial [L]eft sidebar [T]oggle' })
--- vim.keymap.set('n', '<leader>ar', '<cmd>AerialToggle right<cr>', { desc = '[A]erial [R]eft sidebar [T]oggle' })
--- vim.keymap.set('n', '<leader>af', '<cmd>AerialToggle float<cr>', { desc = '[A]erial [L]eft sidebar [T]oggle' })
-
--- After adding a top bar via the breadcrumbs plugin, this is necessary to bring back the nice
--- behavior of 'zz' to center then C-d to scroll so cursor is right at the top of the screen
 vim.keymap.set('n', '<C-d>', '<C-d><C-y>', { noremap = true })
 
+-- Switch to alternate buffer
 vim.keymap.set('n', '<leader><leader>', '<cmd>b#<cr>', { desc = 'Switch to alternate buffer' })
 
 vim.keymap.set('n', '<leader>cD', function()
@@ -197,7 +162,7 @@ vim.keymap.set('n', '<leader>bi', function()
   })
 end, { desc = '[B]uild [I]cons' })
 
-vim.keymap.set('n', '<leader>fa', ':!swiftformat .<CR>', { desc = '[F]ormat [A]ll files in directory' })
+vim.keymap.set('n', '<leader>fa', ':!swiftformat .<CR>', { desc = '(swiftformat) [F]ormat [A]ll files in directory' })
 
 local fix_lsp = function()
   local filepath = vim.fn.expand '%:p'
@@ -239,4 +204,3 @@ local fix_lsp = function()
   end
 end
 vim.keymap.set('n', '<leader>lf', fix_lsp, { desc = 'Fix (Swift) LSP by re-running xcode build tool' })
-

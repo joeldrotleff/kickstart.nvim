@@ -10,11 +10,6 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
--- [[ Setting options ]]
--- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
-
 -- Make line numbers default
 vim.opt.number = true
 
@@ -56,10 +51,7 @@ vim.opt.timeoutlen = 300
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
-
+-- Show tabs and trailing spaces visually
 -- Disable this for now as it's annoying for the Teams project
 -- vim.opt.list = true
 -- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
@@ -68,13 +60,10 @@ vim.opt.splitbelow = true
 vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
-
--- Use a block cursor in normal mode
-vim.opt.guicursor = ''
 
 -- Enable true color support
 vim.opt.termguicolors = true
@@ -85,18 +74,6 @@ vim.opt.linebreak = true
 -- Set tab settings
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
-
--- Prevent transparency plugin from making the statusline transparent
-vim.g.exclude_groups = {
-  'StatusLine',
-  'StatusLineNC',
-}
-
--- Set cursor to a bright/highlight color when in insert mode
-vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
-
--- Make cursor a block in insert mode
-vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' })
 
 -- Specify the path to the python interpreter because apparently it takes 1-2s to find it on startup :(
 vim.g.python3_host_prog = vim.fn.expand 'which python3'

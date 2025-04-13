@@ -13,6 +13,7 @@ require 'settings'
 require 'keymaps'
 
 require('lazy').setup {
+  change_detection = { enabled = false },
   spec = {
     -- LSP Plugins
     {
@@ -198,3 +199,5 @@ end, { nargs = '*' })
 
 -- Set colorscheme
 vim.cmd [[colorscheme kanagawa]]
+
+vim.api.nvim_del_keymap('n', '<space><space>')

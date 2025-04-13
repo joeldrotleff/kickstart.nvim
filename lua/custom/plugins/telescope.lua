@@ -145,6 +145,22 @@ return {
     end, { desc = '[S]earch within Neo[V]im files' })
 
     vim.keymap.set('n', '<leader>sn', function()
+      local handle = io.popen 'find ~/Documents/daily_notes/ -type f -print0 | xargs -0 stat -f "%B %N" | sort -nr | head -n 1 | cut -d" " -f2-'
+      if handle then
+        local result = handle:read '*a'
+        handle:close()
+        result = result:gsub('[\n\r]', '')
+        if result ~= '' then
+          vim.cmd('edit ' .. result)
+        else
+          print 'No files found in daily_notes folder'
+        end
+      else
+        print 'Failed to execute command'
+      end
+    end, { desc = 'Open most recent [N]ote in daily_notes folder' })
+
+    vim.keymap.set('n', '<leader>sN', function()
       builtin.find_files {
         cwd = '~/Documents/daily_notes',
 
@@ -152,11 +168,5 @@ return {
         find_command = { 'rg', '--no-config', '--files', '--sortr=created' },
       }
     end, { desc = '[S]earch [n]otes by name in daily_notes folder' })
-
-    vim.keymap.set('n', '<leader>sN', function()
-      builtin.grep_string {
-        cwd = '~/Documents/daily_notes',
-      }
-    end, { desc = '[S]earch within [N]otes in daily_notes folder' })
   end,
 }

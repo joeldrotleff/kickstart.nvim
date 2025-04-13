@@ -153,7 +153,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Install this plugin "manually" so I can comment out easily the keymaps I don't want
-vim.cmd('source ' .. vim.fn.stdpath 'config' .. '/lua/custom/unimpaired.vim')
+-- vim.cmd('source ' .. vim.fn.stdpath 'config' .. '/lua/custom/unimpaired.vim')
 
 -- Fugitive and Gitsigns conflict when trying to use :G
 -- So define G explicitly to be :Git

@@ -2,36 +2,25 @@
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Diagnostic keymaps
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+
 local show_diagnostics = function()
-  vim.diagnostic.config { virtual_text = true }
+  vim.diagnostic.config { virtual_text = true, virtual_lines = true }
 end
 local hide_diagnostics = function()
-  vim.diagnostic.config { virtual_text = false }
+  vim.diagnostic.config { virtual_text = false, virtual_lines = false }
 end
 
 -- Keymaps for toggling what shows for virtual text
 vim.keymap.set('n', '<leader>vs', show_diagnostics, { desc = '[V]irtualtext/Diagnostics [S]how' })
 vim.keymap.set('n', '<leader>vh', hide_diagnostics, { desc = '[V]irtualtext/Diagnostics [H]ide' })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
 -- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
-vim.keymap.set({ 'n', 'v' }, '<C-e>', '5<C-e>', { desc = 'Move window up 5 lines at a time' })
-vim.keymap.set({ 'n', 'v' }, '<C-y>', '5<C-y>', { desc = 'Move window down 5 lines at a time' })
 
 -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
 -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/

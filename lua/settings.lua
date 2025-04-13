@@ -92,9 +92,6 @@ vim.g.exclude_groups = {
   'StatusLineNC',
 }
 
--- Set the colorscheme
-vim.g.colorscheme = 'e-ink'
-
 -- Set cursor to a bright/highlight color when in insert mode
 vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
 
@@ -102,4 +99,6 @@ vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })
 vim.api.nvim_set_option_value('guicursor', 'i:block-Cursor/lCursor', { scope = 'global' })
 
 -- Specify the path to the python interpreter because apparently it takes 1-2s to find it on startup :(
-vim.g.python3_host_prog = vim.fn.expand 'which python3' 
+vim.g.python3_host_prog = vim.fn.expand 'which python3'
+
+

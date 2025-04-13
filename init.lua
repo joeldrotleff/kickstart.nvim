@@ -13,7 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 require 'settings'
 require 'keymaps'
 
-
 require('lazy').setup {
   spec = {
     -- LSP Plugins
@@ -197,3 +196,6 @@ end, { nargs = '*' })
 -- Directory where chatgpt saves session files
 -- Sometimes they get corrupt so I just rm rf this direcotyr
 -- $HOME/.local/state/nvim/chatgpt
+
+-- Set colorscheme
+vim.cmd [[colorscheme kanagawa]]

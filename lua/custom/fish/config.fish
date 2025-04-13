@@ -92,4 +92,4 @@ end
 # Add the emacs-style "accept autocomplete" key binding (using vi mode disables it)
 bind -M insert \cf accept-autosuggestion
  
-
+set -gx ANDROID_HOME $HOME/Library/Android/sdk

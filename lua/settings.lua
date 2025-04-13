@@ -93,8 +93,7 @@ vim.g.exclude_groups = {
 }
 
 -- Set the colorscheme
-vim.g.lumen_light_colorscheme = 'e-ink'
-vim.g.lumen_dark_colorscheme = 'embark'
+vim.g.colorscheme = 'e-ink'
 
 -- Set cursor to a bright/highlight color when in insert mode
 vim.api.nvim_set_hl(0, 'Cursor', { bg = 'red' })

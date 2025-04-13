@@ -160,4 +160,4 @@ return {
       }
     end, { desc = '[S]earch within [N]otes in daily_notes folder' })
   end,
-} 
+}

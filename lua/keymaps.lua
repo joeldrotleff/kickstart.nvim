@@ -55,7 +55,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-
 vim.keymap.set({ 'n', 'v' }, '<C-e>', '5<C-e>', { desc = 'Move window up 5 lines at a time' })
 vim.keymap.set({ 'n', 'v' }, '<C-y>', '5<C-y>', { desc = 'Move window down 5 lines at a time' })
 
@@ -66,7 +65,6 @@ vim.keymap.set({ 'n', 'v' }, '<C-y>', '5<C-y>', { desc = 'Move window down 5 lin
 -- also don't use g[j|k] when in operator pending mode, so it doesn't alter d, y or c behaviour
 vim.keymap.set('n', 'j', 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc = 'Move down', expr = true })
 vim.keymap.set('n', 'k', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc = 'Move up', expr = true })
-
 
 -- Keep cursor centered when jumping up and down
 -- vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll down + center cursor' })
@@ -241,3 +239,4 @@ local fix_lsp = function()
   end
 end
 vim.keymap.set('n', '<leader>lf', fix_lsp, { desc = 'Fix (Swift) LSP by re-running xcode build tool' })
+

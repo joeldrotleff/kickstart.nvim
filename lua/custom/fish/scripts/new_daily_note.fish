@@ -1,7 +1,5 @@
 #!/usr/bin/env fish
 
-echo "Good morning!!!!!!!!!!!!!!!!"
-
 # Set the base directory
 set base_dir ~/Documents/daily_notes
 
@@ -42,8 +40,7 @@ end
 # to today's note
 ln -f -s $new_file $base_dir/today.md
 
-# Change directory to ~/code/vibecheck
-cd ~/code/joya/mp-desktop-web/
+cd ~/code/joya/SDR/
 
 # Open the new file in neovim
 nvim $new_file

@@ -31,6 +31,7 @@ alias nvchad='NVIM_APPNAME="chad" nvim'
 alias ddd='rm -rf ~/Library/Developer/Xcode/DerivedData/'
 
 export AIDER_DARK_MODE=true
+export AIDER_AUTO_COMMITS=false
 
 # Rerun xcode-build server for active projects
 alias mpxlspbuild='cd ~/code/joya/mpx && xcode-build-server config -project ~/code/joya/mpx/MPX/*.xcodeproj -scheme "MPX"'

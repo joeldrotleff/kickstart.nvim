@@ -2,11 +2,11 @@ return {
   -- Colorschemes - high priority / non-lazy based on
   -- recommendation from Lazy.nvim docs
 
-	{
-		'embark-theme/vim',
-		lazy = false,
-		priority = 10,
-	},
+  {
+    'bluz71/vim-moonfly-colors',
+    lazy = false,
+    priority = 10,
+  },
 
   {
     'datsfilipe/vesper.nvim',

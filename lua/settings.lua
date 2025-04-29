@@ -12,6 +12,7 @@ vim.g.have_nerd_font = true
 
 -- Make line numbers default
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -77,5 +78,3 @@ vim.opt.shiftwidth = 2
 
 -- Specify the path to the python interpreter because apparently it takes 1-2s to find it on startup :(
 vim.g.python3_host_prog = vim.fn.expand 'which python3'
-
-

@@ -179,7 +179,9 @@ end, { nargs = '*' })
 -- $HOME/.local/state/nvim/chatgpt
 
 -- Set colorscheme
-vim.cmd [[colorscheme moonfly]]
+vim.opt.background = 'dark'
+vim.cmd [[colorscheme kanagawa-dragon]]
+
 
 -- Disable the double space keymap
 -- vim.api.nvim_del_keymap('n', '<space><space>')

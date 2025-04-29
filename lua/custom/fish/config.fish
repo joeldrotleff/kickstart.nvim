@@ -6,7 +6,9 @@ fish_add_path "$HOME/.deno/bin"
 fish_add_path "$HOME/.local/bin"
 fish_add_path "/opt/homebrew/bin"
 
-sh "$HOME/code/joya/mp-desktop-web/script/import.sh"
+# This makes fish slow to load
+# sh "$HOME/code/joya/mp-desktop-web/script/import.sh"
+
 fish_add_path "/Applications/Windsurf.app/Contents/Resources/app/bin/"
 fish_add_path "$HOME/.pyenv/shims/"
 
@@ -40,9 +42,6 @@ alias sdrlspbuild='cd ~/code/joya/sdr/client && xcode-build-server config -proje
 alias tofu_test_lspbuild='cd ~/code/joya/sdr/client/no_backend/ && xcode-build-server config -project *xcodeproj -scheme SDRMobile'
 alias tofu_mobile_lspbuild='cd ~/code/joya/sdr/client/real_backend/ && xcode-build-server config -project *xcodeproj -scheme "Tofu Mobile"'
 alias tofu_desktop_lspbuild='cd ~/code/joya/sdr/client/real_backend/ && xcode-build-server config -project *xcodeproj -scheme "Tofu Desktop"'
-
-# Command fixer utility 'fuck'
-thefuck --alias | source
 
 # Loads all the shell variables from a .env file
 function envsource

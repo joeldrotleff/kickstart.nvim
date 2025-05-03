@@ -93,3 +93,7 @@ end
 bind -M insert \cf accept-autosuggestion
  
 set -gx ANDROID_HOME $HOME/Library/Android/sdk
+
+# Fix for colima + supabase
+# set -x DOCKER_HOST unix:///$HOME/.colima/default/docker.sock
+

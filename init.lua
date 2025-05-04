@@ -180,7 +180,7 @@ end, { nargs = '*' })
 
 -- Set colorscheme
 vim.opt.background = 'dark'
-vim.cmd [[colorscheme kanagawa-dragon]]
+vim.cmd [[colorscheme lackluster-mint]]
 
 
 -- Disable the double space keymap

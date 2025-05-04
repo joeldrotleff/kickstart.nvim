@@ -88,28 +88,28 @@ M.setup = function()
 end
 
 return {
-  'tpope/vim-dadbod',
-  event = 'VeryLazy',
-  dependencies = {
-    'kristijanhusak/vim-dadbod-ui',
-    'kristijanhusak/vim-dadbod-completion',
-  },
-  config = function()
-    -- NOTE! Dadbod uses the $DATABASE_URL environment variable to connect to the database.
-    -- If it isn't set it causes a nasty error whenever opening a SQL file.
-    vim.api.nvim_create_autocmd('FileType', {
-      pattern = { 'sql', 'mysql', 'plsql' },
-      callback = function()
-        local success, err = pcall(function()
-          require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
-        end)
-        if not success then
-          print 'Error setting up database autocopmlete'
-        end
-      end,
-    })
-
-    M.setup()
-    -- require('custom.dadbod-enhancements').setup()
-  end,
+  -- 'tpope/vim-dadbod',
+  -- event = 'VeryLazy',
+  -- dependencies = {
+  --   'kristijanhusak/vim-dadbod-ui',
+  --   'kristijanhusak/vim-dadbod-completion',
+  -- },
+  -- config = function()
+  --   -- NOTE! Dadbod uses the $DATABASE_URL environment variable to connect to the database.
+  --   -- If it isn't set it causes a nasty error whenever opening a SQL file.
+  --   vim.api.nvim_create_autocmd('FileType', {
+  --     pattern = { 'sql', 'mysql', 'plsql' },
+  --     callback = function()
+  --       local success, err = pcall(function()
+  --         require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
+  --       end)
+  --       if not success then
+  --         print 'Error setting up database autocopmlete'
+  --       end
+  --     end,
+  --   })
+  --
+  --   M.setup()
+  --   -- require('custom.dadbod-enhancements').setup()
+  -- end,
 }

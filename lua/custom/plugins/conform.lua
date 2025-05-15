@@ -25,9 +25,9 @@ return {
 
       swift = { 'swiftformat' },
       python = { 'black' },
-      -- typescript = { 'prettier' },
-      -- javascript = { 'prettier' },
-      -- typescriptreact = { 'prettier' },
+      typescript = { 'prettier' },
+      javascript = { 'prettier' },
+      typescriptreact = { 'prettier' },
     },
     formatters = {
       black = {

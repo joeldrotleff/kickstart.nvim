@@ -48,10 +48,10 @@ return {
     local telescope_ignore_patterns = {
       -- This is an attempt to exclude source code files from cluttering up
       -- Telescope's "recent files" list.
-      '/private/',
-      '.local',
-      'project.pbxproj',
-      'no_backend',
+      -- '/private/',
+      -- '.local',
+      -- 'project.pbxproj',
+      -- 'no_backend',
     }
     local telescope_ignore_toggle = true
 

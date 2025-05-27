@@ -94,7 +94,7 @@ require('lazy').setup {
         }
 
         lspconfig.denols.setup {
-          root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc'),
+          root_dir = lspconfig.util.root_pattern('deno.json'),
           cmd = { 'deno', 'lsp' },
         }
 

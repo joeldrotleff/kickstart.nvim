@@ -25,9 +25,10 @@ return {
 
       swift = { 'swiftformat' },
       python = { 'black' },
-      typescript = { 'prettier' },
-      javascript = { 'prettier' },
-      typescriptreact = { 'prettier' },
+      typescript = { 'deno fmt' },
+      javascript = { 'deno fmt' },
+      json = { 'deno fmt' },
+      typescriptreact = { 'deno fmt' },
     },
     formatters = {
       black = {
@@ -39,4 +40,4 @@ return {
       },
     },
   },
-} 
+}

@@ -21,6 +21,7 @@ alias cc 'claude'
 alias ccc 'cd ~/.claude/ && claude'
 alias sb 'supabase'
 alias claude-link 'mkdir -p ~/.claude && find ~/.config/nvim/lua/custom/claude -type f -exec ln -sf {} ~/.claude/ \;'
+alias claude-pull 'git -C ~/.config/nvim/lua/custom pull'
 
 # Print all path variables, each on a new line
 alias printpath 'printf %s\n $PATH'

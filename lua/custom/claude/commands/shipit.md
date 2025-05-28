@@ -7,3 +7,4 @@ Goal: Push new local changes to remote github repo's main branch, by creating or
 - Now check if there is an existing PR, and if not create a new one for the branch via gh cli tool
 - Now provide a concise summary to the user of all changes that were pushed
 - Finally show a link to the PR so user can click it to view
+

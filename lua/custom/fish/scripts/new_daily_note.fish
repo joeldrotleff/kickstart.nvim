@@ -40,7 +40,7 @@ end
 # to today's note
 ln -f -s $new_file $base_dir/today.md
 
-cd ~/code/joya/SDR/
+cd ~/code/joya/teammate
 
 # Open the new file in neovim
 nvim $new_file

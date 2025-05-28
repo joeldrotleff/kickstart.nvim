@@ -5,6 +5,7 @@ end
 fish_add_path "$HOME/.deno/bin"
 fish_add_path "$HOME/.local/bin"
 fish_add_path "/opt/homebrew/bin"
+fish_add_path "$HOME/Library/Application Support/fnm/node-versions/v22.12.0/installation"
 
 # This makes fish slow to load
 # sh "$HOME/code/joya/mp-desktop-web/script/import.sh"
@@ -16,6 +17,9 @@ fish_add_path "$HOME/.pyenv/shims/"
 pyenv init - fish | source
 
 alias nv 'nvim'
+alias cc 'claude'
+alias ccc 'cd ~/.claude/ && claude'
+alias sb 'supabase'
 
 # Print all path variables, each on a new line
 alias printpath 'printf %s\n $PATH'

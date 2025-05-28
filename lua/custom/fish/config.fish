@@ -16,12 +16,20 @@ fish_add_path "$HOME/.pyenv/shims/"
 # See: https://github.com/pyenv/pyenv?tab=readme-ov-file#b-set-up-your-shell-environment-for-pyenv
 pyenv init - fish | source
 
+alias reload 'source ~/.config/fish/config.fish'
 alias nv 'nvim'
 alias cc 'claude'
 alias ccc 'cd ~/.claude/ && claude'
 alias sb 'supabase'
 alias claude-settings-update 'cp -r ~/.config/nvim/lua/custom/claude/ ~/.claude/'
 alias claude-pull 'git -C ~/.config/nvim/lua/custom pull'
+source ~/.config/nvim/lua/custom/fish/scripts/ccw.fish
+
+# Directory shortcuts
+alias _claudeconfig 'cd ~/.claude'
+alias _configs 'cd ~/.config/nvim'
+alias _joyacode 'cd ~/code/joya'
+alias _teammate 'cd ~/code/joya/teammate'
 
 # Print all path variables, each on a new line
 alias printpath 'printf %s\n $PATH'

@@ -6,6 +6,7 @@
 			"List",
 
       "WebFetch(domain:deno.com)",
+      "WebFetch(domain:deno.land)",
       "WebFetch(domain:developer.mozilla.org)",
       "WebFetch(domain:docs.python.org)",
       "WebFetch(domain:nodejs.org)",

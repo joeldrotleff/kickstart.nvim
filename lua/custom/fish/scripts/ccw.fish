@@ -67,8 +67,8 @@ function ccw
     
     echo "✨ Creating worktree '$worktree_name'..."
     
-    # Create the worktree using the default branch (main/master)
-    git worktree add "$worktree_path" "$default_branch"
+    # Create the worktree with a new branch based on the default branch
+    git worktree add -b "$worktree_name" "$worktree_path" "$default_branch"
     set worktree_status $status
     
     if test $worktree_status -ne 0

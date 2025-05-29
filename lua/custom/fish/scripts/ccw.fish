@@ -30,14 +30,27 @@ function ccw
         cd $git_root
     end
     
-    # Get current branch name
-    set current_branch (git branch --show-current)
+    # Detect the default branch (main or master)
+    set default_branch ""
     
-    # Check if we're on main or master
-    if test "$current_branch" != "main" -a "$current_branch" != "master"
-        echo "Error: Current branch is '$current_branch'. You must be on main or master branch."
-        return 1
+    # Try to get the default branch from remote origin
+    set remote_head (git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
+    
+    if test -n "$remote_head"
+        set default_branch $remote_head
+    else
+        # Fallback: check if main or master exists
+        if git rev-parse --verify main >/dev/null 2>&1
+            set default_branch "main"
+        else if git rev-parse --verify master >/dev/null 2>&1
+            set default_branch "master"
+        else
+            echo "Error: Could not determine default branch (main or master)"
+            return 1
+        end
     end
+    
+    echo "📌 Using default branch: $default_branch"
     
     # Generate a pleasant random name
     # Select random adjective and noun
@@ -49,14 +62,13 @@ function ccw
     set selected_adj $adjectives[$random_adj]
     set selected_noun $nouns[$random_noun]
     
-    set branch_name "$selected_adj-$selected_noun"
-    set worktree_name "$selected_adj-$selected_noun"
+    set worktree_name "wt-$selected_adj-$selected_noun"
     set worktree_path "$git_root/$worktree_name"
     
     echo "✨ Creating worktree '$worktree_name'..."
     
-    # Create the worktree with a new branch
-    git worktree add -b "$branch_name" "$worktree_path" "$current_branch"
+    # Create the worktree using the default branch (main/master)
+    git worktree add "$worktree_path" "$default_branch"
     set worktree_status $status
     
     if test $worktree_status -ne 0

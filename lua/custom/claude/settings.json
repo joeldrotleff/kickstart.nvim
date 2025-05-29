@@ -3,6 +3,7 @@
     "allow": [
       "Bash",
       "Read",
+			"List",
 
       "WebFetch(domain:deno.com)",
       "WebFetch(domain:developer.mozilla.org)",

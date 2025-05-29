@@ -30,16 +30,6 @@ function ccw
         cd $git_root
     end
     
-    # Check for unstaged changes
-    set git_status (git status --porcelain)
-    
-    if test -n "$git_status"
-        echo "Error: You have unstaged changes. Please commit or stash them first."
-        echo "Unstaged changes:"
-        echo "$git_status"
-        return 1
-    end
-    
     # Get current branch name
     set current_branch (git branch --show-current)
     

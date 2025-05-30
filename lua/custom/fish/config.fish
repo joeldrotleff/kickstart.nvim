@@ -30,6 +30,10 @@ alias _claudeconfig 'cd ~/.claude'
 alias _configs 'cd ~/.config/nvim'
 alias _joyacode 'cd ~/code/joya'
 alias _teammate 'cd ~/code/joya/teammate'
+alias _marcopolo 'cd ~/code/joya/marcopolo-app'
+alias _mpx 'cd ~/code/joya/mpx'
+alias _sdr 'cd ~/code/joya/sdr'
+alias _tofu 'cd ~/code/joya/sdr/client/real_backend'
 
 # Print all path variables, each on a new line
 alias printpath 'printf %s\n $PATH'
@@ -111,3 +115,10 @@ set -gx ANDROID_HOME $HOME/Library/Android/sdk
 # Fix for colima + supabase
 # set -x DOCKER_HOST unix:///$HOME/.colima/default/docker.sock
 
+# Allows neovim to change dir to terminal's cwd
+# See: https://vimhelp.org/options.txt.html#%27autoshelldir%27
+if test -n "$VIM_TERMINAL"
+		    function _vim_sync_PWD --on-variable=PWD
+			printf '\033]7;file://%s\033\\' "$PWD"
+		    end
+		end

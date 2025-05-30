@@ -142,6 +142,13 @@
       "WebFetch(domain:doc.rust-lang.org)",
       "WebFetch(domain:pkg.go.dev)"
     ],
-    "deny": []
+    "deny": [
+      "Bash(command:supabase db push)",
+      "Bash(command:npm publish)",
+      "Bash(command:yarn publish)",
+      "Bash(command:pnpm publish)",
+      "Bash(command:git push --force)",
+      "Bash(command:git push -f)"
+    ]
   }
 }

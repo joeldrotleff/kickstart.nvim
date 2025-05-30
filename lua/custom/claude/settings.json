@@ -5,6 +5,8 @@
       "Read",
 			"List",
 
+			"WebFetch(domain:developers.asana.com)",
+			"WebFetch(domain:asana.com)",
       "WebFetch(domain:deno.com)",
       "WebFetch(domain:docs.deno.com)",
       "WebFetch(domain:deno.land)",

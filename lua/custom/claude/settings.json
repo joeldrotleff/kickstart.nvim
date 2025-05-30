@@ -5,6 +5,9 @@
       "Read",
 			"List",
 
+			"WebFetch(domain:anthropic.com)",
+			"WebFetch(domain:docs.anthropic.com)",
+			"WebFetch(domain:https://pptr.dev)",
 			"WebFetch(domain:developers.asana.com)",
 			"WebFetch(domain:asana.com)",
       "WebFetch(domain:deno.com)",

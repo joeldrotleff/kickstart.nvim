@@ -134,6 +134,18 @@ function ccw
         return 1
     end
     
+    # Check if we're in a worktree (not the main repo)
+    set git_dir (git rev-parse --git-dir 2>/dev/null)
+    set git_common_dir (git rev-parse --git-common-dir 2>/dev/null)
+    
+    if test "$git_dir" != "$git_common_dir"
+        echo "❌ Error: You must be in the main repository to create a new worktree"
+        echo "📍 Current location appears to be a worktree"
+        echo ""
+        echo "💡 Tip: Use 'ccw --imdone' to clean up current worktree first"
+        return 1
+    end
+    
     # Get the project name from the git root directory
     set project_name (basename $git_root)
     
@@ -173,9 +185,27 @@ function ccw
     
     echo "📌 Using default branch: $default_branch"
     
-    # Fetch latest changes from origin
-    echo "🔄 Fetching latest changes from origin..."
-    git fetch origin
+    # Get current branch
+    set current_branch (git branch --show-current)
+    
+    # Switch to default branch if not already on it
+    if test "$current_branch" != "$default_branch"
+        echo "🔀 Switching to $default_branch branch..."
+        git checkout $default_branch
+        if test $status -ne 0
+            echo "❌ Error: Failed to switch to $default_branch branch"
+            return 1
+        end
+    end
+    
+    # Pull latest changes from origin
+    echo "⬇️  Pulling latest changes from origin/$default_branch..."
+    git pull origin $default_branch
+    if test $status -ne 0
+        echo "❌ Error: Failed to pull latest changes"
+        echo "💡 Tip: Make sure you have a clean working directory"
+        return 1
+    end
     
     # Determine worktree and branch names
     if test $use_random_name = true
@@ -229,6 +259,40 @@ function ccw
     
     echo ""
     echo "✅ Worktree '$worktree_name' created, ready to work!"
+    echo ""
+    
+    # Copy .env files from main repository to worktree
+    echo "📄 Copying .env files..."
+    set env_files_copied 0
+    
+    # Find all .env files in the main repository (including subdirectories)
+    for env_file in (find "$git_root" -name ".env*" -type f -not -path "*/$worktree_name/*" -not -path "*/.git/*" -not -path "*/wt-*/*" 2>/dev/null)
+        # Get the relative path from git root
+        set rel_path (string replace "$git_root/" "" "$env_file")
+        
+        # Get the directory path
+        set dir_path (dirname "$rel_path")
+        
+        # Create the target directory in worktree if it doesn't exist
+        set target_dir "$worktree_path/$dir_path"
+        if test "$dir_path" != "."
+            mkdir -p "$target_dir"
+        end
+        
+        # Copy the .env file
+        set target_file "$worktree_path/$rel_path"
+        cp "$env_file" "$target_file"
+        
+        set env_files_copied (math $env_files_copied + 1)
+        echo "  ✓ Copied $rel_path"
+    end
+    
+    if test $env_files_copied -eq 0
+        echo "  ℹ️  No .env files found to copy"
+    else
+        echo "  📋 Copied $env_files_copied .env file(s)"
+    end
+    
     echo ""
     
     # Change to the new worktree directory

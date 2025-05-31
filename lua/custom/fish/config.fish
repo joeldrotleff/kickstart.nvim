@@ -34,6 +34,7 @@ alias @MARCOPOLO 'cd ~/code/joya/marcopolo-app'
 alias @MPX 'cd ~/code/joya/mpx'
 alias @SDR 'cd ~/code/joya/sdr'
 alias @TOFU 'cd ~/code/joya/sdr/client/real_backend'
+alias @TIMELAPS 'cd ~/code/TimeLaps'
 
 # Export directory shortcuts as environment variables (without $ prefix)
 set -gx CLAUDECONFIG "$HOME/.claude"

@@ -6,3 +6,6 @@ nvim
 spell/
 lazy-lock.json
 .DS_Store
+claude/projects
+claude/statsig
+claude/todos

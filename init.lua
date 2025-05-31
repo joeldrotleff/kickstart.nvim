@@ -179,9 +179,15 @@ end, { nargs = '*' })
 -- $HOME/.local/state/nvim/chatgpt
 
 -- Set colorscheme
-vim.opt.background = 'dark'
-vim.cmd [[colorscheme lackluster-mint]]
+local DARK_MODE = false
 
+if DARK_MODE then
+  vim.opt.background = 'dark'
+  vim.cmd [[colorscheme nightfox]]
+else
+  vim.opt.background = 'light'
+  vim.cmd [[colorscheme dayfox]]
+end
 
 -- Disable the double space keymap
 -- vim.api.nvim_del_keymap('n', '<space><space>')

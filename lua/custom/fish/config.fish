@@ -26,14 +26,24 @@ alias claude-pull 'git -C ~/.config/nvim/lua/custom pull'
 source ~/.config/nvim/lua/custom/fish/scripts/ccw.fish
 
 # Directory shortcuts
-alias _claudeconfig 'cd ~/.claude'
-alias _configs 'cd ~/.config/nvim'
-alias _joyacode 'cd ~/code/joya'
-alias _teammate 'cd ~/code/joya/teammate'
-alias _marcopolo 'cd ~/code/joya/marcopolo-app'
-alias _mpx 'cd ~/code/joya/mpx'
-alias _sdr 'cd ~/code/joya/sdr'
-alias _tofu 'cd ~/code/joya/sdr/client/real_backend'
+alias @CLAUDECONFIG 'cd ~/.claude'
+alias @CONFIGS 'cd ~/.config/nvim'
+alias @JOYACODE 'cd ~/code/joya'
+alias @TEAMMATE 'cd ~/code/joya/teammate'
+alias @MARCOPOLO 'cd ~/code/joya/marcopolo-app'
+alias @MPX 'cd ~/code/joya/mpx'
+alias @SDR 'cd ~/code/joya/sdr'
+alias @TOFU 'cd ~/code/joya/sdr/client/real_backend'
+
+# Export directory shortcuts as environment variables (without $ prefix)
+set -gx CLAUDECONFIG "$HOME/.claude"
+set -gx CONFIGS "$HOME/.config/nvim"
+set -gx JOYACODE "$HOME/code/joya"
+set -gx TEAMMATE "$HOME/code/joya/teammate"
+set -gx MARCOPOLO "$HOME/code/joya/marcopolo-app"
+set -gx MPX "$HOME/code/joya/mpx"
+set -gx SDR "$HOME/code/joya/sdr"
+set -gx TOFU "$HOME/code/joya/sdr/client/real_backend"
 
 # Print all path variables, each on a new line
 alias printpath 'printf %s\n $PATH'

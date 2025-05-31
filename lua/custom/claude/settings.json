@@ -9,6 +9,7 @@
 			"WebFetch(domain:docs.anthropic.com)",
 			"WebFetch(domain:https://pptr.dev)",
 			"WebFetch(domain:developers.asana.com)",
+			"WebFetch(domain:forum.asana.com)",
 			"WebFetch(domain:asana.com)",
       "WebFetch(domain:deno.com)",
       "WebFetch(domain:docs.deno.com)",

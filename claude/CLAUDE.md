@@ -18,3 +18,9 @@
 
 ### Research / Planning
 - When asked to do research or make a plan, check in with the user to verify the plan looks good before implementing any changes
+
+### CI/CD Best Practices
+- **ALWAYS use the same commands in CI that are used locally** - prefer `npm run test`, `deno task test`, `make test` etc. over duplicating logic in CI
+- **NEVER duplicate build/test logic** between CI workflows and local scripts - this prevents CI-only failures
+- When setting up CI, call the project's existing scripts/makefiles rather than reimplementing commands
+- This ensures CI and local development stay in sync and reduces "works on my machine" issues

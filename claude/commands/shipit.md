@@ -7,7 +7,7 @@ Prepare local branch if necessary:
 
 Check for issues:
 - If the branch has changes with a commit message like 'wip' or 'work in progress' then check in with the user to ask what to do
-- Before pushing changes, make sure to search diffs for any 'DO NOT PUSH' comments or code that looks like dev-only (i.e. hardcoding done for development that shouldn't be pushed)
+- Before pushing changes, make sure to search diffs for any 'DO NOT PUSH' comments or code that looks like dev-only (i.e. hardcoding done for development that shouldn't be pushed). Also make sure never to commit code or .env files that include secrets. When commiting code, check the diff to verify this.
 - Once changes are commited, run the `npm run precommit` script and fix any errors, then run the script again. Repeat until all the tests pass. (Some projects may not have this script or it may be a deno script instead of npm)
 
 Create & Push PR:

@@ -24,6 +24,7 @@ alias sb 'supabase'
 alias claude-settings-update 'cp -r ~/.config/nvim/lua/custom/claude/ ~/.claude/'
 alias claude-pull 'git -C ~/.config/nvim/lua/custom pull'
 source ~/.config/nvim/lua/custom/fish/scripts/ccw.fish
+source ~/.config/nvim/lua/custom/fish/scripts/yolo.fish
 
 # Directory shortcuts
 alias @CLAUDECONFIG 'cd ~/.claude'

@@ -9,12 +9,14 @@ function ccw
         echo "  ccw <branch-name>        Create a worktree with the specified branch name"
         echo "  ccw --randomize          Create a worktree with a random pleasant name"
         echo "  ccw --imdone            Clean up current worktree (checks for pending work)"
+        echo "  ccw --imdone --force    Clean up worktree (discards all uncommitted changes)"
         echo "  ccw --help, -h          Show this help message"
         echo ""
         echo "Examples:"
         echo "  ccw cool-new-feature    Creates worktree 'wt-cool-new-feature' with branch 'cool-new-feature'"
         echo "  ccw --randomize         Creates worktree like 'wt-happy-dolphin' with random name"
         echo "  ccw --imdone           Safely removes current worktree after verification"
+        echo "  ccw --imdone --force   Removes worktree, discarding all uncommitted changes"
         echo ""
         echo "Notes:"
         echo "  - Worktrees are prefixed with 'wt-' for easy gitignoring"
@@ -26,6 +28,12 @@ function ccw
     # Check for --imdone flag
     if test "$argv[1]" = "--imdone"
         # Handle worktree cleanup
+        
+        # Check for --force option
+        set force_mode false
+        if test (count $argv) -ge 2 -a "$argv[2]" = "--force"
+            set force_mode true
+        end
         
         # Get the root of the current git working directory
         set git_root (git rev-parse --show-toplevel 2>/dev/null)
@@ -66,11 +74,22 @@ function ccw
         set has_changes (git status --porcelain)
         
         if test -n "$has_changes"
-            echo "⚠️  Warning: You have uncommitted changes:"
-            git status --short
-            echo ""
-            echo "❌ Please commit or stash your changes before cleaning up."
-            return 1
+            if test $force_mode = true
+                echo "⚠️  Warning: You have uncommitted changes:"
+                git status --short
+                echo ""
+                echo "🔥 Force mode enabled - resetting all changes..."
+                git reset --hard HEAD
+                git clean -fd
+                echo "✅ All changes have been reset"
+            else
+                echo "⚠️  Warning: You have uncommitted changes:"
+                git status --short
+                echo ""
+                echo "❌ Please commit or stash your changes before cleaning up."
+                echo "💡 Tip: Use 'ccw --imdone --force' to discard all changes and proceed"
+                return 1
+            end
         end
         
         # Check for unpushed commits

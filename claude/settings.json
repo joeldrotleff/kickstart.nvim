@@ -4,6 +4,7 @@
       "Bash",
       "Read",
 			"List",
+			"WebFetch(domain:figma.com)",
 			"WebFetch(domain:vimhelp.org)",
 			"WebFetch(domain:anthropic.com)",
 			"WebFetch(domain:docs.anthropic.com)",

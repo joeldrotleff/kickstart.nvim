@@ -1,8 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "figmastrand:figma_get_file_nodes",
       "mcp__figmastrand",
+      "mcp__figma",
       "Bash",
       "Read",
       "List",

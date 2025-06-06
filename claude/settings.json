@@ -1,20 +1,19 @@
 {
   "permissions": {
     "allow": [
+      "figmastrand:figma_get_file_nodes",
+      "mcp__figmastrand",
       "Bash",
       "Read",
-			"List",
-			"mcp__figma",
-      "mcp__figma-mcp__add_figma_file",
-      "mcp__figma-mcp__view_node",
-			"WebFetch(domain:www.figma.com)",
-			"WebFetch(domain:vimhelp.org)",
-			"WebFetch(domain:anthropic.com)",
-			"WebFetch(domain:docs.anthropic.com)",
-			"WebFetch(domain:https://pptr.dev)",
-			"WebFetch(domain:developers.asana.com)",
-			"WebFetch(domain:forum.asana.com)",
-			"WebFetch(domain:asana.com)",
+      "List",
+      "WebFetch(domain:www.figma.com)",
+      "WebFetch(domain:vimhelp.org)",
+      "WebFetch(domain:anthropic.com)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:https://pptr.dev)",
+      "WebFetch(domain:developers.asana.com)",
+      "WebFetch(domain:forum.asana.com)",
+      "WebFetch(domain:asana.com)",
       "WebFetch(domain:deno.com)",
       "WebFetch(domain:docs.deno.com)",
       "WebFetch(domain:deno.land)",
@@ -144,7 +143,6 @@
       "WebFetch(domain:unpkg.com)",
       "WebFetch(domain:jsdelivr.com)",
       "WebFetch(domain:cdnjs.com)",
-
       "WebFetch(domain:github.com)",
       "WebFetch(domain:developer.hashicorp.com)",
       "WebFetch(domain:terraform.io)",
@@ -160,5 +158,6 @@
       "Bash(command:git push --force)",
       "Bash(command:git push -f)"
     ]
-  }
+  },
+  "model": "opus"
 }

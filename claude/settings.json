@@ -1,6 +1,7 @@
 {
   "permissions": {
     "allow": [
+      "figmastrand:figma_get_file_nodes",
       "mcp__figmastrand",
       "mcp__figma",
       "Bash",
@@ -158,6 +159,5 @@
       "Bash(command:git push --force)",
       "Bash(command:git push -f)"
     ]
-  },
-  "model": "opus"
+  }
 }

@@ -65,10 +65,18 @@ function yolo
     # Get current branch
     set current_branch (git branch --show-current)
     
+    # Get the default remote (usually 'origin', but could be different)
+    set remote (git remote | head -n1)
+    if test -z "$remote"
+        echo "❌ Error: No git remote configured"
+        echo "💡 Add a remote with: git remote add origin <url>"
+        return 1
+    end
+    
     # Try to push first (optimistic approach)
     echo ""
-    echo "🚀 Pushing to origin/$current_branch..."
-    git push origin $current_branch 2>&1
+    echo "🚀 Pushing to $remote/$current_branch..."
+    git push $remote $current_branch 2>&1
     set push_status $status
     
     if test $push_status -eq 0
@@ -84,14 +92,14 @@ function yolo
     echo "⚠️  Push failed. Checking if remote has new commits..."
     
     # Fetch to see what's on remote
-    git fetch origin $current_branch
+    git fetch $remote $current_branch
     
     # Check if we're behind
-    set behind_count (git rev-list --count HEAD..origin/$current_branch)
+    set behind_count (git rev-list --count HEAD..$remote/$current_branch)
     
     if test $behind_count -gt 0
         echo "📥 Remote has $behind_count new commit(s). Pulling with rebase..."
-        git pull --rebase origin $current_branch
+        git pull --rebase $remote $current_branch
         
         if test $status -ne 0
             echo ""
@@ -102,7 +110,7 @@ function yolo
             echo "  1. Fix the conflicts in the listed files"
             echo "  2. Run 'git add' on the resolved files"
             echo "  3. Run 'git rebase --continue'"
-            echo "  4. Then run 'git push origin $current_branch'"
+            echo "  4. Then run 'git push $remote $current_branch'"
             echo ""
             echo "Or to abort the rebase and return to your previous state:"
             echo "  Run 'git rebase --abort'"
@@ -112,7 +120,7 @@ function yolo
         # Try pushing again after successful rebase
         echo ""
         echo "🚀 Pushing again after rebase..."
-        git push origin $current_branch
+        git push $remote $current_branch
         
         if test $status -ne 0
             echo ""

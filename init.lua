@@ -179,7 +179,7 @@ end, { nargs = '*' })
 -- $HOME/.local/state/nvim/chatgpt
 
 -- Set colorscheme
-local DARK_MODE = true
+local DARK_MODE = false
 
 if DARK_MODE then
   vim.opt.background = 'dark'

@@ -65,15 +65,66 @@ function yolo
     # Get current branch
     set current_branch (git branch --show-current)
     
-    # Push to origin
+    # Try to push first (optimistic approach)
     echo ""
     echo "🚀 Pushing to origin/$current_branch..."
-    git push origin $current_branch
+    git push origin $current_branch 2>&1
+    set push_status $status
     
-    if test $status -ne 0
+    if test $push_status -eq 0
+        # Push succeeded on first try - we're done!
         echo ""
-        echo "❌ Error: Push failed"
-        echo "💡 Your commit is saved locally. Try 'git push' again later."
+        echo "✅ All done! Changes committed and pushed successfully."
+        echo "🎉 YOLO complete!"
+        return 0
+    end
+    
+    # Push failed - check if it's because remote has new commits
+    echo ""
+    echo "⚠️  Push failed. Checking if remote has new commits..."
+    
+    # Fetch to see what's on remote
+    git fetch origin $current_branch
+    
+    # Check if we're behind
+    set behind_count (git rev-list --count HEAD..origin/$current_branch)
+    
+    if test $behind_count -gt 0
+        echo "📥 Remote has $behind_count new commit(s). Pulling with rebase..."
+        git pull --rebase origin $current_branch
+        
+        if test $status -ne 0
+            echo ""
+            echo "❌ Error: Merge conflict detected during rebase!"
+            echo "⚠️  Your commit is saved locally but not pushed."
+            echo ""
+            echo "To resolve:"
+            echo "  1. Fix the conflicts in the listed files"
+            echo "  2. Run 'git add' on the resolved files"
+            echo "  3. Run 'git rebase --continue'"
+            echo "  4. Then run 'git push origin $current_branch'"
+            echo ""
+            echo "Or to abort the rebase and return to your previous state:"
+            echo "  Run 'git rebase --abort'"
+            return 1
+        end
+        
+        # Try pushing again after successful rebase
+        echo ""
+        echo "🚀 Pushing again after rebase..."
+        git push origin $current_branch
+        
+        if test $status -ne 0
+            echo ""
+            echo "❌ Error: Push still failed after rebase"
+            echo "💡 Your commit is saved locally. Try 'git push' again later."
+            return 1
+        end
+    else
+        # Push failed for some other reason
+        echo ""
+        echo "❌ Error: Push failed (not due to new remote commits)"
+        echo "💡 Your commit is saved locally. Check your connection and try 'git push' again."
         return 1
     end
     

@@ -104,6 +104,7 @@
       "WebFetch(domain:solidjs.com)",
       "WebFetch(domain:preactjs.com)",
       "WebFetch(domain:expo.dev)",
+      "WebFetch(domain:docs.expo.dev)",
       "WebFetch(domain:reactnative.dev)",
       "WebFetch(domain:flutter.dev)",
       "WebFetch(domain:ionicframework.com)",

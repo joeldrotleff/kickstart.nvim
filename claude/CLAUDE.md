@@ -84,3 +84,7 @@ fi
 - When CMAcceleration or similar types don't conform to Equatable, use `.onReceive` with Combine instead of `.onChange`
 - For watchOS apps, remember the container iOS app is required even if minimal
 - Use `GENERATE_INFOPLIST_FILE: YES` in project.yml to avoid Info.plist management issues
+
+### Configuration Management
+- Store config files in a git repo at `~/.config/nvim/lua/custom`, which includes `config.fish`
+- The `~/.config/fish/config.fish` file sources configurations from this directory

@@ -20,7 +20,8 @@ function ccw
         echo ""
         echo "Notes:"
         echo "  - Worktrees are prefixed with 'wt-' for easy gitignoring"
-        echo "  - New branches are created from the latest origin/main or origin/master"
+        echo "  - You'll be prompted to choose which branch to base the new worktree on"
+        echo "  - By default, the current branch is selected (just press Enter)"
         echo "  - Claude is automatically started in the new worktree"
         return 0
     end
@@ -202,28 +203,147 @@ function ccw
         end
     end
     
-    echo "📌 Using default branch: $default_branch"
-    
-    # Get current branch
+    # Get current branch before any operations
     set current_branch (git branch --show-current)
     
-    # Switch to default branch if not already on it
-    if test "$current_branch" != "$default_branch"
-        echo "🔀 Switching to $default_branch branch..."
-        git checkout $default_branch
-        if test $status -ne 0
-            echo "❌ Error: Failed to switch to $default_branch branch"
-            return 1
+    # Get all branches (local and remote)
+    echo "🌿 Select a branch to base the new worktree on:"
+    echo ""
+    
+    # Get all branches including remote
+    set all_branches_raw (git branch -a --format="%(refname:short)" | grep -v HEAD | sort | uniq)
+    
+    # Process branches to remove origin/ prefix for display
+    set all_branches
+    set branch_display
+    for branch in $all_branches_raw
+        if string match -q "origin/*" $branch
+            # Remote branch - strip origin/ prefix
+            set clean_branch (string replace "origin/" "" $branch)
+            # Only add if we don't already have this branch locally
+            if not contains $clean_branch $all_branches
+                set all_branches $all_branches $clean_branch
+                set branch_display $branch_display "$clean_branch (remote)"
+            end
+        else
+            # Local branch
+            set all_branches $all_branches $branch
+            if test "$branch" = "$current_branch"
+                set branch_display $branch_display "$branch ⭐ (current)"
+            else if test "$branch" = "$default_branch"
+                set branch_display $branch_display "$branch 🏠 (default)"
+            else
+                set branch_display $branch_display "$branch"
+            end
         end
     end
     
-    # Pull latest changes from origin
-    echo "⬇️  Pulling latest changes from origin/$default_branch..."
-    git pull origin $default_branch
-    if test $status -ne 0
-        echo "❌ Error: Failed to pull latest changes"
-        echo "💡 Tip: Make sure you have a clean working directory"
-        return 1
+    # Try to use interactive selection tools
+    if command -v fzf >/dev/null 2>&1
+        # Use fzf for interactive selection
+        set selected_display (printf '%s\n' $branch_display | fzf --height=15 --reverse --header="Select branch (current: $current_branch)" --cycle)
+        
+        if test -z "$selected_display"
+            echo "❌ Cancelled"
+            return 1
+        end
+        
+        # Extract the branch name from the display string
+        set base_branch (string split ' ' $selected_display)[1]
+    else if command -v gum >/dev/null 2>&1
+        # Use gum for a nice arrow key interface
+        set selected_display (printf '%s\n' $branch_display | gum choose --header="Select branch to base the new worktree on" --cursor-prefix="▶ " --selected-prefix="▶ ")
+        
+        if test -z "$selected_display"
+            echo "❌ Cancelled"
+            return 1
+        end
+        
+        # Extract the branch name from the display string
+        set base_branch (string split ' ' $selected_display)[1]
+    else
+        # Fallback to simple selection with arrow key hints
+        echo "💡 Tip: Install fzf or gum for a better branch selection experience"
+        echo "   brew install fzf   # or   brew install gum"
+        echo ""
+        
+        # Display branches with the current branch pre-selected
+        set branch_count (count $all_branches)
+        set current_idx 1
+        
+        # Find current branch index
+        for i in (seq 1 $branch_count)
+            if test "$all_branches[$i]" = "$current_branch"
+                set current_idx $i
+                break
+            end
+        end
+        
+        # Display branches
+        echo "Available branches:"
+        for i in (seq 1 $branch_count)
+            echo "  $i) $branch_display[$i]"
+        end
+        
+        echo ""
+        echo "📝 Enter branch name or number (default: $current_branch)"
+        echo -n "Selection [press Enter for current]: "
+        
+        read -l selection
+        set read_status $status
+        
+        # Check if read was interrupted (Ctrl-C)
+        if test $read_status -ne 0
+            echo ""
+            echo "❌ Cancelled"
+            return 1
+        end
+        
+        if test -z "$selection"
+            # User pressed Enter, use current branch
+            set base_branch $current_branch
+        else if string match -qr '^[0-9]+$' "$selection"
+            # User entered a number
+            if test $selection -ge 1 -a $selection -le $branch_count
+                set base_branch $all_branches[$selection]
+            else
+                echo "❌ Error: Invalid selection"
+                return 1
+            end
+        else
+            # User entered a branch name
+            if contains $selection $all_branches
+                set base_branch $selection
+            else
+                echo "❌ Error: Branch '$selection' not found"
+                return 1
+            end
+        end
+    end
+    
+    echo ""
+    echo "✅ Selected branch: $base_branch"
+    
+    echo ""
+    
+    # Fetch latest changes for the selected branch
+    echo "⬇️  Fetching latest changes for $base_branch..."
+    
+    # Check if branch exists locally
+    if git show-ref --verify --quiet "refs/heads/$base_branch"
+        # Local branch exists
+        git fetch origin $base_branch:$base_branch
+        if test $status -ne 0
+            echo "⚠️  Warning: Could not fetch latest changes for $base_branch"
+            echo "   Continuing with local version..."
+        end
+    else
+        # Remote branch only, fetch it
+        git fetch origin $base_branch
+        if test $status -ne 0
+            echo "❌ Error: Failed to fetch branch $base_branch"
+            return 1
+        end
     end
     
     # Determine worktree and branch names
@@ -252,9 +372,19 @@ function ccw
     
     echo "✨ Creating worktree '$worktree_name'..."
     
-    # Create the worktree with a new branch based on the latest remote default branch
+    # Create the worktree with a new branch based on the selected base branch
+    # Determine the correct ref to use
+    set base_ref ""
+    if git show-ref --verify --quiet "refs/heads/$base_branch"
+        # Local branch exists, use it
+        set base_ref "$base_branch"
+    else
+        # Remote branch only, use origin/branch
+        set base_ref "origin/$base_branch"
+    end
+    
     # Capture git output to add emojis
-    set git_output (git worktree add -b "$branch_to_create" "$worktree_path" "origin/$default_branch" 2>&1)
+    set git_output (git worktree add -b "$branch_to_create" "$worktree_path" "$base_ref" 2>&1)
     set worktree_status $status
     
     if test $worktree_status -ne 0
@@ -317,7 +447,9 @@ function ccw
     # Change to the new worktree directory
     cd "$worktree_path"
     
-    # Start Claude in the new worktree
-    echo "🤖 Starting Claude in $worktree_name..."
-    claude
+    # Start Claude in the new worktree (unless in test mode)
+    if not set -q CCW_TEST_MODE
+        echo "🤖 Starting Claude in $worktree_name..."
+        claude
+    end
 end

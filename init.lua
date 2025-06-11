@@ -183,7 +183,7 @@ local DARK_MODE = true
 
 if DARK_MODE then
   vim.opt.background = 'dark'
-  vim.cmd [[colorscheme nightfox]]
+  vim.cmd [[colorscheme kanagawa-dragon]]
 else
   vim.opt.background = 'light'
   vim.cmd [[colorscheme dayfox]]

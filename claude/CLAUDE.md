@@ -88,3 +88,19 @@ fi
 ### Configuration Management
 - Store config files in a git repo at `~/.config/nvim/lua/custom`, which includes `config.fish`
 - The `~/.config/fish/config.fish` file sources configurations from this directory
+
+### SVG Optimization for macOS Quick Look
+- **Problem**: SVGs with fixed pixel dimensions (e.g., `width="24" height="20"`) appear tiny in macOS Quick Look preview
+- **Solution**: Use percentage-based dimensions while preserving viewBox:
+  ```svg
+  <!-- Instead of: -->
+  <svg width="24" height="20" viewBox="0 0 24 20">
+  
+  <!-- Use: -->
+  <svg width="100%" height="100%" viewBox="0 0 24 20">
+  ```
+- **Benefits**: 
+  - SVGs scale properly in Quick Look preview
+  - Web rendering remains unchanged (viewBox maintains aspect ratio)
+  - No visual changes to the graphics themselves
+- When exporting SVGs from Figma, make sure to use this technique

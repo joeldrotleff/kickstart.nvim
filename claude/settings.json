@@ -7,6 +7,8 @@
       "Bash",
       "Read",
       "List",
+      "WebFetch(domain:promptfoo.dev)",
+      "WebFetch(domain:www.promptfoo.dev)",
       "WebFetch(domain:figma-alpha-api.s3.us-west-2.amazonaws.com)",
       "WebFetch(domain:www.figma.com)",
       "WebFetch(domain:vimhelp.org)",

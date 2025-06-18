@@ -186,7 +186,7 @@ if DARK_MODE then
   vim.cmd [[colorscheme kanagawa-dragon]]
 else
   vim.opt.background = 'light'
-  vim.cmd [[colorscheme dawnfox]]
+  vim.cmd [[colorscheme edge]]
 end
 
 -- Disable the double space keymap

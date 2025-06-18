@@ -3,6 +3,12 @@ return {
   -- recommendation from Lazy.nvim docs
 
   {
+    'sainnhe/edge',
+    lazy = false,
+    priority = 10,
+  },
+
+  {
     'bluz71/vim-moonfly-colors',
     lazy = false,
     priority = 10,

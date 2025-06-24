@@ -4,6 +4,7 @@
 - **NEVER replace existing complex components with simplified versions** - always fix the actual problem
 - **ALWAYS work with the existing codebase** - do not create new simplified alternatives
 - **ALWAYS find and fix the root cause** of issues instead of creating workarounds
+- **ALWAYS** make sure your code compiles before considering a task complete
 - When debugging issues, focus on fixing the existing implementation, not replacing it
 - When something doesn't work, debug and fix it - don't start over with a simple version
 

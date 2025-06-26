@@ -1,12 +1,24 @@
 ### Critical Rules - DO NOT VIOLATE
 
+- **ALWAYS make sure your code compiles before considering a task complete**
 - **NEVER create mock data or simplified components** unless explicitly told to do so
 - **NEVER replace existing complex components with simplified versions** - always fix the actual problem
 - **ALWAYS work with the existing codebase** - do not create new simplified alternatives
 - **ALWAYS find and fix the root cause** of issues instead of creating workarounds
-- **ALWAYS make sure your code compiles before considering a task complete
+- **ALWAYS make sure your code compiles before considering a task complete** ⚠️ CRITICAL
 - When debugging issues, focus on fixing the existing implementation, not replacing it
 - When something doesn't work, debug and fix it - don't start over with a simple version
+
+### Compilation Verification Commands
+  **ALWAYS run before considering task complete:**
+  - TypeScript/JavaScript: `npm run build` or `tsc` or `deno task check`
+  - Rust: `cargo check` or `cargo build`
+  - Go: `go build`
+  - Swift: `swift build` or `xcodebuild`
+  - Python: Run the main file or `python -m py_compile *.py`
+
+  If you don't know the build command, ASK THE USER before marking complete.
+
 
 ### TypeScript and Linting
 - ALWAYS add explicit types to all function parameters, variables, and return types

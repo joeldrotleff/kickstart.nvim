@@ -68,6 +68,7 @@
       "WebFetch(domain:kubernetes.io)",
       "WebFetch(domain:git-scm.com)",
       "WebFetch(domain:scm.com)",
+      "WebFetch(domain:api.github.com)",
       "WebFetch(domain:docs.github.com)",
       "WebFetch(domain:docs.gitlab.com)",
       "WebFetch(domain:gitlab.com)",

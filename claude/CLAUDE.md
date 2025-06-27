@@ -98,6 +98,13 @@ fi
 - For watchOS apps, remember the container iOS app is required even if minimal
 - Use `GENERATE_INFOPLIST_FILE: YES` in project.yml to avoid Info.plist management issues
 
+### Deployment Best Practices
+- **ALWAYS use `make deploy-prod` for Deno Deploy deployments** - never use raw `deployctl` commands
+- This ensures production deployment with the `--prod` flag
+- Use `make deploy-preview` for preview deployments
+- Check if a Makefile exists before running deployment commands
+- If deploying a project without a Makefile, create one first with proper `deploy-prod` and `deploy-preview` targets
+
 ### Configuration Management
 - Store config files in a git repo at `~/.config/nvim/lua/custom`, which includes `config.fish`
 - The `~/.config/fish/config.fish` file sources configurations from this directory

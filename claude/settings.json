@@ -7,7 +7,9 @@
       "Bash",
       "Read",
       "List",
-			"Edit",
+      "Edit",
+      "WebFetch(domain:avanderlee.com)",
+      "WebFetch(domain:swift.org)",
       "WebFetch(domain:www.hono.dev)",
       "WebFetch(domain:hono.dev)",
       "WebFetch(domain:developers.deepgram.com)",
@@ -169,5 +171,6 @@
       "Bash(command:git push --force)",
       "Bash(command:git push -f)"
     ]
-  }
+  },
+  "model": "opus"
 }

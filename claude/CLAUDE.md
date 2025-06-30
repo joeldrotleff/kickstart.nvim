@@ -43,6 +43,15 @@
 
 ### iOS/macOS App Development
 
+#### Xcode Test Console Logs
+- **IMPORTANT**: When running tests in Xcode, console logs from the test target will NOT appear in the output unless you set a breakpoint in the test
+- To see `print()` statements and logs from XCTest:
+  1. Set a breakpoint anywhere in the test method
+  2. Run the test
+  3. When the breakpoint hits, the console will show all previous print statements
+  4. You can then continue execution or step through
+- This is a known Xcode limitation that affects test debugging
+
 #### XcodeGen Setup
 - **Prefer XcodeGen over manual Xcode project management** - use a declarative `project.yml` file instead of editing .xcodeproj files
 - Install with: `brew install xcodegen`

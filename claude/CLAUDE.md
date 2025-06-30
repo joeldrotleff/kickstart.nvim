@@ -124,3 +124,6 @@ fi
   - Web rendering remains unchanged (viewBox maintains aspect ratio)
   - No visual changes to the graphics themselves
 - When exporting SVGs from Figma, make sure to use this technique
+
+### Context7 MCP Search Strategy
+When searching for documentation in Context7, start simple and broad before narrowing down. For example, when looking for Swift async/await docs, search "swift" or "swiftlang" first rather than "swift async" - core language documentation often lives in the main language repository (e.g., `/swiftlang/swift`, `/rust-lang/rust`). Always check results with high trust scores and snippet counts, even if the names don't exactly match your query. Context7 contains official language repos, popular frameworks, and company-maintained libraries, so cast a wide net initially.

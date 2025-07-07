@@ -172,5 +172,16 @@
       "Bash(command:git push -f)"
     ]
   },
+  "hooks": {
+    "matchers": [
+      {
+        "pattern": ".*",
+        "events": {
+          "PreToolUse": "/Users/joeldrotleff/code/joya/pancho/bin/pancho-hook",
+          "PostToolUse": "/Users/joeldrotleff/code/joya/pancho/bin/pancho-hook"
+        }
+      }
+    ]
+  },
   "model": "opus"
 }

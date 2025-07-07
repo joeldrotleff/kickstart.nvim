@@ -1,138 +1,160 @@
-### Critical Rules - DO NOT VIOLATE
+# Development Partnership
 
-- **ALWAYS make sure your code compiles before considering a task complete**
-- **NEVER create mock data or simplified components** unless explicitly told to do so
-- **NEVER replace existing complex components with simplified versions** - always fix the actual problem
-- **ALWAYS work with the existing codebase** - do not create new simplified alternatives
-- **ALWAYS find and fix the root cause** of issues instead of creating workarounds
-- **ALWAYS make sure your code compiles before considering a task complete** ⚠️ CRITICAL
-- When debugging issues, focus on fixing the existing implementation, not replacing it
-- When something doesn't work, debug and fix it - don't start over with a simple version
+We're building production-quality code together. Your role is to create maintainable, efficient solutions while catching potential issues early.
 
-### Compilation Verification Commands
-  **ALWAYS run before considering task complete:**
-  - TypeScript/JavaScript: `npm run build` or `tsc` or `deno task check`
-  - Rust: `cargo check` or `cargo build`
-  - Go: `go build`
-  - Swift: `swift build` or `xcodebuild`
-  - Python: Run the main file or `python -m py_compile *.py`
+When you seem stuck or overly complex, I'll redirect you - my guidance helps you stay on track.
 
-  If you don't know the build command, ASK THE USER before marking complete.
+## 🚨 AUTOMATED CHECKS ARE MANDATORY
+**ALL hook issues are BLOCKING - EVERYTHING must be ✅ GREEN!**  
+No errors. No formatting issues. No linting problems. Zero tolerance.  
+These are not suggestions. Fix ALL issues before continuing.
 
+## CRITICAL WORKFLOW - ALWAYS FOLLOW THIS!
 
-### TypeScript and Linting
-- ALWAYS add explicit types to all function parameters, variables, and return types
-- ALWAYS run `deno task precommit` or `npm run precommit` or appropriate linter command before considering any code changes complete
-- Fix all linter and TypeScript errors immediately - don't leave them for the user to fix
-- When making changes to multiple files, check each one for type errors
-- **Format before committing**: Always run the project's format command (e.g., `deno fmt`, `npm run format`) before committing to ensure consistent code style and prevent CI failures
+### Research → Plan → Implement
+**NEVER JUMP STRAIGHT TO CODING!** Always follow this sequence:
+1. **Research**: Explore the codebase, understand existing patterns
+2. **Plan**: Create a detailed implementation plan and verify it with me  
+3. **Implement**: Execute the plan with validation checkpoints
 
-### Running scripts
-- It's important to distinguish between automatic changes run by a script and those made by us. So if you run a script like `precommit` or `format` and it makes changes, commit those as a commit with a message like "Ran autoformat script". This is important because when reviewing, automatic changes deserve less scrutiny than those made by AI/humans.
-- **ALWAYS check exit codes**: When running any task or script, verify it completed successfully by checking the exit code. Don't just look at the output - use `&& echo "SUCCESS" || echo "FAILED"` or check `$?` to ensure the command didn't fail
-- **Investigate failures immediately**: If a command exits with an error code, investigate what went wrong before proceeding. Long output might truncate important error messages at the end
+When asked to implement any feature, you'll first say: "Let me research the codebase and create a plan before implementing."
 
-### Research / Planning
-- When asked to do research or make a plan, check in with the user to verify the plan looks good before implementing any changes
+For complex architectural decisions or challenging problems, use **"ultrathink"** to engage maximum reasoning capacity. Say: "Let me ultrathink about this architecture before proposing a solution."
 
-### CI/CD Best Practices
-- **ALWAYS use the same commands in CI that are used locally** - prefer `npm run test`, `deno task test`, `make test` etc. over duplicating logic in CI
-- **NEVER duplicate build/test logic** between CI workflows and local scripts - this prevents CI-only failures
-- When setting up CI, call the project's existing scripts/makefiles rather than reimplementing commands
-- This ensures CI and local development stay in sync and reduces "works on my machine" issues
+### USE MULTIPLE AGENTS!
+*Leverage subagents aggressively* for better results:
 
-### iOS/macOS App Development
+* Spawn agents to explore different parts of the codebase in parallel
+* Use one agent to write tests while another implements features
+* Delegate research tasks: "I'll have an agent investigate the database schema while I analyze the API structure"
+* For complex refactors: One agent identifies changes, another implements them
 
-#### Xcode Test Console Logs
-- **IMPORTANT**: When running tests in Xcode, console logs from the test target will NOT appear in the output unless you set a breakpoint in the test
-- To see `print()` statements and logs from XCTest:
-  1. Set a breakpoint anywhere in the test method
-  2. Run the test
-  3. When the breakpoint hits, the console will show all previous print statements
-  4. You can then continue execution or step through
-- This is a known Xcode limitation that affects test debugging
+Say: "I'll spawn agents to tackle different aspects of this problem" whenever a task has multiple independent parts.
 
-#### XcodeGen Setup
-- **Prefer XcodeGen over manual Xcode project management** - use a declarative `project.yml` file instead of editing .xcodeproj files
-- Install with: `brew install xcodegen`
-- Generate project with: `xcodegen generate`
-- **NEVER manually edit .xcodeproj files** - always modify `project.yml` and regenerate
-- Benefits: Clean diffs, easier merging, reproducible builds, no more .pbxproj conflicts
+### Reality Checkpoints
+**Stop and validate** at these moments:
+- After implementing a complete feature
+- Before starting a new major component  
+- When something feels wrong
+- Before declaring "done"
+- **WHEN HOOKS FAIL WITH ERRORS** ❌
 
-Example project.yml structure:
-```yaml
-name: MyApp
-options:
-  bundleIdPrefix: com.example
-  deploymentTarget:
-    iOS: 15.0
-targets:
-  MyApp:
-    type: application
-    platform: iOS
-    sources: [MyApp]
-    settings:
-      GENERATE_INFOPLIST_FILE: YES  # Auto-generates Info.plist
+Run: `make fmt && make test && make lint`
+
+> Why: You can lose track of what's actually working. These checkpoints prevent cascading failures.
+
+### 🚨 CRITICAL: Hook Failures Are BLOCKING
+**When hooks report ANY issues (exit code 2), you MUST:**
+1. **STOP IMMEDIATELY** - Do not continue with other tasks
+2. **FIX ALL ISSUES** - Address every ❌ issue until everything is ✅ GREEN
+3. **VERIFY THE FIX** - Re-run the failed command to confirm it's fixed
+4. **CONTINUE ORIGINAL TASK** - Return to what you were doing before the interrupt
+5. **NEVER IGNORE** - There are NO warnings, only requirements
+
+This includes:
+- Formatting issues (gofmt, black, prettier, etc.)
+- Linting violations (golangci-lint, eslint, etc.)
+- Forbidden patterns (time.Sleep, panic(), interface{})
+- ALL other checks
+
+Your code must be 100% clean. No exceptions.
+
+**Recovery Protocol:**
+- When interrupted by a hook failure, maintain awareness of your original task
+- After fixing all issues and verifying the fix, continue where you left off
+- Use the todo list to track both the fix and your original task
+
+## Working Memory Management
+
+### When context gets long:
+- Re-read this CLAUDE.md file
+- Summarize progress in a PROGRESS.md file
+- Document current state before major changes
+
+### Maintain TODO.md:
+```
+## Current Task
+- [ ] What we're doing RIGHT NOW
+
+## Completed  
+- [x] What's actually done and tested
+
+## Next Steps
+- [ ] What comes next
 ```
 
-#### xcpretty for Clean Build Output
-- **ALWAYS use xcpretty when running xcodebuild** - it makes output readable and highlights errors clearly
-- Install with: `gem install xcpretty` 
-- Usage: `xcodebuild [options] | xcpretty`
-- For CI/scripts, check if xcpretty exists first:
-```bash
-if command -v xcpretty &> /dev/null; then
-    xcodebuild build | xcpretty
-else
-    xcodebuild build
-fi
+### Required Standards:
+- **Delete** old code when replacing it
+- **Meaningful names**: `userID` not `id`
+- **Early returns** to reduce nesting
+- **Concrete types** from constructors: `func NewServer() *Server`
+- **Simple errors**: `return fmt.Errorf("context: %w", err)`
+- **Table-driven tests** for complex logic
+- **Channels for synchronization**: Use channels to signal readiness, not sleep
+- **Select for timeouts**: Use `select` with timeout channels, not sleep loops
+
+## Implementation Standards
+
+### Our code is complete when:
+- ? All linters pass with zero issues
+- ? All tests pass  
+- ? Feature works end-to-end
+- ? Old code is deleted
+
+### Testing Strategy
+- Complex business logic ? Write tests first
+- Simple CRUD ? Write tests after
+- Hot paths ? Add benchmarks
+- Skip tests for main() and simple CLI parsing
+
+### Project Structure
+```
+cmd/        # Application entrypoints
+internal/   # Private code (the majority goes here)
+pkg/        # Public libraries (only if truly reusable)
 ```
 
-#### SwiftFormat for Code Consistency
-- **ALWAYS use SwiftFormat for Swift projects** - ensures consistent code style across the codebase
-- Install with: `brew install swiftformat`
-- Format all files: `swiftformat .`
-- Check without modifying: `swiftformat . --dryrun`
-- Create `.swiftformat` config file for project-specific rules:
+## Problem-Solving Together
+
+When you're stuck or confused:
+1. **Stop** - Don't spiral into complex solutions
+2. **Delegate** - Consider spawning agents for parallel investigation
+3. **Ultrathink** - For complex problems, say "I need to ultrathink through this challenge" to engage deeper reasoning
+4. **Step back** - Re-read the requirements
+5. **Simplify** - The simple solution is usually correct
+6. **Ask** - "I see two approaches: [A] vs [B]. Which do you prefer?"
+
+My insights on better approaches are valued - please ask for them!
+
+## Performance & Security
+
+### **Measure First**:
+- No premature optimization
+- Benchmark before claiming something is faster
+- Use pprof for real bottlenecks
+
+### **Security Always**:
+- Validate all inputs
+- Use crypto/rand for randomness
+- Prepared statements for SQL (never concatenate!)
+
+## Communication Protocol
+
+### Progress Updates:
 ```
---swiftversion 5.0
---indent 4
---exclude .build,Pods,Carthage
+✓ Implemented authentication (all tests passing)
+✓ Added rate limiting  
+✗ Found issue with token expiration - investigating
 ```
-- Run before committing code to maintain consistency
-- Can integrate with Xcode as a build phase or Git pre-commit hook
 
-#### Common iOS Development Patterns
-- When CMAcceleration or similar types don't conform to Equatable, use `.onReceive` with Combine instead of `.onChange`
-- For watchOS apps, remember the container iOS app is required even if minimal
-- Use `GENERATE_INFOPLIST_FILE: YES` in project.yml to avoid Info.plist management issues
+### Suggesting Improvements:
+"The current approach works, but I notice [observation].
+Would you like me to [specific improvement]?"
 
-### Deployment Best Practices
-- **ALWAYS use `make deploy-prod` for Deno Deploy deployments** - never use raw `deployctl` commands
-- This ensures production deployment with the `--prod` flag
-- Use `make deploy-preview` for preview deployments
-- Check if a Makefile exists before running deployment commands
-- If deploying a project without a Makefile, create one first with proper `deploy-prod` and `deploy-preview` targets
+## Working Together
 
-### Configuration Management
-- Store config files in a git repo at `~/.config/nvim/lua/custom`, which includes `config.fish`
-- The `~/.config/fish/config.fish` file sources configurations from this directory
+- This is always a feature branch - no backwards compatibility needed
+- When in doubt, we choose clarity over cleverness
+- **REMINDER**: If this file hasn't been referenced in 30+ minutes, RE-READ IT!
 
-### SVG Optimization for macOS Quick Look
-- **Problem**: SVGs with fixed pixel dimensions (e.g., `width="24" height="20"`) appear tiny in macOS Quick Look preview
-- **Solution**: Use percentage-based dimensions while preserving viewBox:
-  ```svg
-  <!-- Instead of: -->
-  <svg width="24" height="20" viewBox="0 0 24 20">
-  
-  <!-- Use: -->
-  <svg width="100%" height="100%" viewBox="0 0 24 20">
-  ```
-- **Benefits**: 
-  - SVGs scale properly in Quick Look preview
-  - Web rendering remains unchanged (viewBox maintains aspect ratio)
-  - No visual changes to the graphics themselves
-- When exporting SVGs from Figma, make sure to use this technique
-
-### Context7 MCP Search Strategy
-When searching for documentation in Context7, start simple and broad before narrowing down. For example, when looking for Swift async/await docs, search "swift" or "swiftlang" first rather than "swift async" - core language documentation often lives in the main language repository (e.g., `/swiftlang/swift`, `/rust-lang/rust`). Always check results with high trust scores and snippet counts, even if the names don't exactly match your query. Context7 contains official language repos, popular frameworks, and company-maintained libraries, so cast a wide net initially.
+Avoid complex abstractions or "clever" code. The simple, obvious solution is probably better, and my guidance helps you stay focused on what matters.

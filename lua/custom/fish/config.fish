@@ -6,6 +6,7 @@ fish_add_path "$HOME/.deno/bin"
 fish_add_path "$HOME/.local/bin"
 fish_add_path "/opt/homebrew/bin"
 fish_add_path "$HOME/Library/Application Support/fnm/node-versions/v22.12.0/installation"
+fish_add_path "$HOME/code/joya/pancho/bin"
 
 # This makes fish slow to load
 # sh "$HOME/code/joya/mp-desktop-web/script/import.sh"

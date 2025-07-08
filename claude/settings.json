@@ -8,6 +8,8 @@
 			"Read",
 			"List",
 			"Edit",
+			"WebFetch(domain:www.npmjs.com)",
+			"WebFetch(domain:npmjs.com)",
 			"WebFetch(domain:avanderlee.com)",
 			"WebFetch(domain:swift.org)",
 			"WebFetch(domain:www.hono.dev)",
@@ -172,40 +174,5 @@
 			"Bash(command:git push -f)"
 		]
 	},
-	"model": "opus",
-	"hooks": {
-		"PreToolUse": [
-			{
-				"matcher": "",
-				"hooks": [
-					{
-						"type": "command",
-						"command": "pancho-hook"
-					}
-				]
-			}
-		],
-		"PostToolUse": [
-			{
-				"matcher": "",
-				"hooks": [
-					{
-						"type": "command",
-						"command": "pancho-hook"
-					}
-				]
-			}
-		],
-		"Notification": [
-			{
-				"matcher": "",
-				"hooks": [
-					{
-						"type": "command",
-						"command": "pancho-hook"
-					}
-				]
-			}
-		]
-	}
+	"model": "opus"
 }

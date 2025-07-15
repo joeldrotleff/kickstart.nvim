@@ -132,9 +132,6 @@ bind -M insert \cf accept-autosuggestion
  
 set -gx ANDROID_HOME $HOME/Library/Android/sdk
 
-# Fix for colima + supabase
-# set -x DOCKER_HOST unix:///$HOME/.colima/default/docker.sock
-
 # Allows neovim to change dir to terminal's cwd
 # See: https://vimhelp.org/options.txt.html#%27autoshelldir%27
 if test -n "$VIM_TERMINAL"
@@ -148,4 +145,3 @@ fish_add_path /Users/joeldrotleff/.codeium/windsurf/bin
 
 # uv
 fish_add_path "/Users/joeldrotleff/.local/bin"
-set -gx DOCKER_HOST unix:///Users/joeldrotleff/.colima/default/docker.sock

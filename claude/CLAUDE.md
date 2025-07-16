@@ -1,19 +1,9 @@
-<<<<<<< HEAD
 ### CRITICAL Rules - DO NOT VIOLATE:
 ** In general prioritize velocity rather than speed. Some common examples:
-=======
-### General Rules:
-** Make sure to let me know if something goes wrong (for example if you are unable to access a web page that I told you to summarize). If you think you can work around the issue then you may continue working (but still let me know), but if this isn't possible then stop and ask for guidance**
-
-**When I ask a question, just give an answer. If I want you to start implementing, I'll let you know explicitly**
-
-** In general try to prioritize velocity rather than speed. Some common examples:
->>>>>>> 50842bc (update claude.md to make it use klaus for learnings)
-- Writing tests is good but *too many* tests is bad. The goal of tests is to prevent regressions, especially critical ones. So don't test trivial things, and prefer "higher level" tests generally that would catch more bugs while still running quickly
 - if you aren't clear on what to do, check in with me rather than wasting your time
-- Don't make major changes without checking in to confirm this is right
+** Make sure to let me know if something goes wrong (for example if you are unable to access a web page that I told you to summarize). If you think you can work around the issue then you may continue working (but still let me know), but if this isn't possible then stop and ask for guidance**
 - If you're stuck on a problem, consider alternative / simplified approaches, and if that doesn't work check in with me
-**
+- Don't make major changes without checking in to confirm this is right
 
 ** Before considering a task complete, make sure to run linters and tests (whatever is available for the project - usually in deno.json, package.json, or Makefile)
 
@@ -66,7 +56,7 @@ When you encounter valuable insights during our work, suggest saving them to Kla
 
 When you identify a learning opportunity:
 
-1. Present it clearly:
+1. Present it clearly to the user for review:
    ```
    I noticed a valuable learning from what we just worked on:
    
@@ -77,7 +67,7 @@ When you identify a learning opportunity:
    **Code Example**: [if applicable]
    ```
 
-2. Ask: "Would you like me to save this learning to Klaus? You can also modify it before saving."
+2. Ask: "Would you like me to save this learning to Klaus? If you'd like to edit first let me know."
 
 3. If approved, save using:
    ```bash
@@ -92,6 +82,7 @@ When you identify a learning opportunity:
 - Focus on reusable insights, not project-specific details
 - Don't interrupt flow - suggest new learnings at natural pauses
 - Skip trivial fixes or well-documented practices
+- Often the best learnings are when the user had to request revisions or updates to your original code (if the original code was good, we probably don't need a learning for it)
 
 **DO NOT suggest learnings for:**
 - Trivial syntax corrections

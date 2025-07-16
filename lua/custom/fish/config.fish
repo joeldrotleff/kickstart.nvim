@@ -42,7 +42,7 @@ alias @TIMELAPS 'cd ~/code/TimeLaps'
 alias @APPINADAY 'cd ~/code/joya/ai-app-in-day-persona'
 alias @FUNNEL 'cd ~/code/joya/funnel'
 alias @KLAUS 'cd ~/code/joya/klaus'
-alias CLAUDETALK 'cd ~/code/joya/pancho/claude-talk'
+alias @CLAUDETALK 'cd ~/code/joya/claude-talk'
 
 # Export directory shortcuts as environment variables (without $ prefix)
 set -gx CLAUDECONFIG "$HOME/.claude"

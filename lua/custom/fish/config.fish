@@ -41,6 +41,8 @@ alias @TOFU 'cd ~/code/joya/sdr/client/real_backend'
 alias @TIMELAPS 'cd ~/code/TimeLaps'
 alias @APPINADAY 'cd ~/code/joya/ai-app-in-day-persona'
 alias @FUNNEL 'cd ~/code/joya/funnel'
+alias @KLAUS 'cd ~/code/joya/klaus'
+alias CLAUDETALK 'cd ~/code/joya/pancho/claude-talk'
 
 # Export directory shortcuts as environment variables (without $ prefix)
 set -gx CLAUDECONFIG "$HOME/.claude"
@@ -53,6 +55,8 @@ set -gx SDR "$HOME/code/joya/sdr"
 set -gx TOFU "$HOME/code/joya/sdr/client/real_backend"
 set -gx APPINADAY "$HOME/code/joya/ai-app-in-day-persona"
 set -gx FUNNEL "$HOME/code/joya/funnel"
+set -gx KLAUS "$HOME/code/joya/klaus"
+set -gx CLAUDETALK "$HOME/code/joya/pancho/claude-talk"
 
 # Print all path variables, each on a new line
 alias printpath 'printf %s\n $PATH'

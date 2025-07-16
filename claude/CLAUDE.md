@@ -1,7 +1,5 @@
-### General Rules:
-** Make sure to let me know if something goes wrong (for example if you are unable to access a web page that I told you to summarize). If you think you can work around the issue then you may continue working (but still let me know), but if this isn't possible then stop and ask for guidance**
-
-** In general try to prioritize velocity rather than speed. Some common examples:
+### CRITICAL Rules - DO NOT VIOLATE:
+** In general prioritize velocity rather than speed. Some common examples:
 - Writing tests is good but *too many* tests is bad. The goal of tests is to prevent regressions, especially critical ones. So don't test trivial things, and prefer "higher level" tests generally that would catch more bugs while still running quickly
 - if you aren't clear on what to do, check in with me rather than wasting your time
 - Don't make major changes without checking in to confirm this is right

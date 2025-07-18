@@ -1,6 +1,7 @@
 {
 	"permissions": {
 		"allow": [
+			"mcp__asana",
 			"mcp__figmastrand",
 			"mcp__xcodebuild",
 			"mcp__figma",

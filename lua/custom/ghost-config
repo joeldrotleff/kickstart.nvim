@@ -1,0 +1,41 @@
+# Enable shader animation (required for cursor effects)
+custom-shader-animation = true
+
+# Multiple shaders run in order specified
+# Combining cursor effect with bloom screen effect
+# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/cursor_blaze.glsl
+# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/bloom.glsl
+
+# Other cursor shaders (uncomment to switch)
+# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/cursor_smear.glsl
+# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/cursor_smear_fade.glsl
+# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/cursor_blaze_no_trail.glsl
+custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/cursor_blaze_tapered.glsl
+# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/cursor_frozen.glsl
+# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/manga_slash.glsl
+
+# Dark background helps shaders show up better
+background = #000000
+
+# Font configuration
+font-family = Liga SFMono Nerd Font
+font-family-bold = Liga SFMono Bold Nerd Font
+font-family-italic = Liga SFMono Italic Nerd Font
+
+# Window behavior
+resize-overlay = never
+
+# Keybindings
+# Split operations
+# Use 'auto' to split along the larger direction (similar to Kitty's automatic behavior)
+keybind = cmd+enter=new_split:auto
+keybind = ctrl+d=close_surface
+
+# Split navigation
+# Note: ctrl+{ and ctrl+} might need to be ctrl+shift+[ and ctrl+shift+]
+keybind = ctrl+shift+[=goto_split:previous
+keybind = ctrl+shift+]=goto_split:next
+
+# Tab operations
+keybind = cmd+t=new_tab
+keybind = ctrl+tab=next_tab

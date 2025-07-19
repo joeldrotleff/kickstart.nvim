@@ -3,16 +3,16 @@ custom-shader-animation = true
 
 # Multiple shaders run in order specified
 # Combining cursor effect with bloom screen effect
-# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/cursor_blaze.glsl
-# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/bloom.glsl
+# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/cursor_blaze.glsl
+# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/bloom.glsl
 
 # Other cursor shaders (uncomment to switch)
-# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/cursor_smear.glsl
-# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/cursor_smear_fade.glsl
-# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/cursor_blaze_no_trail.glsl
-custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/cursor_blaze_tapered.glsl
-# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/cursor_frozen.glsl
-# custom-shader = /Users/joeldrotleff/.config/ghostty/shaders/manga_slash.glsl
+# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/cursor_smear.glsl
+# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/cursor_smear_fade.glsl
+# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/cursor_blaze_no_trail.glsl
+custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/cursor_blaze_tapered.glsl
+# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/cursor_frozen.glsl
+# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/manga_slash.glsl
 
 # Dark background helps shaders show up better
 background = #000000

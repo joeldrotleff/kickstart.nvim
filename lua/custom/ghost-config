@@ -17,7 +17,7 @@ custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_tapered.glsl
 # Background and transparency settings
 background = #101010
 background-opacity = 0.85
-background-blur-radius = 30
+background-blur-radius = 40
 
 # Window styling for better aesthetics with transparency
 window-padding-balance = true

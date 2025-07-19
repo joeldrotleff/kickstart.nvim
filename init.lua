@@ -183,7 +183,7 @@ local DARK_MODE = true
 
 if DARK_MODE then
   vim.opt.background = 'dark'
-  vim.cmd [[colorscheme kanagawa-dragon]]
+  vim.cmd [[colorscheme lackluster-dark]]
 else
   vim.opt.background = 'light'
   vim.cmd [[colorscheme edge]]

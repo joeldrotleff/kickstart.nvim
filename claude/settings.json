@@ -10,6 +10,7 @@
 			"Read",
 			"List",
 			"Edit",
+      "WebFetch(domain:ghostty.org)",
       "WebFetch(domain:hono.dev)",
       "WebFetch(domain:www.donnywals.com)",
       "WebFetch(domain:donnywals.com)",

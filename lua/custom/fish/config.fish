@@ -84,6 +84,7 @@ alias tofu_test_lspbuild='cd ~/code/joya/sdr/client/no_backend/ && xcode-build-s
 alias tofu_mobile_lspbuild='cd ~/code/joya/sdr/client/real_backend/ && xcode-build-server config -project *xcodeproj -scheme "Tofu Mobile"'
 alias tofu_desktop_lspbuild='cd ~/code/joya/sdr/client/real_backend/ && xcode-build-server config -project *xcodeproj -scheme "Tofu Desktop"'
 alias funnel_lspbuild='cd ~/code/joya/funnel && xcode-build-server config -project FunnelAI.xcodeproj -scheme FunnelAI'
+alias timelaps_lspbuild='cd ~/code/TimeLaps && xcode-build-server config -project TimeLaps.xcodeproj -scheme "TimeLaps"'
 
 # Loads all the shell variables from a .env file
 function envsource

@@ -29,7 +29,10 @@ resize-overlay = never
 # Split operations
 # Use 'auto' to split along the larger direction (similar to Kitty's automatic behavior)
 keybind = cmd+enter=new_split:auto
-keybind = ctrl+d=close_surface
+
+# Close surface with a different keybinding to avoid Neovim conflict
+# Using cmd+w instead of ctrl+d
+keybind = cmd+w=close_surface
 
 # Split navigation
 # Note: ctrl+{ and ctrl+} might need to be ctrl+shift+[ and ctrl+shift+]

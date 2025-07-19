@@ -3,24 +3,31 @@ custom-shader-animation = true
 
 # Multiple shaders run in order specified
 # Combining cursor effect with bloom screen effect
-# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/cursor_blaze.glsl
-# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/bloom.glsl
+# custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze.glsl
+# custom-shader = ~/.config/nvim/lua/custom/shaders/bloom.glsl
 
 # Other cursor shaders (uncomment to switch)
-# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/cursor_smear.glsl
-# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/cursor_smear_fade.glsl
-# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/cursor_blaze_no_trail.glsl
-custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/cursor_blaze_tapered.glsl
-# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/cursor_frozen.glsl
-# custom-shader = /Users/joeldrotleff/.config/nvim/lua/custom/shaders/manga_slash.glsl
+# custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_smear.glsl
+# custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_smear_fade.glsl
+# custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_no_trail.glsl
+custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_tapered.glsl
+# custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_frozen.glsl
+# custom-shader = ~/.config/nvim/lua/custom/shaders/manga_slash.glsl
 
-# Dark background helps shaders show up better
-background = #000000
+# Background and transparency settings
+background = #101010
+background-opacity = 0.85
+background-blur-radius = 20
+
+# Window styling for better aesthetics with transparency
+window-padding-balance = true
+macos-titlebar-style = transparent
 
 # Font configuration
 font-family = Liga SFMono Nerd Font
 font-family-bold = Liga SFMono Bold Nerd Font
 font-family-italic = Liga SFMono Italic Nerd Font
+font-size = 15
 
 # Window behavior
 resize-overlay = never
@@ -42,3 +49,6 @@ keybind = ctrl+shift+]=goto_split:next
 # Tab operations
 keybind = cmd+t=new_tab
 keybind = ctrl+tab=next_tab
+
+theme = Black Metal
+theme = dark:Black Metal,light:catppuccin-latte

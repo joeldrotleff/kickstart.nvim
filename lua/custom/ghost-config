@@ -15,8 +15,7 @@
 # custom-shader = ~/.config/nvim/lua/custom/shaders/manga_slash.glsl
 
 # Background and transparency settings
-background = #101010
-background-opacity = 0.85
+background-opacity = 0.95
 background-blur-radius = 40
 
 # Window styling for better aesthetics with transparency
@@ -50,4 +49,5 @@ keybind = ctrl+shift+]=goto_split:next
 keybind = cmd+t=new_tab
 keybind = ctrl+tab=next_tab
 
-theme = dark:Darkside,light:catppuccin-latte
+theme = Darkside
+theme = dark:Darkside, light:catppuccin-latte

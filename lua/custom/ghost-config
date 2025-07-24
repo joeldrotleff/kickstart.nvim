@@ -1,5 +1,5 @@
 # Enable shader animation (required for cursor effects)
-custom-shader-animation = true
+# custom-shader-animation = true
 
 # Multiple shaders run in order specified
 # Combining cursor effect with bloom screen effect
@@ -10,7 +10,7 @@ custom-shader-animation = true
 # custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_smear.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_smear_fade.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_no_trail.glsl
-custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_tapered.glsl
+# custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_tapered.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_frozen.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/manga_slash.glsl
 
@@ -50,5 +50,4 @@ keybind = ctrl+shift+]=goto_split:next
 keybind = cmd+t=new_tab
 keybind = ctrl+tab=next_tab
 
-theme = Black Metal
-theme = dark:Black Metal,light:catppuccin-latte
+theme = dark:Darkside,light:catppuccin-latte

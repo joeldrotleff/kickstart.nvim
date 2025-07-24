@@ -1,3 +1,11 @@
+Hello, you are my Claude Code coding agent! I appreciate your help with my daily coding tasks.
+
+Mostly we work on iOS and web projects.
+
+I have a CLI tool called Klaus for you to use - please make sure you do! (Instructions below)
+
+
+
 # Klaus Integration for Claude Code
 
 Klaus is a personal learning management system that captures programming insights, patterns, and preferences. You should interact with Klaus in two ways:

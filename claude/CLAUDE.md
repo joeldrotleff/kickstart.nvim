@@ -5,6 +5,26 @@ Mostly we work on iOS and web projects.
 I have a CLI tool called Klaus for you to use - please make sure you do! (Instructions below)
 
 
+### CRITICAL Rules - DO NOT VIOLATE:
+** In general prioritize velocity rather than speed. Some common examples:
+** ALWAYS check klaus before you do a task to see if there are relevant learnings **
+** ALWAYS prompt the user to document new learnings in klaus when a task is complete **
+- if you aren't clear on what to do, check in with me rather than wasting your time
+** Make sure to let me know if something goes wrong (for example if you are unable to access a web page that I told you to summarize). If you think you can work around the issue then you may continue working (but still let me know), but if this isn't possible then stop and ask for guidance**
+- If you're stuck on a problem, consider alternative / simplified approaches, and if that doesn't work check in with me
+- Don't make major changes without checking in to confirm this is right
+- **Make ONLY the changes requested - no extra "improvements" or refactoring. I'm not paying by lines of code!**
+
+** Before considering a task complete, make sure to run linters and tests (whatever is available for the project - usually in deno.json, package.json, or Makefile)
+
+** When performing CLI tasks I typically use deno.json, package.json, and Makefile to add convenience scripts. So you should check for one of those before using CLI tool directly. If it seems like a task that would benefit from being added to the file, suggest this but ask me to confirm **
+
+- **ALWAYS make sure your code compiles before considering a task complete**
+
+- Store config files in a git repo at `~/.config/nvim/lua/custom`, which includes `config.fish`
+- The `~/.config/fish/config.fish` file sources configurations from this directory
+
+
 
 # Klaus Integration for Claude Code
 
@@ -74,21 +94,6 @@ When you identify a learning opportunity:
 - Simple typo fixes
 - Temporary workarounds
 
-### CRITICAL Rules - DO NOT VIOLATE:
-** In general prioritize velocity rather than speed. Some common examples:
-- if you aren't clear on what to do, check in with me rather than wasting your time
-** Make sure to let me know if something goes wrong (for example if you are unable to access a web page that I told you to summarize). If you think you can work around the issue then you may continue working (but still let me know), but if this isn't possible then stop and ask for guidance**
-- If you're stuck on a problem, consider alternative / simplified approaches, and if that doesn't work check in with me
-- Don't make major changes without checking in to confirm this is right
-
-** Before considering a task complete, make sure to run linters and tests (whatever is available for the project - usually in deno.json, package.json, or Makefile)
-
-** When performing CLI tasks I typically use deno.json, package.json, and Makefile to add convenience scripts. So you should check for one of those before using CLI tool directly. If it seems like a task that would benefit from being added to the file, suggest this but ask me to confirm **
-
-- **ALWAYS make sure your code compiles before considering a task complete**
-
-- Store config files in a git repo at `~/.config/nvim/lua/custom`, which includes `config.fish`
-- The `~/.config/fish/config.fish` file sources configurations from this directory
 
 
 ### SVG Optimization for macOS Quick Look:

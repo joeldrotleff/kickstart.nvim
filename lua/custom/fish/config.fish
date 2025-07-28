@@ -58,6 +58,8 @@ set -gx FUNNEL "$HOME/code/joya/funnel"
 set -gx KLAUS "$HOME/code/joya/klaus"
 set -gx CLAUDETALK "$HOME/code/joya/pancho/claude-talk"
 
+set -gx AWS_PROFILE 443326068016_AdministratorAccess
+
 # Print all path variables, each on a new line
 alias printpath 'printf %s\n $PATH'
 

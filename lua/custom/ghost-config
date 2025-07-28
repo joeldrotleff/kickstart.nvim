@@ -15,8 +15,9 @@
 # custom-shader = ~/.config/nvim/lua/custom/shaders/manga_slash.glsl
 
 # Background and transparency settings
-background-opacity = 0.95
-background-blur-radius = 40
+# background = #101010
+# background-opacity = 0.85
+# background-blur-radius = 40
 
 # Window styling for better aesthetics with transparency
 window-padding-balance = true
@@ -49,5 +50,18 @@ keybind = ctrl+shift+]=goto_split:next
 keybind = cmd+t=new_tab
 keybind = ctrl+tab=next_tab
 
-theme = Darkside
-theme = dark:Darkside, light:catppuccin-latte
+theme = dark:Darkside,light:catppuccin-latte
+
+# Performance optimizations
+# Scrollback buffer limit (10MB - adjust as needed)
+scrollback-limit = 10485760
+
+# Disable vsync for maximum performance (already default on macOS)
+# vsync = false
+
+# No background blur for better performance
+background-blur-radius = 0
+
+# Disable shader animations to reduce GPU load
+custom-shader-animation = false
+keybind = shift+enter=text:\n

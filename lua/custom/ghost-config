@@ -1,9 +1,9 @@
 # Enable shader animation (required for cursor effects)
-# custom-shader-animation = true
+custom-shader-animation = true
 
 # Multiple shaders run in order specified
 # Combining cursor effect with bloom screen effect
-# custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze.glsl
+custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/bloom.glsl
 
 # Other cursor shaders (uncomment to switch)

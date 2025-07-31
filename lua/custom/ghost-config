@@ -34,8 +34,8 @@ resize-overlay = never
 
 # Keybindings
 # Split operations
-# Use 'auto' to split along the larger direction (similar to Kitty's automatic behavior)
-keybind = cmd+enter=new_split:auto
+# Always create a vertical split (below) for cmd+enter
+keybind = cmd+enter=new_split:down
 
 # Close surface with a different keybinding to avoid Neovim conflict
 # Using cmd+w instead of ctrl+d
@@ -64,4 +64,5 @@ background-blur-radius = 0
 
 # Disable shader animations to reduce GPU load
 custom-shader-animation = false
+keybind = shift+enter=text:\n
 keybind = shift+enter=text:\n

@@ -50,7 +50,12 @@ keybind = ctrl+shift+]=goto_split:next
 keybind = cmd+t=new_tab
 keybind = ctrl+tab=next_tab
 
-theme = dark:Darkside,light:catppuccin-latte
+theme = dark:rose-pine,light:catppuccin-latte
+# Vesper
+# Rosepine
+# Kanagawa Dragon
+# embers-dark
+# Espresso Libre
 
 # Performance optimizations
 # Scrollback buffer limit (10MB - adjust as needed)

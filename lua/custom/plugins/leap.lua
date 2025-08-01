@@ -1,3 +1,4 @@
+-- A motion plugin that uses 's' keyword to jump around
 return {
   'ggandor/leap.nvim',
   dependencies = { 'nvim-lua/plenary.nvim' },

@@ -1,3 +1,4 @@
+-- A lua neovim plugin to generate shareable file permalinks (with line ranges) for several git web frontend hosts
 return {
   'ruifm/gitlinker.nvim',
   lazy = false,

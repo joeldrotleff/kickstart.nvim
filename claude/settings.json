@@ -12,6 +12,7 @@
       "Read",
       "List",
       "Edit",
+      "WebFetch(domain:github.com/happybits)",
       "WebFetch(domain:ghostty.org)",
       "WebFetch(domain:hono.dev)",
       "WebFetch(domain:www.donnywals.com)",
@@ -186,6 +187,6 @@
   },
   "model": "opus",
   "feedbackSurveyState": {
-    "lastShownTime": 1754090659327
+    "lastShownTime": 1754076196087
   }
 }

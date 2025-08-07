@@ -21,10 +21,8 @@ pyenv init - fish | source
 alias reload 'source ~/.config/fish/config.fish'
 alias nv 'nvim'
 alias cc 'claude'
-alias ccc 'cd ~/.claude/ && claude'
+alias ccc 'npm update -g @anthropic-ai/claude-code'
 alias sb 'supabase'
-alias claude-settings-update 'cp -r ~/.config/nvim/lua/custom/claude/ ~/.claude/'
-alias claude-pull 'git -C ~/.config/nvim/lua/custom pull'
 source ~/.config/nvim/lua/custom/fish/scripts/ccw.fish
 source ~/.config/nvim/lua/custom/fish/scripts/yolo.fish
 source ~/.config/nvim/lua/custom/fish/scripts/claudette.fish

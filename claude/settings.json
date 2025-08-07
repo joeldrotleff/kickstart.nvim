@@ -180,7 +180,7 @@
       "Bash(command:git push -f)"
     ]
   },
-  "model": "opus",
+  "model": "sonnet",
   "feedbackSurveyState": {
     "lastShownTime": 1754076196087
   }

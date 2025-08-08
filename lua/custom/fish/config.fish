@@ -15,9 +15,6 @@ fish_add_path "/opt/homebrew/lib/ruby/gems/3.4.0/bin"
 fish_add_path "/Applications/Windsurf.app/Contents/Resources/app/bin/"
 fish_add_path "$HOME/.pyenv/shims/"
 
-# See: https://github.com/pyenv/pyenv?tab=readme-ov-file#b-set-up-your-shell-environment-for-pyenv
-pyenv init - fish | source
-
 alias reload 'source ~/.config/fish/config.fish'
 alias nv 'nvim'
 alias cc 'claude'
@@ -25,7 +22,6 @@ alias ccc 'npm update -g @anthropic-ai/claude-code'
 alias sb 'supabase'
 source ~/.config/nvim/lua/custom/fish/scripts/ccw.fish
 source ~/.config/nvim/lua/custom/fish/scripts/yolo.fish
-source ~/.config/nvim/lua/custom/fish/scripts/claudette.fish
 
 # Directory shortcuts
 alias @CLAUDECONFIG 'cd ~/.claude'

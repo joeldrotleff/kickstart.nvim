@@ -13,7 +13,6 @@ fish_add_path "/opt/homebrew/lib/ruby/gems/3.4.0/bin"
 # sh "$HOME/code/joya/mp-desktop-web/script/import.sh"
 
 fish_add_path "/Applications/Windsurf.app/Contents/Resources/app/bin/"
-fish_add_path "$HOME/.pyenv/shims/"
 
 alias reload 'source ~/.config/fish/config.fish'
 alias nv 'nvim'

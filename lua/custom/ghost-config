@@ -41,14 +41,14 @@ keybind = cmd+enter=new_split:down
 # Using cmd+w instead of ctrl+d
 keybind = cmd+w=close_surface
 
-# Split navigation
-# Note: ctrl+{ and ctrl+} might need to be ctrl+shift+[ and ctrl+shift+]
-keybind = ctrl+shift+[=goto_split:previous
-keybind = ctrl+shift+]=goto_split:next
+# Pane navigation (with shift to avoid Neovim conflicts)
+keybind = ctrl+shift+k=goto_split:top
+keybind = ctrl+shift+j=goto_split:bottom
 
-# Tab operations
+# Tab navigation (using ctrl+h and ctrl+l)
 keybind = cmd+t=new_tab
-keybind = ctrl+tab=next_tab
+keybind = ctrl+h=previous_tab
+keybind = ctrl+l=next_tab
 
 theme = dark:rose-pine,light:catppuccin-latte
 # Vesper

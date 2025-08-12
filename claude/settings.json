@@ -168,17 +168,14 @@
     "deny": [
       "Bash(supabase:*)",
       "Bash(npm publish:*)",
-      "Bash(yarn publish:*)", 
+      "Bash(yarn publish:*)",
       "Bash(pnpm publish:*)",
       "Bash(git push --force:*)",
       "Bash(git push -f:*)",
-      "Bash(xcodebuild:*)",
-      "Bash(swift:*)",
-      "Bash(*xcodebuild*)",
-      "Bash(*swift*)"
+      "Bash(xcodebuild:*)"
     ]
   },
-  "model": "sonnet",
+  "model": "opus",
   "feedbackSurveyState": {
     "lastShownTime": 1754076196087
   }

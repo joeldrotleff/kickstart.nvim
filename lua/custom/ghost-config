@@ -49,6 +49,9 @@ keybind = cmd+t=new_tab
 keybind = ctrl+tab=next_tab
 
 theme = dark:rose-pine,light:catppuccin-latte
+
+# Set cursor to icy blue color
+cursor-color = #87CEEB
 # Vesper
 # Rosepine
 # Kanagawa Dragon

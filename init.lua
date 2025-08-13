@@ -187,6 +187,10 @@ if DARK_MODE then
 else
   vim.opt.background = 'light'
   vim.cmd [[colorscheme edge]]
+  -- Override CursorLine highlight for better visibility in light mode
+  vim.cmd [[highlight CursorLine guibg=#c8d8f8 ctermbg=153]]
+  -- Override Visual selection highlight for better visibility in light mode
+  vim.cmd [[highlight Visual guibg=#a8c8f0 ctermbg=147]]
 end
 
 -- Disable the double space keymap

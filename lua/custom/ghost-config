@@ -3,7 +3,7 @@ custom-shader-animation = true
 
 # Multiple shaders run in order specified
 # Combining cursor effect with bloom screen effect
-custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze.glsl
+# custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/bloom.glsl
 
 # Other cursor shaders (uncomment to switch)
@@ -11,13 +11,11 @@ custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_smear_fade.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_no_trail.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_tapered.glsl
-# custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_frozen.glsl
+custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_frozen.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/manga_slash.glsl
 
-# Background and transparency settings
-# background = #101010
-# background-opacity = 0.85
-# background-blur-radius = 40
+background-opacity = 0.85
+background-blur-radius = 40
 
 # Window styling for better aesthetics with transparency
 window-padding-balance = true
@@ -64,8 +62,6 @@ scrollback-limit = 10485760
 # Disable vsync for maximum performance (already default on macOS)
 # vsync = false
 
-# No background blur for better performance
-background-blur-radius = 0
 
 # Disable shader animations to reduce GPU load
 custom-shader-animation = false

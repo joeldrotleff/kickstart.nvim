@@ -178,20 +178,5 @@ end, { nargs = '*' })
 -- Sometimes they get corrupt so I just rm rf this direcotyr
 -- $HOME/.local/state/nvim/chatgpt
 
--- Set colorscheme
-local DARK_MODE = false
-
-if DARK_MODE then
-  vim.opt.background = 'dark'
-  vim.cmd [[colorscheme duskfox]]
-else
-  vim.opt.background = 'light'
-  vim.cmd [[colorscheme edge]]
-  -- Override CursorLine highlight for better visibility in light mode
-  vim.cmd [[highlight CursorLine guibg=#c8d8f8 ctermbg=153]]
-  -- Override Visual selection highlight for better visibility in light mode
-  vim.cmd [[highlight Visual guibg=#a8c8f0 ctermbg=147]]
-end
-
 -- Disable the double space keymap
 

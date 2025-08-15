@@ -3,4 +3,4 @@ tell application "System Events"
     keystroke "r" using {command down}
 end tell
 delay 0.2
--- tell application "kitty" to activate
+tell application "Ghostty" to activate

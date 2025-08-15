@@ -14,8 +14,8 @@ custom-shader-animation = true
 custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_frozen.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/manga_slash.glsl
 
-background-opacity = 0.85
-background-blur-radius = 40
+background-opacity = 0.8
+background-blur-radius = 50
 
 # Window styling for better aesthetics with transparency
 window-padding-balance = true

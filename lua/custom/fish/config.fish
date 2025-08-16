@@ -23,36 +23,7 @@ source ~/.config/nvim/lua/custom/fish/scripts/ccw.fish
 source ~/.config/nvim/lua/custom/fish/scripts/yolo.fish
 
 # Directory shortcuts
-alias @CLAUDECONFIG 'cd ~/.claude'
-alias @CONFIGS 'cd ~/.config/nvim'
-alias @JOYACODE 'cd ~/code/joya'
-alias @TEAMMATE 'cd ~/code/joya/teammate'
-alias @MARCOPOLO 'cd ~/code/joya/marcopolo-app'
-alias @MPX 'cd ~/code/joya/mpx'
-alias @SDR 'cd ~/code/joya/sdr'
-alias @TOFU 'cd ~/code/joya/sdr/client/real_backend'
-alias @TIMELAPS 'cd ~/code/TimeLaps'
-alias @APPINADAY 'cd ~/code/joya/ai-app-in-day-persona'
-alias @FUNNEL 'cd ~/code/joya/funnel'
-alias @KLAUS 'cd ~/code/joya/klaus'
-alias @CLAUDETALK 'cd ~/code/joya/claude-talk'
-alias @JOELDBLOG 'cd ~/code/joeld-blog'
-alias @NOTES 'cd ~/Documents/daily_notes'
-alias @DOCS 'cd ~/Documents'
-
-# Export directory shortcuts as environment variables (without $ prefix)
-set -gx CLAUDECONFIG "$HOME/.claude"
-set -gx CONFIGS "$HOME/.config/nvim"
-set -gx JOYACODE "$HOME/code/joya"
-set -gx TEAMMATE "$HOME/code/joya/teammate"
-set -gx MARCOPOLO "$HOME/code/joya/marcopolo-app"
-set -gx MPX "$HOME/code/joya/mpx"
-set -gx SDR "$HOME/code/joya/sdr"
-set -gx TOFU "$HOME/code/joya/sdr/client/real_backend"
-set -gx APPINADAY "$HOME/code/joya/ai-app-in-day-persona"
-set -gx FUNNEL "$HOME/code/joya/funnel"
-set -gx KLAUS "$HOME/code/joya/klaus"
-set -gx CLAUDETALK "$HOME/code/joya/pancho/claude-talk"
+source ~/.config/nvim/lua/custom/fish/aliases.fish
 
 set -gx AWS_PROFILE 443326068016_AdministratorAccess
 

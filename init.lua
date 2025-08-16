@@ -12,6 +12,9 @@ vim.opt.rtp:prepend(lazypath)
 require 'settings'
 require 'keymaps'
 
+-- Load directory aliases from Fish config
+require('custom.directory_aliases').setup()
+
 require('lazy').setup {
   change_detection = { enabled = false },
   spec = {

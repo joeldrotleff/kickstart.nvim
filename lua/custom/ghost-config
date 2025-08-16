@@ -10,8 +10,8 @@ custom-shader-animation = true
 # custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_smear.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_smear_fade.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_no_trail.glsl
-# custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_tapered.glsl
-custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_frozen.glsl
+custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_tapered.glsl
+# custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_frozen.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/manga_slash.glsl
 
 background-opacity = 0.8
@@ -48,10 +48,10 @@ keybind = ctrl+shift+]=goto_split:next
 keybind = cmd+t=new_tab
 keybind = ctrl+tab=next_tab
 
-theme = dark:rose-pine,light:catppuccin-latte
+theme = dark:rose-pine,light:Spring
 
 # Set cursor to icy blue color
-cursor-color = #87CEEB
+# cursor-color = dark:#87CEEB,light:000000
 # Vesper
 # Rosepine
 # Kanagawa Dragon

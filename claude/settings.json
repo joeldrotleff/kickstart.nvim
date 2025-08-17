@@ -6,6 +6,7 @@
 			"Bash:*",
 			"Read",
 			"Edit",
+			"WebFetch(domain:github.com/joeldrotleff)",
 			"WebFetch(domain:github.com/happybits)",
 			"WebFetch(domain:ghostty.org)",
 			"WebFetch(domain:hono.dev)",

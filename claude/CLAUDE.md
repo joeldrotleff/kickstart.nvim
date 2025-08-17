@@ -21,36 +21,11 @@ After making any code changes, ALWAYS run the following three verification agent
    - Performs proactive security scanning
    - Independently verifies all changes (doesn't rely solely on reported changes)
 
-### How to Run Verification
 
-After completing any implementation or code changes, use the Task tool to launch all three agents simultaneously:
+- **Current date**: 2025-08-16
+- **Language:** English only - all code, comments, docs, examples, commits, configs, errors, tests
+**Git Commits**: Use conventional format: <type>(<scope>): <subject> where type = feat|fix|docs|style|refactor|test|chore|perf. Subject: 50 chars max, imperative mood ("add" not "added"), no period. For small changes: one-line commit only. For complex changes: add body explaining what/why (72-char lines) and reference issues. Keep commits atomic (one logical change) and self-explanatory. Split into multiple commits if addressing different concerns.
+- **Inclusive Terms:** allowlist/blocklist, primary/replica, placeholder/example, main branch, conflict-free, concurrent/parallel
+- **Tools**: Use rg not grep, fd not find, tree is installed
+- **Style**: Prefer self-documenting code over comments
 
-```
-Task 1: qa-reviewer - Review the implementation for correctness and quality
-Task 2: tester - Run all tests and check coverage
-Task 3: security-checker - Scan for security vulnerabilities
-```
-
-Run these in parallel (single message with multiple tool calls) for maximum efficiency.
-
-### When to Run Verification
-
-- After implementing new features
-- After fixing bugs
-- After refactoring code
-- Before marking any coding task as complete
-- When requested by the user
-
-### Acting on Results
-
-- **If qa-reviewer finds issues**: Address critical problems before proceeding
-- **If tests fail**: Fix failing tests immediately
-- **If security issues found**: Address CRITICAL and HIGH severity issues before continuing
-- **If coverage is missing**: Consider adding tests for uncovered code
-
-## Additional Guidelines
-
-- Always run lint and typecheck commands if available (npm run lint, npm run typecheck, ruff, etc.)
-- If unsure about test/lint commands, ask the user and suggest documenting them here
-- Prioritize fixing issues that block deployment or create security risks
-- Remember: The goal is velocity with quality - fix blockers, not nitpicks

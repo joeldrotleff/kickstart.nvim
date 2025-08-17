@@ -1,5 +1,8 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    
+    # Update CLAUDE.md dates on terminal startup
+    source ~/.config/nvim/lua/custom/fish/scripts/update_claude_date.fish
 end
 
 fish_add_path "$HOME/.deno/bin"

@@ -7,10 +7,10 @@ custom-shader-animation = true
 # custom-shader = ~/.config/nvim/lua/custom/shaders/bloom.glsl
 
 # Other cursor shaders (uncomment to switch)
-# custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_smear.glsl
+custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_smear.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_smear_fade.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_no_trail.glsl
-custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_tapered.glsl
+# custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_blaze_tapered.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/cursor_frozen.glsl
 # custom-shader = ~/.config/nvim/lua/custom/shaders/manga_slash.glsl
 

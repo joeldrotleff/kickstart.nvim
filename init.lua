@@ -182,4 +182,3 @@ end, { nargs = '*' })
 -- $HOME/.local/state/nvim/chatgpt
 
 -- Disable the double space keymap
-

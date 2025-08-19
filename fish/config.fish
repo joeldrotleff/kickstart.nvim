@@ -2,7 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
     
     # Update CLAUDE.md dates on terminal startup
-    source ~/.config/nvim/lua/custom/fish/scripts/update_claude_date.fish
+    source ~/.config/fish/scripts/update_claude_date.fish
 end
 
 fish_add_path "$HOME/.deno/bin"
@@ -22,11 +22,11 @@ alias nv 'nvim'
 alias cc 'claude'
 alias ccc 'npm update -g @anthropic-ai/claude-code'
 alias sb 'supabase'
-source ~/.config/nvim/lua/custom/fish/scripts/ccw.fish
-source ~/.config/nvim/lua/custom/fish/scripts/yolo.fish
+source ~/.config/fish/scripts/ccw.fish
+source ~/.config/fish/scripts/yolo.fish
 
 # Directory shortcuts
-source ~/.config/nvim/lua/custom/fish/aliases.fish
+source ~/.config/fish/aliases.fish
 
 set -gx AWS_PROFILE 443326068016_AdministratorAccess
 
@@ -34,13 +34,10 @@ set -gx AWS_PROFILE 443326068016_AdministratorAccess
 alias printpath 'printf %s\n $PATH'
 
 # Start a new document - let's do some writing!
-alias writenow 'source $HOME/.config/nvim/lua/custom/fish/scripts/write_now.fish'
+alias writenow 'source $HOME/.config/fish/scripts/write_now.fish'
 
 # Start a new daily note named after current date (usually for work)
-alias goodmorning 'source $HOME/.config/nvim/lua/custom/fish/scripts/new_daily_note.fish'
-
-# Old alternate neovim config
-alias nvchad='NVIM_APPNAME="chad" nvim'
+alias goodmorning 'source $HOME/.config/fish/scripts/new_daily_note.fish'
 
 # Delete derivded data folder (Ah. xcode)
 alias ddd='rm -rf ~/Library/Developer/Xcode/DerivedData/'

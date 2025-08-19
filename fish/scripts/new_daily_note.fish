@@ -41,7 +41,7 @@ end
 ln -f -s $new_file $base_dir/today.md
 
 # Switch to directory of current project
-@TIMELAPS
+@JOBSEARCHFUNTIMES
 
 # Open the new file in neovim
 nvim $new_file

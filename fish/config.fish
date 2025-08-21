@@ -46,14 +46,9 @@ export AIDER_DARK_MODE=true
 export AIDER_AUTO_COMMITS=false
 
 # Rerun xcode-build server for active projects
-alias mpxlspbuild='cd ~/code/joya/mpx && xcode-build-server config -project ~/code/joya/mpx/MPX/*.xcodeproj -scheme "MPX"'
-alias mplspbuild='cd ~/code/joya/marcopolo-app/ios && xcode-build-server config -workspace ~/code/joya/marcopolo-app/ios/*.xcworkspace -scheme "MarcoPolo Dev IAP"'
-alias sdrlspbuild='cd ~/code/joya/sdr/client && xcode-build-server config -project *xcodeproj -scheme SDR'
 alias tofu_test_lspbuild='cd ~/code/joya/sdr/client/no_backend/ && xcode-build-server config -project *xcodeproj -scheme SDRMobile'
-alias tofu_mobile_lspbuild='cd ~/code/joya/sdr/client/real_backend/ && xcode-build-server config -project *xcodeproj -scheme "Tofu Mobile"'
-alias tofu_desktop_lspbuild='cd ~/code/joya/sdr/client/real_backend/ && xcode-build-server config -project *xcodeproj -scheme "Tofu Desktop"'
-alias funnel_lspbuild='cd ~/code/joya/funnel && xcode-build-server config -project FunnelAI.xcodeproj -scheme FunnelAI'
 alias timelaps_lspbuild='cd ~/code/TimeLaps/client/TimeLaps && xcode-build-server config -project *.xcodeproj -scheme "TimeLaps Watch App"'
+alias homemovie_lspbuild='cd ~/code/HomeMovie/HomeMovie/ && xcode-build-server config -project *.xcodeproj -scheme "HomeMovieJD"'
 
 # Loads all the shell variables from a .env file
 function envsource

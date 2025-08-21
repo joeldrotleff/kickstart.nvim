@@ -1,7 +1,9 @@
 # Directory shortcuts - Simple format for easy parsing
 alias @CONFIGS 'cd ~/.config'
 alias @CLAUDECONFIG 'cd ~/.claude'
+alias @CONFIGS_REPO 'cd ~/code/jd-configs'
 alias @TIMELAPS 'cd ~/code/TimeLaps'
+alias @HOMEMOVIE 'cd ~/code/HomeMovie'
 alias @JOELDBLOG 'cd ~/code/joeld-blog'
 alias @DOCS 'cd ~/Documents'
 alias @NOTES 'cd ~/Documents/daily_notes'

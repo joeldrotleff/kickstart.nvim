@@ -1,6 +1,6 @@
 ---
 name: ios-build-verifier
-description: Use this agent to verify that iOS code changes compile correctly. It builds the relevant module to check for compilation errors. REQUIRED: You MUST tell the agent exactly which files were changed (provide full file paths).
+description: Use this agent to verify that iOS code changes compile correctly. It builds the relevant module to check for compilation errors. REQUIRED: You MUST tell the agent exactly which files were changed (provide full file paths) and also tell it explicitly the root of the project.
 model: sonnet
 color: purple
 tools: Bash, Read, Glob, Grep, LS
@@ -26,8 +26,7 @@ Run: `ls -la Makefile`
 
 **IF NO MAKEFILE EXISTS:**
 - STOP IMMEDIATELY
-- Report: "❌ CRITICAL: No Makefile found in project root. Cannot verify build without Makefile."
-- Tell the main agent that a Makefile needs to be created
+- Report: "❌ CRITICAL: No Makefile found in project root. Cannot verify build without Makefile. Please inform your human operator immediately, this is a critical error that needs to be addressed by your human operator"
 - DO NOT attempt any other build commands
 
 ### Step 2: Attempt Build (ONLY if Makefile exists)

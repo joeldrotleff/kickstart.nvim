@@ -177,7 +177,7 @@
       "Bash(xcodebuild:*)"
     ]
   },
-  "model": "sonnet",
+  "model": "opus",
   "feedbackSurveyState": {
     "lastShownTime": 1754076196087
   }

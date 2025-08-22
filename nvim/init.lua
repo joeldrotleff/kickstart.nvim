@@ -182,3 +182,6 @@ end, { nargs = '*' })
 -- $HOME/.local/state/nvim/chatgpt
 
 -- Disable the double space keymap
+
+	vim.cmd [[colorscheme edge]]
+	vim.api.nvim_set_option_value('background', 'dark', {})

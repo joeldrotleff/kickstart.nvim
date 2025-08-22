@@ -153,6 +153,8 @@ require('lazy').setup {
   },
 }
 
+
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -183,5 +185,17 @@ end, { nargs = '*' })
 
 -- Disable the double space keymap
 
-	vim.cmd [[colorscheme edge]]
-	vim.api.nvim_set_option_value('background', 'dark', {})
+-- Seems like I need to do this to get my theme actually set correctly on open
+require('auto-dark-mode').setup {
+  set_dark_mode = function()
+    vim.cmd [[colorscheme duskfox]]
+    vim.api.nvim_set_option_value('background', 'dark', {})
+  end,
+  set_light_mode = function()
+    vim.cmd [[colorscheme rose-pine]]
+    vim.api.nvim_set_option_value('background', 'light', {})
+    -- vim.cmd [[highlight Visual guibg=#a8c8f0 ctermbg=147]]
+  -- vim.cmd [[highlight CursorLine guibg=#c8d8f8 ctermbg=153]]
+  end,
+}
+

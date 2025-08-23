@@ -12,3 +12,5 @@ claude/local
 claude/shell-snapshots/
 claude/.credentials.json
 claude/plugins
+
+fish/fish_variables

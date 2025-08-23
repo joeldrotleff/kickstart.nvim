@@ -178,6 +178,10 @@
     ]
   },
   "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "npx ccusage statusline"
+  },
   "feedbackSurveyState": {
     "lastShownTime": 1754076196087
   }

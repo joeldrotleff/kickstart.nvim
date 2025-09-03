@@ -3,7 +3,7 @@ return {
   event = 'VeryLazy',
   opts = {
     window = {
-      backdrop = 0.75,
+      backdrop = 0.35,
       width = 100,
       height = 1,
       options = {

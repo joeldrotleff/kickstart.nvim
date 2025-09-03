@@ -80,7 +80,7 @@ Action: Report SUCCESS
 ### Scenario 4: Bad Build System State
 ```
 File: any
-xcodebuild OR make output: "error: missing required module 'ModuleMaps'"
+make output: "error: missing required module 'ModuleMaps'"
 OR: "error: could not build Objective-C module 'Foundation'"
 OR: "error: build input file cannot be found"
 OR: "error: unable to load standard library for target"
@@ -147,7 +147,7 @@ Blocked because: [Why you can't proceed]
 Need human guidance on how to proceed.
 ```
 
-## CRITICAL RULES
+## CRITICAL RULES - DO NOT VIOLATE
 
 1. **MAKEFILE IS MANDATORY** - If no Makefile exists, STOP and report to main agent
 2. **NEVER FIX CODE** - Only verify it compiles

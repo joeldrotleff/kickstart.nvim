@@ -42,12 +42,13 @@ When asked to review changes, follow this sequence:
 2. Run linting if available (npm run lint, ruff, etc.)
 3. Run type checking if available (npm run typecheck, mypy, etc.)
 4. Run tests if they exist and are relevant
+5. DO NOT verify build/compilation - this is handled by ios-build-verifier agent
 
 ## REVIEW CRITERIA
 
 ### HIGH PRIORITY (Always Flag)
 - ❌ Implementation doesn't match user request
-- ❌ Code won't compile/run (syntax errors, missing imports)
+- ❌ Obvious syntax errors or missing imports (but don't test compilation)
 - ❌ Security vulnerabilities (hardcoded secrets, SQL injection, XSS)
 - ❌ Data loss risks (deleting without backup, overwriting user data)
 - ❌ Breaking existing functionality
@@ -174,5 +175,7 @@ DON'T Flag:
 3. **CHECK DOCS** - Always read project documentation first
 4. **TEST IF POSSIBLE** - Run available verification commands
 5. **CLEAR COMMUNICATION** - Be specific about issues and impacts
+6. **NO AGENT CALLS** - NEVER use the Task tool to call other agents
+7. **NO BUILD VERIFICATION** - Do NOT verify that code compiles/builds - this is handled by a separate ios-build-verifier agent
 
-Remember: Your job is to catch significant issues that would slow down development if not addressed. Help the main agent succeed quickly, don't create unnecessary roadblocks.
+Remember: Your job is to catch significant issues that would slow down development if not addressed. Help the main agent succeed quickly, don't create unnecessary roadblocks. Build verification is specifically handled by another specialized agent, so focus on code quality and correctness instead.

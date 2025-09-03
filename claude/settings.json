@@ -3,7 +3,7 @@
   "permissions": {
     "allow": [
       "WebSearch",
-      "Bash:*",
+      "Bash",
       "Read",
       "Edit",
       "WebFetch(domain:github.com/joeldrotleff)",
@@ -28,7 +28,7 @@
       "WebFetch(domain:vimhelp.org)",
       "WebFetch(domain:anthropic.com)",
       "WebFetch(domain:docs.anthropic.com)",
-      "WebFetch(domain:https://pptr.dev)",
+      "WebFetch(domain:pptr.dev)",
       "WebFetch(domain:developers.asana.com)",
       "WebFetch(domain:forum.asana.com)",
       "WebFetch(domain:asana.com)",
@@ -164,8 +164,7 @@
       "WebFetch(domain:terraform.io)",
       "WebFetch(domain:storybook.js.org)",
       "WebFetch(domain:doc.rust-lang.org)",
-      "WebFetch(domain:pkg.go.dev)",
-      "Bash"
+      "WebFetch(domain:pkg.go.dev)"
     ],
     "deny": [
       "Bash(supabase:*)",
@@ -177,7 +176,7 @@
       "Bash(xcodebuild:*)"
     ]
   },
-  "model": "opus",
+  "model": "claude-opus-4-20250514",
   "statusLine": {
     "type": "command",
     "command": "npx ccusage statusline"

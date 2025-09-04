@@ -34,6 +34,12 @@ vim.keymap.set('n', 'k', 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { desc 
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'scroll down + center cursor' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'scroll up + center cursor' })
 
+-- Keep cursor centered when searching with * and #
+vim.keymap.set('n', '*', '*zz', { desc = 'Search word under cursor + center' })
+vim.keymap.set('n', '#', '#zz', { desc = 'Search word under cursor backwards + center' })
+vim.keymap.set('n', 'n', 'nzz', { desc = 'Next search result + center' })
+vim.keymap.set('n', 'N', 'Nzz', { desc = 'Previous search result + center' })
+
 -- Copy current file path to clipboard and print it
 vim.keymap.set('n', '<leader>cp', function()
   local filepath = vim.fn.expand '%:p'

@@ -1,4 +1,5 @@
-return {
-  'keith/swift.vim',
-  event = 'VeryLazy',
-}
+return {}
+-- return {
+--   'keith/swift.vim',
+--   event = 'VeryLazy',
+-- }

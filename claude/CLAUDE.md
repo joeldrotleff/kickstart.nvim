@@ -1,9 +1,16 @@
 # Critical Instructions **DO NOT VIOLATE**
 ## Making commits:
-When committing code, **ALWAYS** use the git commit subagent.
+When committing code, **ALWAYS** use the git commit subagent with these specific instructions:
+- Keep commit messages **short, concise, and colloquial** (e.g., "fix login bug", "add dark mode", "update api endpoint")
+- **NEVER** include any of the following in commit messages:
+  - "🤖 Generated with [Claude Code]" 
+  - "Co-Authored-By: Claude <noreply@anthropic.com>"
+  - Any mention of AI, Claude, or automated generation
+  - Any emoji or special formatting
+- Write commit messages as if a human developer wrote them
+- Focus on WHAT changed and WHY it changed (e.g., "fix login timeout issue", "add caching to improve performance")
+- The WHY is more important than the WHAT
 
-## Code Verification Process:
-After making any code changes, **ALWAYS** verify your changes by running, in parallel, the `qa-reviewer` subagent and the `ios-build-verifier` subagent.
 
 ## Swift Code Formatting:
 After editing any Swift file, **ALWAYS** run `swiftformat` on that file before considering the task complete.

@@ -1,17 +1,52 @@
-Goal: Push new local changes to remote github repo, creating a branch and PR as necessary (since the repo requires PRs to merge changes to main)
+command: shipit
 
-Prepare local branch if necessary:
-- Branches should be named like: joeldrotleff/<descriptive-name> 
-- If there are new changes, and the current branch is a properly-named branch, then just commit them to that branch.
-- If there are new changes, and current branch is main or has a name starting with 'wt-', then switch to a new branch following the convention and commit the changes (wt means working tree, which means the user switched to a work tree branch which isn't a good descriptive name for changes)
+Generate a pull request for the current branch. If on main/master, create a new branch first with any unpushed commits.
 
-Check for issues:
-- If the branch has changes with a commit message like 'wip' or 'work in progress' then check in with the user to ask what to do
-- Before pushing changes, make sure to search diffs for any 'DO NOT PUSH' comments or code that looks like dev-only (i.e. hardcoding done for development that shouldn't be pushed). Also make sure never to commit code or .env files that include secrets. When commiting code, check the diff to verify this.
-- Once changes are commited, run the `npm run precommit` script and fix any errors, then run the script again. Repeat until all the tests pass. (Some projects may not have this script or it may be a deno script instead of npm)
+A: I'll create a pull request for you. Let me first check the current git status and branch.
 
-Create & Push PR:
-- Now check if there is an existing PR, and if not create a new one for the branch via gh cli tool
-- Now provide a concise summary to the user of all changes that were pushed
-- Finally show a link to the PR so user can click it to view
+First, I need to check for any uncommitted changes:
 
+```bash
+git status --porcelain
+```
+
+If there are uncommitted changes, I'll stop and let you know rather than proceeding.
+
+Next, I'll check what branch we're on:
+
+```bash
+git branch --show-current
+```
+
+And identify the base branch:
+
+```bash
+git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || echo "main"
+```
+
+If we're on main/master:
+1. Check if there are any unpushed commits using:
+   ```bash
+   git log origin/$(git branch --show-current)..HEAD --oneline
+   ```
+2. If no unpushed commits, I'll let you know there's nothing to create a PR for
+3. If there are unpushed commits, I'll create a new branch named `joeldrotleff/<description>` based on the commit messages
+4. Push the new branch
+
+If we're already on a feature branch:
+1. Make sure the branch is pushed to origin
+2. Get all commits between the base branch and current branch
+
+Then I'll create the PR using gh:
+- Extract any issue references (like HNOM-123 or similar patterns) from commit messages
+- Generate a succinct, colloquial title
+- If multiple commits, list them briefly in the body
+- Include any found issue references with "fixes" prefix
+- No emojis, no fluff
+
+I'll use:
+```bash
+gh pr create --title "<title>" --body "<body>"
+```
+
+If anything goes wrong at any step (no commits, unstaged changes, gh errors), I'll stop and let you know what happened.

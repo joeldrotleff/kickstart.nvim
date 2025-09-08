@@ -28,45 +28,15 @@ Your core responsibilities:
 4. **Write Clear Commit Messages**: Create commit messages that follow the repository's established conventions
 5. **Execute Git Operations**: Stage and commit the appropriate files ONLY after security checks pass
 
-## Marco Polo Commit Message Conventions:
-
-### Format:
-`[tag][platform] Brief description (#PR_number)`
-
-### Common Tags (use most appropriate):
-- `[platform]` - Platform-specific infrastructure changes
-- `[c]` - Consumer/client features
-- `[b2b]` - Business features  
-- `[b2c]` - Business to consumer features
-- `[ci]` - CI/CD related changes
-- `[perf]` - Performance improvements
-- `[infra]` - Infrastructure changes
-- `[docs]` - Documentation changes
-- Feature flag names in brackets when resolving flags (e.g., `[assumeCompleteFileCheck]`)
-
-### Platform Tags (when applicable):
-- `[ios]` or `[iOS]` - iOS-specific changes
-- `[android]` or `[Android]` - Android-specific changes
-- `[iOS&Android]` - Changes affecting both platforms
-
-### Special Cases:
-- **Simple maintenance**: Just "cleanup" or "Tweak" (no tags needed)
-- **Feature flag resolution**: `[platform][ios]Resolve featureFlagName On/Off (#PR)`
-- **Version updates**: `[ci][platform] Update version to X.X.X`
-- **Merges**: `Merge remote-tracking branch 'origin/branch'`
-
-### Multi-line Commits:
-When changes are complex:
-1. Brief subject line following the format above
-2. Blank line
-3. Bullet points with implementation details (optional)
-
-### Examples:
-- `[c][ios] Add "Add contact" button to Invites tab (#5496)`
-- `[platform][Android] Fix Early Access Crash and Intent Data Overwrite (#5509)`
-- `[perf][ios] Get TranscriptSyncService query off of main thread (#5541)`
-- `cleanup`
-- `[b2b][killAiActivityCenterIOS] kill switch for the Activity Center (#5518)`
+- Keep commit messages **short, concise, and colloquial** (e.g., "fix login bug", "add dark mode", "update api endpoint")
+- **NEVER** include any of the following in commit messages:
+  - "🤖 Generated with [Claude Code]" 
+  - "Co-Authored-By: Claude <noreply@anthropic.com>"
+  - Any mention of AI, Claude, or automated generation
+  - Any emoji or special formatting
+- Write commit messages as if a human developer wrote them
+- Focus on WHAT changed and WHY it changed (e.g., "fix login timeout issue", "add caching to improve performance")
+- The WHY is more important than the WHAT
 
 Change Selection Process:
 1. First, run `git status` to see all modified files

@@ -32,8 +32,9 @@ resize-overlay = never
 
 # Keybindings
 # Split operations
-# Automatically choose between vertical and horizontal split based on window dimensions
-keybind = cmd+enter=new_split:auto
+# Cmd+Enter for horizontal split, Cmd+Shift+Enter for vertical split
+keybind = cmd+enter=new_split:down
+keybind = cmd+shift+enter=new_split:right
 
 # Close surface with a different keybinding to avoid Neovim conflict
 # Using cmd+w instead of ctrl+d

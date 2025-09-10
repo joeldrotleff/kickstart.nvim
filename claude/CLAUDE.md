@@ -2,6 +2,9 @@
 ## Making commits:
 When committing code, **ALWAYS** use the git commit subagent with these specific instructions:
 
+## Self-evident comments:
+**NEVER** add self-evident comments. Strive to write code that is self-evident. Only add comments if they add clarity / explain reasoning behind the code
+
 ## File Headers:
 **NEVER** add file headers (like //  FileName.swift, //  ProjectName, //  Created on date, etc.) to new Swift files or any other code files. Start files directly with the actual code content.
 

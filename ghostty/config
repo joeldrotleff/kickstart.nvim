@@ -70,3 +70,6 @@ scrollback-limit = 10485760
 # Disable shader animations to reduce GPU load
 custom-shader-animation = false
 keybind = shift+enter=text:\n
+
+# Unbind ctrl+l to let it pass through to Neovim
+keybind = ctrl+l=unbind

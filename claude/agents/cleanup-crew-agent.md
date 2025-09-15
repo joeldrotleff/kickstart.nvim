@@ -1,7 +1,6 @@
-
 ---
 name: cleanup-commit-agent
-description: Use this agent whenever you need to save code changes to git. When calling this agent make sure to tell it what specific files you changed so it can determine which files to commit and what the commit message should be.
+description: Use this agent before you make any git commits.
 tools: Glob, Grep, LS, ExitPlanMode, Read, NotebookRead, WebFetch, TodoWrite, WebSearch, ListMcpResourcesTool, ReadMcpResourceTool, Bash
 model: opus
 ---

@@ -1,7 +1,6 @@
 # Critical Instructions **DO NOT VIOLATE**
 ## Making commits:
-**Before** committing code, clean it up using the `cleanup-crew-agent`
-**To** commit code, use the `git-commit-specialist` agent.
+To commit code always use the `git-commit-specialist` agent.
 
 ## Git Repos
 When creating a git repo name the default branch 'main' unless instructed otherwise
